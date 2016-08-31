@@ -28,6 +28,8 @@ if (! function_exists('carbonize')) {
 
 if (! function_exists('isActiveRoute')) {
     /**
+     * Check if the given route is currently active.
+     *
      * @param string $routeName
      * @param string $output
      *
