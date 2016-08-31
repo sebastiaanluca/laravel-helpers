@@ -57,3 +57,15 @@ if (! function_exists('take')) {
         return new \SebastiaanLuca\Helpers\Pipe\Item($value);
     }
 }
+
+if (! function_exists('rand_bool')) {
+    /**
+     * Randomly return true or false.
+     *
+     * @return bool
+     */
+    function rand_bool()
+    {
+        return rand(0, 1) === 0;
+    }
+}
