@@ -69,3 +69,18 @@ if (! function_exists('rand_bool')) {
         return rand(0, 1) === 0;
     }
 }
+
+if (! function_exists('str_wrap')) {
+    /**
+     * Wrap a string with another string.
+     *
+     * @param string $string
+     * @param string $wrapper
+     *
+     * @return string
+     */
+    function str_wrap($string, $wrapper)
+    {
+        return $wrapper . $string . $wrapper;
+    }
+}
