@@ -84,3 +84,17 @@ if (! function_exists('str_wrap')) {
         return $wrapper . $string . $wrapper;
     }
 }
+
+if (! function_exists('is_assoc_array')) {
+    /**
+     * Check if an array is associative.
+     *
+     * @param array $array
+     *
+     * @return bool
+     */
+    function is_assoc_array($array)
+    {
+        return array_keys($array) !== range(0, count($array) - 1);
+    }
+}
