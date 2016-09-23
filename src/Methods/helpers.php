@@ -1,5 +1,7 @@
 <?php
 
+use SebastiaanLuca\Helpers\Classes\MethodHelper;
+
 if (! function_exists('locale')) {
     /**
      * Get the active locale.
@@ -96,5 +98,20 @@ if (! function_exists('is_assoc_array')) {
     function is_assoc_array($array)
     {
         return array_keys($array) !== range(0, count($array) - 1);
+    }
+}
+
+if (! function_exists('public_method_exists')) {
+    /**
+     * Check if an object has a given public method.
+     *
+     * @param object $object
+     * @param string $method
+     *
+     * @return bool
+     */
+    function public_method_exists($object, $method)
+    {
+        return MethodHelper::hasPublicMethod($object, $method);
     }
 }
