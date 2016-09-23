@@ -115,3 +115,23 @@ if (! function_exists('public_method_exists')) {
         return MethodHelper::hasPublicMethod($object, $method);
     }
 }
+
+if (! function_exists('array_expand')) {
+    /**
+     * Expand a flat dotted array to a multi-dimensional associative array.
+     *
+     * @param array $array
+     *
+     * @return array
+     */
+    function array_expand(array $array)
+    {
+        $expanded = [];
+        
+        foreach ($array as $key => $value) {
+            array_set($expanded, $key, $value);
+        }
+        
+        return $expanded;
+    }
+}
