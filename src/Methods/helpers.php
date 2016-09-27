@@ -135,3 +135,22 @@ if (! function_exists('array_expand')) {
         return $expanded;
     }
 }
+
+if (! function_exists('array_without')) {
+    /**
+     * Get the array without the given values.
+     *
+     * @param array $array
+     * @param array|string $values
+     *
+     * @return array
+     */
+    function array_without(array $array, $values)
+    {
+        if (! is_array($values)) {
+            $values = [$values];
+        }
+        
+        return array_values(array_diff($array, $values));
+    }
+}
