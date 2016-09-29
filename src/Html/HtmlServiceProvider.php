@@ -2,9 +2,9 @@
 
 namespace SebastiaanLuca\Helpers\Html;
 
-use Illuminate\Support\ServiceProvider;
+use Collective\Html\HtmlServiceProvider as CollectiveHtmlServiceProvider;
 
-class HtmlServiceProvider extends ServiceProvider
+class HtmlServiceProvider extends CollectiveHtmlServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
@@ -14,27 +14,12 @@ class HtmlServiceProvider extends ServiceProvider
     protected $defer = true;
     
     /**
-     * Register the form builder instance.
-     *
-     * @return void
-     */
-    protected function registerFormBuilder()
-    {
-        $this->app->singleton('form', function ($app) {
-            $form = new FormBuilder($app['html'], $app['url'], $app['view'], $app['session.store']->getToken());
-            
-            return $form->setSessionStore($app['session.store']);
-        });
-        
-        $this->app->alias('form', FormBuilder::class);
-    }
-    
-    /**
      * Register the service provider.
      */
     public function register()
     {
         $this->registerFormBuilder();
+        $this->registerHtmlBuilder();
     }
     
     /**
@@ -44,6 +29,37 @@ class HtmlServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return ['form', FormBuilder::class];
+        return [
+            'form', FormBuilder::class,
+            'html', HtmlBuilder::class,
+        ];
+    }
+    
+    /**
+     * Register the HTML builder instance.
+     */
+    protected function registerHtmlBuilder()
+    {
+        $this->app->singleton('html', function($app) {
+            return new HtmlBuilder($app['url'], $app['view']);
+        });
+        
+        $this->app->alias('html', HtmlBuilder::class);
+    }
+    
+    /**
+     * Register the form builder instance.
+     *
+     * @return void
+     */
+    protected function registerFormBuilder()
+    {
+        $this->app->singleton('form', function($app) {
+            $form = new FormBuilder($app['html'], $app['url'], $app['view'], $app['session.store']->getToken());
+            
+            return $form->setSessionStore($app['session.store']);
+        });
+        
+        $this->app->alias('form', FormBuilder::class);
     }
 }
