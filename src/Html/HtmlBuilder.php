@@ -22,7 +22,7 @@ class HtmlBuilder extends CollectiveHtmlBuilder
             return '';
         }
         
-        return 'has-error';
+        return 'has-danger';
     }
     
     /**
@@ -41,6 +41,6 @@ class HtmlBuilder extends CollectiveHtmlBuilder
             return '';
         }
         
-        return '<p class="help-block">' . $errors->first($field) . '</p>';
+        return '<div class="form-control-feedback">' . $errors->first($field) . '</div>';
     }
 }
