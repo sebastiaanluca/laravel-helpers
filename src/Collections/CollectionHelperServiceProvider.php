@@ -41,6 +41,37 @@ class CollectionHelperServiceProvider extends ServiceProvider
                 return call_user_func($method, $item);
             });
         });
+    
+        // Fixed in Laravel 5.4
+        Collection::macro('mapWithIntegerKeys', function($callback) {
+            $result = [];
+        
+            foreach ($this->items as $key => $value) {
+                $assoc = $callback($value, $key);
+            
+                foreach ($assoc as $mapKey => $mapValue) {
+                    $result[$mapKey] = $mapValue;
+                }
+            }
+        
+            return new static($result);
+        });
+    
+        Collection::macro('d', function() {
+            d($this);
+        
+            return $this;
+        });
+    
+        Collection::macro('ddd', function() {
+            ddd($this);
+        });
+    
+        Collection::macro('transformKeys', function(callable $operation) {
+            return collect($this->items)->mapWithKeys(function($item, $key) use ($operation) {
+                return [$operation($key) => $item];
+            });
+        });
     }
     
     /**
