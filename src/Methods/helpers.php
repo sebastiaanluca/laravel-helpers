@@ -41,7 +41,7 @@ if (! function_exists('isActiveRoute')) {
     {
         /** @var \Laravelista\Ekko\Ekko $ekko */
         $ekko = app('Laravelista\Ekko\Ekko');
-        
+
         return $ekko->isActiveRoute($routeName, $output);
     }
 }
@@ -127,11 +127,11 @@ if (! function_exists('array_expand')) {
     function array_expand(array $array)
     {
         $expanded = [];
-        
+
         foreach ($array as $key => $value) {
             array_set($expanded, $key, $value);
         }
-        
+
         return $expanded;
     }
 }
@@ -150,7 +150,24 @@ if (! function_exists('array_without')) {
         if (! is_array($values)) {
             $values = [$values];
         }
-        
+
         return array_values(array_diff($array, $values));
+    }
+}
+
+if (! function_exists('ddd_if')) {
+    /**
+     * Only debugs a statement given a truth condition.
+     *
+     * @param mixed $condition
+     * @param array ...$args
+     */
+    function ddd_if($condition, ...$args)
+    {
+        if (! $condition) {
+            return;
+        }
+
+        ddd(...$args);
     }
 }
