@@ -46,4 +46,17 @@ class MethodHelper
     {
         return self::hasMethod($object, $method, 'protected');
     }
+    
+    /**
+     * Check if an object has a given public method.
+     *
+     * @param object $object
+     * @param string $method
+     *
+     * @return bool
+     */
+    public static function hasPublicMethod($object, $method)
+    {
+        return self::hasMethod($object, $method, 'public');
+    }
 }
