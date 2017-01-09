@@ -33,12 +33,12 @@ A set of Laravel-specific helpers. Use each class/trait or register each service
 + [Global methods](#global-methods)
   - [locale](#locale)
   - [carbonize](#carbonize)
-  - [is\_active\_route](#is--active--route)
+  - [is_active_route](#is-active-route)
   - [take](#take)
   - [rand_bool](#rand-bool)
   - [str_wrap](#str-wrap)
-  - [is\_assoc\_array](#is--assoc--array)
-  - [public\_method\_exists](#public--method--exists)
+  - [is_assoc_array](#is-assoc-array)
+  - [public_method_exists](#public-method-exists)
   - [array_expand](#array-expand)
   - [array_without](#array-without)
   - [ddd_if](#ddd-if)
@@ -49,7 +49,7 @@ A set of Laravel-specific helpers. Use each class/trait or register each service
 * [Credits](#credits)
 * [License](#license)
 
-<small>Table of contents generated with <a href='http://ecotrust-canada.github.io/markdown-toc/'>markdown-toc</a>.</small>
+Table of contents generated with <a href='http://ecotrust-canada.github.io/markdown-toc/'>markdown-toc</a>.
 
 ## Install
 
@@ -113,7 +113,7 @@ Create a Carbon object from a string.
 $time = carbonize('2017-01-18 11:30');
 ```
 
-#### is\_active\_route
+#### is_active_route
 
 Check if the given route is currently active.
 
@@ -153,7 +153,7 @@ $quoted = str_wrap('foo', '"');
 // "foo"
 ```
 
-#### is\_assoc\_array
+#### is_assoc_array
 
 Check if an array is associative (as opposed to numeric).
 
@@ -163,7 +163,7 @@ $result = is_assoc_array(['color' => 'blue', 'age' => 31]);
 // true
 ```
 
-#### public\_method\_exists
+#### public_method_exists
 
 Check if an object has a given public method.
 
