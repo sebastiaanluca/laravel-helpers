@@ -29,7 +29,8 @@
     },
     "suggest": {
         "laravelista/ekko": "Required for `isActiveRoute` helper function.",
-        "raveren/kint": "A powerful and modern PHP debugging tool. Required for the global `ddd` helper function."
+        "raveren/kint": "A powerful and modern PHP debugging tool. Required for the global `ddd` helper function.",
+        "laravelcollective/html": "HTML and Form Builders for the Laravel Framework. Required for the Form helpers."
     },
     "autoload": {
         "psr-4": {
