@@ -9,15 +9,93 @@
 
 A set of Laravel-specific helpers. Use each class/trait or register each service provider when needed. Each helper is optional.
 
+## Table of contents
+
+* [Install](#install)
+* [Usage](#usage)
++ [Collection macros](#collection-macros)
+  - [Carbonize](#carbonize)
+  - [Between](#between)
+  - [Methodize](#methodize)
+  - [mapWithIntegerKeys](#mapwithintegerkeys)
+  - [d](#d)
+  - [ddd](#ddd)
+  - [transformKeys](#transformkeys)
++ [Classes](#classes)
+  - [Constant trait](#constant-trait)
+  - [Reflection trait](#reflection-trait)
+  - [Method helper](#method-helper)
++ [Database](#database)
+  - [Table reader](#table-reader)
++ [Blade helpers](#blade-helpers)
+  - [Form date field](#form-date-field)
+  - [Bootstrap form errors](#bootstrap-form-errors)
++ [Global methods](#global-methods)
+  - [locale](#locale)
+  - [carbonize](#carbonize)
+  - [is\_active\_route](#is--active--route)
+  - [take](#take)
+  - [rand_bool](#rand-bool)
+  - [str_wrap](#str-wrap)
+  - [is\_assoc\_array](#is--assoc--array)
+  - [public\_method\_exists](#public--method--exists)
+  - [array_expand](#array-expand)
+  - [array_without](#array-without)
+  - [ddd_if](#ddd-if)
+* [Change log](#change-log)
+* [Testing](#testing)
+* [Contributing](#contributing)
+* [Security](#security)
+* [Credits](#credits)
+* [License](#license)
+
+<small>Table of contents generated with <a href='http://ecotrust-canada.github.io/markdown-toc/'>markdown-toc</a>.</small>
+
 ## Install
 
-Via Composer
+Via Composer:
 
 ``` bash
 $ composer require sebastiaanluca/laravel-helpers
 ```
 
 ## Usage
+
+### Collection macros
+
+#### Carbonize
+
+#### Between
+
+#### Methodize
+
+#### mapWithIntegerKeys
+
+#### d
+
+#### ddd
+
+#### transformKeys
+
+### Classes
+
+#### Constant trait
+
+#### Reflection trait
+
+#### Method helper
+
+### Database
+
+#### Table reader
+
+### Blade helpers
+
+#### Form date field
+
+#### Bootstrap form errors
+
+### Global methods
 
 #### locale
 
@@ -35,20 +113,19 @@ Create a Carbon object from a string.
 $time = carbonize('2017-01-18 11:30');
 ```
 
-#### isActiveRoute
+#### is\_active\_route
 
 Check if the given route is currently active.
 
-Note: requires the `laravelista/ekko` package (https://github.com/laravelista/Ekko).
+Note: requires the `laravelista/ekko` package ([https://github.com/laravelista/Ekko]()).
 
 ``` php
-$result = isActiveRoute('auth/login');
+$result = is_active_route('auth/login');
 ```
 
 #### take
 
-Create a new piped item from a given value.
-see the [blog post](https://blog.sebastiaanluca.com/enabling-php-method-chaining-with-a-makeshift-pipe-operator)
+Create a new piped item from a given value. See the [blog post](https://blog.sebastiaanluca.com/enabling-php-method-chaining-with-a-makeshift-pipe-operator) for more info.
 
 ``` php
 $subdomain = take('https://blog.sebastiaanluca.com/')
@@ -76,9 +153,9 @@ $quoted = str_wrap('foo', '"');
 // "foo"
 ```
 
-#### is_assoc_array
+#### is\_assoc\_array
 
-Check if an array is associative. (As opposed to numeric.)
+Check if an array is associative (as opposed to numeric).
 
 ``` php
 $result = is_assoc_array(['color' => 'blue', 'age' => 31]);  
@@ -86,7 +163,7 @@ $result = is_assoc_array(['color' => 'blue', 'age' => 31]);
 // true
 ```
 
-#### public_method_exists
+#### public\_method\_exists
 
 Check if an object has a given public method.
 
