@@ -31,10 +31,10 @@ A set of Laravel-specific helpers. Use each class/trait or register each service
   - [Form date field](#form-date-field)
   - [Bootstrap form errors](#bootstrap-form-errors)
 + [Global methods](#global-methods)
+  - [take](#take-pipe-operator)
   - [locale](#locale)
   - [carbonize](#carbonize-1)
   - [is_active_route](#is_active_route)
-  - [take](#take)
   - [rand_bool](#rand_bool)
   - [str_wrap](#str_wrap)
   - [is_assoc_array](#is_assoc_array)
@@ -97,6 +97,18 @@ $ composer require sebastiaanluca/laravel-helpers
 
 ### Global methods
 
+#### take (pipe operator)
+
+Create a new piped item from a given value. See the [blog post](https://blog.sebastiaanluca.com/enabling-php-method-chaining-with-a-makeshift-pipe-operator) for more info.
+
+``` php
+$subdomain = take('https://blog.sebastiaanluca.com/')
+               ->pipe('parse_url', PHP_URL_HOST)
+               ->pipe('explode', '.', '$$')
+               ->pipe('reset')
+               ->get();
+```
+
 #### locale
 
 Get the active locale.
@@ -121,18 +133,6 @@ Note: requires the `laravelista/ekko` package ([https://github.com/laravelista/E
 
 ``` php
 $result = is_active_route('auth/login');
-```
-
-#### take
-
-Create a new piped item from a given value. See the [blog post](https://blog.sebastiaanluca.com/enabling-php-method-chaining-with-a-makeshift-pipe-operator) for more info.
-
-``` php
-$subdomain = take('https://blog.sebastiaanluca.com/')
-               ->pipe('parse_url', PHP_URL_HOST)
-               ->pipe('explode', '.', '$$')
-               ->pipe('reset')
-               ->get();
 ```
 
 #### rand_bool
