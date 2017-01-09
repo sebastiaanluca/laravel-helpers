@@ -31,7 +31,7 @@ A set of Laravel-specific helpers. Use each class/trait or register each service
   - [Form date field](#form-date-field)
   - [Bootstrap form errors](#bootstrap-form-errors)
 + [Global methods](#global-methods)
-  - [take](#take-pipe-operator)
+  - [take (pipe operator)](#take-pipe-operator)
   - [locale](#locale)
   - [carbonize](#carbonize-1)
   - [is_active_route](#is_active_route)
