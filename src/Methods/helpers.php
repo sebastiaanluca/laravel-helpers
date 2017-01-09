@@ -28,7 +28,7 @@ if (! function_exists('carbonize')) {
     }
 }
 
-if (! function_exists('isActiveRoute')) {
+if (! function_exists('is_active_route')) {
     /**
      * Check if the given route is currently active.
      *
@@ -37,7 +37,7 @@ if (! function_exists('isActiveRoute')) {
      *
      * @return bool
      */
-    function isActiveRoute($routeName, $output = 'active')
+    function is_active_route($routeName, $output = 'active')
     {
         /** @var \Laravelista\Ekko\Ekko $ekko */
         $ekko = app('Laravelista\Ekko\Ekko');
