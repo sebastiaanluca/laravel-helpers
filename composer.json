@@ -28,7 +28,8 @@
         "phpunit/phpunit": "~4.0|~5.0"
     },
     "suggest": {
-        "laravelista/ekko": "Required for helper isActiveRoute"
+        "laravelista/ekko": "Required for `isActiveRoute` helper function.",
+        "raveren/kint": "A powerful and modern PHP debugging tool. Required for the global `ddd` helper function."
     },
     "autoload": {
         "psr-4": {

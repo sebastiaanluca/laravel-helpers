@@ -38,7 +38,8 @@ $time = carbonize('2017-01-18 11:30');
 #### isActiveRoute
 
 Check if the given route is currently active.
-It requires installation of `laravelista/ekko`.
+
+Note: requires the `laravelista/ekko` package (https://github.com/laravelista/Ekko).
 
 ``` php
 $result = isActiveRoute('auth/login');
@@ -91,6 +92,7 @@ Check if an object has a given public method.
 
 ``` php
 $car = new Car();
+
 if (public_method_exists($car, 'honk')) {
     $car->honk();
 }
@@ -122,7 +124,8 @@ $inStock = array_without($cars, $soldOut);
 #### ddd_if
 
 Only debugs a statement given a truth condition.
-Note: Requires a custom `ddd` method.
+
+Note: requires the `raveren/kint` debug package (https://github.com/raveren/kint).
 
 ``` php
 ddd_if(app()->environment() == 'local', $var1, $var2, $var3);
