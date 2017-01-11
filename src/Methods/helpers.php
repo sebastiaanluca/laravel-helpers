@@ -168,9 +168,11 @@ if (! function_exists('array_pull_values')) {
      */
     function array_pull_values(array &$array, array $values) : array
     {
+        $matches = array_intersect($array, $values);
+
         $array = array_without($array, $values);
 
-        return array_intersect($array, $values);
+        return $matches;
     }
 }
 
