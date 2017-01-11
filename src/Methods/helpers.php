@@ -155,6 +155,44 @@ if (! function_exists('array_without')) {
     }
 }
 
+if (! function_exists('array_pull_values')) {
+    /**
+     * Pull an array of values from a given array.
+     *
+     * Returns the found values that were removed from the source array.
+     *
+     * @param array $array
+     * @param array $values
+     *
+     * @return array
+     */
+    function array_pull_values(array &$array, array $values) : array
+    {
+        $array = array_without($array, $values);
+
+        return array_intersect($array, $values);
+    }
+}
+
+if (! function_exists('array_pull_value')) {
+    /**
+     * Pull a value from a given array.
+     *
+     * Returns the given value if it was successfully removed from the source array.
+     *
+     * @param array $array
+     * @param mixed $value
+     *
+     * @return mixed
+     */
+    function array_pull_value(array &$array, $value)
+    {
+        $value = array_pull_values($array, [$value]);
+
+        return array_shift($value);
+    }
+}
+
 if (! function_exists('ddd_if')) {
     /**
      * Only debugs a statement given a truth condition.
