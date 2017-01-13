@@ -5,6 +5,7 @@ namespace SebastiaanLuca\Helpers\Collections;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
+use RuntimeException;
 
 class CollectionHelperServiceProvider extends ServiceProvider
 {
@@ -82,6 +83,42 @@ class CollectionHelperServiceProvider extends ServiceProvider
             return collect($this->items)->mapWithKeys(function ($item, $key) use ($operation) {
                 return [$operation($key) => $item];
             });
+        });
+
+        /*
+         * Transpose (flip) a collection matrix (array of arrays).
+         *
+         * @see https://adamwathan.me/2016/04/06/cleaning-up-form-input-with-transpose/
+         */
+        Collection::macro('transpose', function () {
+            $items = array_map(function (...$items) {
+                return $items;
+            }, ...$this->values());
+
+            return new static($items);
+        });
+
+        /*
+         * Transpose (flip) a collection matrix (array of arrays) while keeping
+         * its columns and row headers intact.
+         */
+        Collection::macro('transposeWithKeys', function (array $rows) {
+            $keys = $this->keys()->toArray();
+
+            if (count($keys) !== count($rows)) {
+                throw new RuntimeException('Cannot transpose a collection matrix when the number of columns does not equal the number of rows.');
+            }
+
+            // Transpose the matrix
+            $items = array_map(function (...$items) use ($keys) {
+                // The collection's keys now become column headers
+                return array_combine($keys, $items);
+            }, ...$this->values());
+
+            // Add the row headers
+            $items = array_combine($rows, $items);
+
+            return new static($items);
         });
     }
 }
