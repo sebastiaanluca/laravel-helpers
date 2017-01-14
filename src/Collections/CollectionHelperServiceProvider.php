@@ -105,10 +105,6 @@ class CollectionHelperServiceProvider extends ServiceProvider
         Collection::macro('transposeWithKeys', function (array $rows) {
             $keys = $this->keys()->toArray();
 
-            if (count($keys) !== count($rows)) {
-                throw new RuntimeException('Cannot transpose a collection matrix when the number of columns does not equal the number of rows.');
-            }
-
             // Transpose the matrix
             $items = array_map(function (...$items) use ($keys) {
                 // The collection's keys now become column headers
