@@ -1,7 +1,7 @@
 {
     "name": "sebastiaanluca/laravel-helpers",
     "type": "library",
-    "description": "A set of Laravel-specific helpers..",
+    "description": "A set of Laravel-specific helpers.",
     "keywords": [
         "Laravel",
         "helpers",
@@ -22,13 +22,13 @@
     ],
     "require": {
         "php": "^7.0",
-        "laravel/framework": "5.1.*|5.2.*|5.3.*"
+        "laravel/framework": "5.1.*|5.2.*|5.3.*|5.4.*"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.0|~5.0"
     },
     "suggest": {
-        "laravelista/ekko": "Required for `isActiveRoute` helper function.",
+        "laravelista/ekko": "Required for `is_active_route` helper function.",
         "raveren/kint": "A powerful and modern PHP debugging tool. Required for the global `ddd` helper function.",
         "laravelcollective/html": "HTML and Form Builders for the Laravel Framework. Required for the Form helpers."
     },
