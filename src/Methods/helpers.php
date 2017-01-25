@@ -14,20 +14,6 @@ if (! function_exists('locale')) {
     }
 }
 
-if (! function_exists('carbonize')) {
-    /**
-     * Create a Carbon object from a string.
-     *
-     * @param string $timeString
-     *
-     * @return \Carbon\Carbon
-     */
-    function carbonize($timeString = null)
-    {
-        return new \Carbon\Carbon($timeString);
-    }
-}
-
 if (! function_exists('is_active_route')) {
     /**
      * Check if the given route is currently active.
@@ -43,6 +29,37 @@ if (! function_exists('is_active_route')) {
         $ekko = app('Laravelista\Ekko\Ekko');
 
         return $ekko->isActiveRoute($routeName, $output);
+    }
+}
+
+if (! function_exists('ddd_if')) {
+    /**
+     * Only debugs a statement given a truth condition.
+     *
+     * @param mixed $condition
+     * @param array ...$args
+     */
+    function ddd_if($condition, ...$args)
+    {
+        if (! $condition) {
+            return;
+        }
+
+        ddd(...$args);
+    }
+}
+
+if (! function_exists('carbonize')) {
+    /**
+     * Create a Carbon object from a string.
+     *
+     * @param string $timeString
+     *
+     * @return \Carbon\Carbon
+     */
+    function carbonize($timeString = null)
+    {
+        return new \Carbon\Carbon($timeString);
     }
 }
 
@@ -98,21 +115,6 @@ if (! function_exists('is_assoc_array')) {
     function is_assoc_array($array)
     {
         return array_keys($array) !== range(0, count($array) - 1);
-    }
-}
-
-if (! function_exists('public_method_exists')) {
-    /**
-     * Check if an object has a given public method.
-     *
-     * @param object $object
-     * @param string $method
-     *
-     * @return bool
-     */
-    function public_method_exists($object, $method)
-    {
-        return MethodHelper::hasPublicMethod($object, $method);
     }
 }
 
@@ -195,19 +197,45 @@ if (! function_exists('array_pull_value')) {
     }
 }
 
-if (! function_exists('ddd_if')) {
+if (! function_exists('array_hash')) {
     /**
-     * Only debugs a statement given a truth condition.
+     * Create a unique identifier for a given array.
      *
-     * @param mixed $condition
-     * @param array ...$args
+     * @param array $array
+     *
+     * @return string
      */
-    function ddd_if($condition, ...$args)
+    function array_hash(array $array) : string
     {
-        if (! $condition) {
-            return;
-        }
+        return md5(serialize($array));
+    }
+}
 
-        ddd(...$args);
+if (! function_exists('object_hash')) {
+    /**
+     * Create a unique identifier for a given object.
+     *
+     * @param $object
+     *
+     * @return string
+     */
+    function object_hash($object) : string
+    {
+        return md5(serialize($object));
+    }
+}
+
+if (! function_exists('public_method_exists')) {
+    /**
+     * Check if an object has a given public method.
+     *
+     * @param object $object
+     * @param string $method
+     *
+     * @return bool
+     */
+    function public_method_exists($object, $method)
+    {
+        return MethodHelper::hasPublicMethod($object, $method);
     }
 }

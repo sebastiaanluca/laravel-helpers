@@ -31,17 +31,19 @@ A set of Laravel-specific helpers. Use each class/trait or register each service
   - [Form date field](#form-date-field)
   - [Bootstrap form errors](#bootstrap-form-errors)
 + [Global methods](#global-methods)
-  - [take (pipe operator)](#take-pipe-operator)
   - [locale](#locale)
-  - [carbonize](#carbonize-1)
   - [is_active_route](#is_active_route)
+  - [ddd_if](#ddd_if)
+  - [carbonize](#carbonize-1)
+  - [take (pipe operator)](#take-pipe-operator)
   - [rand_bool](#rand_bool)
   - [str_wrap](#str_wrap)
   - [is_assoc_array](#is_assoc_array)
-  - [public_method_exists](#public_method_exists)
   - [array_expand](#array_expand)
   - [array_without](#array_without)
-  - [ddd_if](#ddd_if)
+  - [array_hash](#array_hash)
+  - [object_hash](#object_hash)
+  - [public_method_exists](#public_method_exists)
 * [Change log](#change-log)
 * [Testing](#testing)
 * [Contributing](#contributing)
@@ -97,32 +99,12 @@ $ composer require sebastiaanluca/laravel-helpers
 
 ### Global methods
 
-#### take (pipe operator)
-
-Create a new piped item from a given value. See the [blog post](https://blog.sebastiaanluca.com/enabling-php-method-chaining-with-a-makeshift-pipe-operator) for more info.
-
-``` php
-$subdomain = take('https://blog.sebastiaanluca.com/')
-               ->pipe('parse_url', PHP_URL_HOST)
-               ->pipe('explode', '.', '$$')
-               ->pipe('reset')
-               ->get();
-```
-
 #### locale
 
 Get the active locale.
 
 ``` php
 $locale = locale();
-```
-
-#### carbonize
-
-Create a Carbon object from a string.
-
-``` php
-$time = carbonize('2017-01-18 11:30');
 ```
 
 #### is_active_route
@@ -133,6 +115,36 @@ Note: requires the `laravelista/ekko` package ([https://github.com/laravelista/E
 
 ``` php
 $result = is_active_route('auth/login');
+```
+
+#### ddd_if
+
+Only debugs a statement given a truth condition.
+
+Note: requires the `raveren/kint` debug package (https://github.com/raveren/kint).
+
+``` php
+ddd_if(app()->environment() == 'local', $var1, $var2, $var3);
+```
+
+#### carbonize
+
+Create a Carbon object from a string.
+
+``` php
+$time = carbonize('2017-01-18 11:30');
+```
+
+#### take (pipe operator)
+
+Create a new piped item from a given value. See the [blog post](https://blog.sebastiaanluca.com/enabling-php-method-chaining-with-a-makeshift-pipe-operator) for more info.
+
+``` php
+$subdomain = take('https://blog.sebastiaanluca.com/')
+               ->pipe('parse_url', PHP_URL_HOST)
+               ->pipe('explode', '.', '$$')
+               ->pipe('reset')
+               ->get();
 ```
 
 #### rand_bool
@@ -163,18 +175,6 @@ $result = is_assoc_array(['color' => 'blue', 'age' => 31]);
 // true
 ```
 
-#### public_method_exists
-
-Check if an object has a given public method.
-
-``` php
-$car = new Car();
-
-if (public_method_exists($car, 'honk')) {
-    $car->honk();
-}
-```
-
 #### array_expand
 
 Expand a flat dotted array to a multi-dimensional associative array.
@@ -198,14 +198,54 @@ $inStock = array_without($cars, $soldOut);
 // ['mercedes']
 ```
 
-#### ddd_if
+#### array_hash
 
-Only debugs a statement given a truth condition.
-
-Note: requires the `raveren/kint` debug package (https://github.com/raveren/kint).
+Create a unique identifier for a given array.
 
 ``` php
-ddd_if(app()->environment() == 'local', $var1, $var2, $var3);
+$myArray = [
+    'akey' => 'somevalue',
+    'anotherkey' => 'anothervalue',
+];
+
+$hash = array_hash($myArray);
+
+// 80435ac6242e902754a268b6cb4b4c9a
+
+$anotherArray = [
+    'keylessvalue',
+    'abc',
+];
+
+$hash = array_hash($anotherArray);
+
+// 9611ce5a1ab6b60e73e33942a8cf0272
+```
+
+#### object_hash
+
+Create a unique identifier for a given object. Similar to [array_hash](#array_hash), this uses `serialize` to stringify all public properties first. 
+
+``` php
+class ValueObject {
+    public $property = 'randomvalue';
+}
+
+$hash = object_hash(new ValueObject);
+
+// acceaba779657cdaf00e9c93737d778f
+```
+
+#### public_method_exists
+
+Check if an object has a given public method.
+
+``` php
+$car = new Car();
+
+if (public_method_exists($car, 'honk')) {
+    $car->honk();
+}
 ```
 
 ## Change log
