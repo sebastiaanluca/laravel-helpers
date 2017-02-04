@@ -12,7 +12,7 @@ class HtmlServiceProvider extends CollectiveHtmlServiceProvider
      * @var bool
      */
     protected $defer = true;
-    
+
     /**
      * Register the service provider.
      */
@@ -21,7 +21,7 @@ class HtmlServiceProvider extends CollectiveHtmlServiceProvider
         $this->registerFormBuilder();
         $this->registerHtmlBuilder();
     }
-    
+
     /**
      * Get the services provided by the provider.
      *
@@ -34,19 +34,19 @@ class HtmlServiceProvider extends CollectiveHtmlServiceProvider
             'html', HtmlBuilder::class,
         ];
     }
-    
+
     /**
      * Register the HTML builder instance.
      */
     protected function registerHtmlBuilder()
     {
-        $this->app->singleton('html', function($app) {
+        $this->app->singleton('html', function ($app) {
             return new HtmlBuilder($app['url'], $app['view']);
         });
-        
+
         $this->app->alias('html', HtmlBuilder::class);
     }
-    
+
     /**
      * Register the form builder instance.
      *
@@ -54,12 +54,15 @@ class HtmlServiceProvider extends CollectiveHtmlServiceProvider
      */
     protected function registerFormBuilder()
     {
-        $this->app->singleton('form', function($app) {
-            $form = new FormBuilder($app['html'], $app['url'], $app['view'], $app['session.store']->getToken());
-            
+        $this->app->singleton('form', function ($app) {
+            $session = $app['session.store'];
+            $token = method_exists($session, 'getToken') ? $session->getToken() : $session->token();
+
+            $form = new FormBuilder($app['html'], $app['url'], $app['view'], $token);
+
             return $form->setSessionStore($app['session.store']);
         });
-        
+
         $this->app->alias('form', FormBuilder::class);
     }
 }
