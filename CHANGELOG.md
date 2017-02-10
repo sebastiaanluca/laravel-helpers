@@ -6,6 +6,12 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+## 0.5.1 (2017-02-10)
+
+### Changed
+
+- Add ID to guards in BaseEloquentModel
+
 ## 0.5.0 (2017-02-10)
 
 ### Added

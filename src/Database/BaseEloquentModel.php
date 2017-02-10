@@ -11,7 +11,9 @@ class BaseEloquentModel extends Model
      *
      * @var array
      */
-    protected $guarded = [''];
+    protected $guarded = [
+        'id',
+    ];
 
     /**
      * Fill the model with an array of attributes. Does not set data if the model already has data
