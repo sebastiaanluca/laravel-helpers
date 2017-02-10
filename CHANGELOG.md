@@ -6,7 +6,13 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
-## 0.4.0
+## 0.5.0 (2017-02-10)
+
+### Added
+
+- Added BaseEloquentModel
+
+## 0.4.0 (2017-02-10)
 
 ### Added
 
