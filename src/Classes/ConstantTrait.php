@@ -11,7 +11,7 @@ trait ConstantTrait
      *
      * @return array
      */
-    protected static function getConstants() : array
+    public static function getConstants() : array
     {
         return (new ReflectionClass(__CLASS__))->getConstants();
     }
