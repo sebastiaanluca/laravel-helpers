@@ -22,11 +22,12 @@
     ],
     "require": {
         "php": "^7",
-        "laravel/framework": "^5.1",
-        "sebastiaanluca/php-stub-generator": "^0.1.1"
+        "laravel/framework": "^5.1"
     },
     "require-dev": {
-        "phpunit/phpunit": "^6"
+        "orchestra/testbench": "^3.4",
+        "phpunit/phpunit": "^6",
+        "raveren/kint": "^1.0"
     },
     "suggest": {
         "laravelista/ekko": "Required for `is_active_route` helper function.",
@@ -35,7 +36,12 @@
     },
     "autoload": {
         "psr-4": {
-            "SebastiaanLuca\\Helpers\\": "src/"
+            "SebastiaanLuca\\Helpers\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SebastiaanLuca\\Helpers\\Tests\\": "tests"
         }
     },
     "extra": {
