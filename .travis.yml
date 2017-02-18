@@ -1,11 +1,9 @@
 language: php
 
 php:
-  - 5.6
   - 7.0
   - 7.1
-
-sudo: false
+  - nightly
 
 cache:
   directories:
@@ -13,16 +11,39 @@ cache:
 
 env:
   matrix:
-    - COMPOSER_FLAGS="--prefer-lowest"
-    - COMPOSER_FLAGS=""
+    - LARAVEL_VERSION="5.1.*" COMPOSER_FLAGS="--prefer-lowest"
+    - LARAVEL_VERSION="5.1.*"
+    - LARAVEL_VERSION="5.2.*" COMPOSER_FLAGS="--prefer-lowest"
+    - LARAVEL_VERSION="5.2.*"
+    - LARAVEL_VERSION="5.3.*" COMPOSER_FLAGS="--prefer-lowest"
+    - LARAVEL_VERSION="5.3.*"
+    - LARAVEL_VERSION="5.4.*" COMPOSER_FLAGS="--prefer-lowest"
+    - LARAVEL_VERSION="5.4.*"
+    - LARAVEL_VERSION="dev-master" COMPOSER_FLAGS="--prefer-lowest"
+    - LARAVEL_VERSION="dev-master"
+
+matrix:
+  allow_failures:
+    - env: LARAVEL_VERSION="dev-master" COMPOSER_FLAGS="--prefer-lowest"
+    - env: LARAVEL_VERSION="dev-master"
+  fast_finish: true
 
 before_install:
   - travis_retry composer self-update
+  - composer require laravel/framework=${LARAVEL_VERSION} --no-update
 
 install:
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
 
+script:
+  - vendor/bin/phpunit
+
+branches:
+  only:
+    - master
+    - develop
+
 notifications:
-    email:
-        on_failure: change
-        on_success: never
+  email:
+    on_failure: change
+    on_success: never
