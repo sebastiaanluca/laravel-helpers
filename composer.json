@@ -26,8 +26,8 @@
     },
     "require-dev": {
         "orchestra/testbench": "^3.1|dev-master",
-        "phpunit/phpunit": "5.*|6.*",
-        "raveren/kint": "^1.0"
+        "phpunit/phpunit": "^5.7|^6",
+        "raveren/kint": "^1"
     },
     "suggest": {
         "laravelista/ekko": "Required for `is_active_route` helper function.",

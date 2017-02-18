@@ -6,6 +6,10 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+### Changed
+
+- Stricter dependencies
+
 ## 0.5.1 (2017-02-10)
 
 ### Changed

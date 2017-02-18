@@ -12,6 +12,7 @@ A set of Laravel-specific helpers. Use each class/trait or register each service
 
 ## Table of contents
 
+* [Requirements](#requirements)
 * [Install](#install)
 * [Usage](#usage)
 + [Commands](#commands)
@@ -54,6 +55,11 @@ A set of Laravel-specific helpers. Use each class/trait or register each service
 * [License](#license)
 
 Table of contents generated with <a href='http://ecotrust-canada.github.io/markdown-toc/'>markdown-toc</a>.
+
+## Requirements
+
+- PHP 7 or higher
+- Laravel 5.1 or higher
 
 ## Install
 
