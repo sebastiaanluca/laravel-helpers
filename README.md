@@ -3,9 +3,10 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status][ico-travis]][link-travis]
-[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
-[![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
+
+[![Follow me on Twitter](https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social)](https://twitter.com/sebastiaanluca)
+[![Share this package on Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/home?status=https%3A//github.com/sebastiaanluca/php-stub-generator%20via%20%40sebastiaanluca)
 
 A set of Laravel-specific helpers. Use each class/trait or register each service provider when needed. Each helper is optional.
 
@@ -13,6 +14,7 @@ A set of Laravel-specific helpers. Use each class/trait or register each service
 
 * [Install](#install)
 * [Usage](#usage)
++ [Commands](#commands)
 + [Collection macros](#collection-macros)
   - [Carbonize](#carbonize)
   - [Between](#between)
@@ -58,10 +60,12 @@ Table of contents generated with <a href='http://ecotrust-canada.github.io/markd
 Via Composer:
 
 ``` bash
-$ composer require sebastiaanluca/laravel-helpers
+composer require sebastiaanluca/laravel-helpers
 ```
 
 ## Usage
+
+### Commands
 
 ### Collection macros
 
@@ -160,7 +164,7 @@ $bool = rand_bool();
 Wrap a string with another string.
 
 ``` php
-$quoted = str_wrap('foo', '"');  
+$quoted = str_wrap('foo', '"');
 
 // "foo"
 ```
@@ -170,7 +174,7 @@ $quoted = str_wrap('foo', '"');
 Check if an array is associative (as opposed to numeric).
 
 ``` php
-$result = is_assoc_array(['color' => 'blue', 'age' => 31]);  
+$result = is_assoc_array(['color' => 'blue', 'age' => 31]);
 
 // true
 ```
@@ -224,7 +228,7 @@ $hash = array_hash($anotherArray);
 
 #### object_hash
 
-Create a unique identifier for a given object. Similar to [array_hash](#array_hash), this uses `serialize` to stringify all public properties first. 
+Create a unique identifier for a given object. Similar to [array_hash](#array_hash), this uses `serialize` to stringify all public properties first.
 
 ``` php
 class ValueObject {
@@ -255,7 +259,8 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 ## Testing
 
 ``` bash
-$ composer test
+composer install
+composer test
 ```
 
 ## Contributing
@@ -264,12 +269,16 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details
 
 ## Security
 
-If you discover any security related issues, please email hello@sebastiaanluca.com instead of using the issue tracker.
+If you discover any security related issues, please email security@sebastiaanluca.com instead of using the issue tracker.
 
 ## Credits
 
 - [Sebastiaan Luca][link-author]
 - [All Contributors][link-contributors]
+
+## About
+
+My name is Sebastiaan and I'm a freelance back-end developer specializing in building high-end, custom Laravel applications. Check out my [portfolio][author-portfolio] for more information and my other [packages](https://github.com/sebastiaanluca?tab=repositories) to kick-start your next project. Have a project that could use some guidance? Send me an e-mail at [hello@sebastiaanluca.com][author-email]!
 
 ## License
 
@@ -278,14 +287,12 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-version]: https://img.shields.io/packagist/v/sebastiaanluca/laravel-helpers.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/sebastiaanluca/laravel-helpers/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/sebastiaanluca/laravel-helpers.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/sebastiaanluca/laravel-helpers.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/sebastiaanluca/laravel-helpers.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/sebastiaanluca/laravel-helpers
 [link-travis]: https://travis-ci.org/sebastiaanluca/laravel-helpers
-[link-scrutinizer]: https://scrutinizer-ci.com/g/sebastiaanluca/laravel-helpers/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/sebastiaanluca/laravel-helpers
 [link-downloads]: https://packagist.org/packages/sebastiaanluca/laravel-helpers
-[link-author]: https://github.com/:author_username
 [link-contributors]: ../../contributors
+[link-author]: https://github.com/sebastiaanluca
+[author-portfolio]: http://www.sebastiaanluca.com
+[author-email]: mailto:hello@sebastiaanluca.com
