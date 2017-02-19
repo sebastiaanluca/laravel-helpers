@@ -15,38 +15,38 @@ A set of Laravel-specific helpers. Use each class/trait or register each service
 * [Requirements](#requirements)
 * [Install](#install)
 * [Usage](#usage)
-+ [Commands](#commands)
-+ [Collection macros](#collection-macros)
-  - [Carbonize](#carbonize)
-  - [Between](#between)
-  - [Methodize](#methodize)
-  - [mapWithIntegerKeys](#mapwithintegerkeys)
-  - [d](#d)
-  - [ddd](#ddd)
-  - [transformKeys](#transformkeys)
-+ [Classes](#classes)
-  - [Constant trait](#constant-trait)
-  - [Reflection trait](#reflection-trait)
-  - [Method helper](#method-helper)
-+ [Database](#database)
-  - [Table reader](#table-reader)
-+ [Blade helpers](#blade-helpers)
-  - [Form date field](#form-date-field)
-  - [Bootstrap form errors](#bootstrap-form-errors)
-+ [Global methods](#global-methods)
-  - [locale](#locale)
-  - [is_active_route](#is_active_route)
-  - [ddd_if](#ddd_if)
-  - [carbonize](#carbonize-1)
-  - [take (pipe operator)](#take-pipe-operator)
-  - [rand_bool](#rand_bool)
-  - [str_wrap](#str_wrap)
-  - [is_assoc_array](#is_assoc_array)
-  - [array_expand](#array_expand)
-  - [array_without](#array_without)
-  - [array_hash](#array_hash)
-  - [object_hash](#object_hash)
-  - [public_method_exists](#public_method_exists)
+    + [Global methods](#global-methods)
+      - [locale](#locale)
+      - [is_active_route](#is_active_route)
+      - [ddd_if](#ddd_if)
+      - [carbonize](#carbonize-1)
+      - [take (pipe operator)](#take-pipe-operator)
+      - [rand_bool](#rand_bool)
+      - [str_wrap](#str_wrap)
+      - [is_assoc_array](#is_assoc_array)
+      - [array_expand](#array_expand)
+      - [array_without](#array_without)
+      - [array_hash](#array_hash)
+      - [object_hash](#object_hash)
+      - [public_method_exists](#public_method_exists)
+    + [Collection macros](#collection-macros)
+      - [Carbonize](#carbonize)
+      - [Between](#between)
+      - [Methodize](#methodize)
+      - [mapWithIntegerKeys](#mapwithintegerkeys)
+      - [d](#d)
+      - [ddd](#ddd)
+      - [transformKeys](#transformkeys)
+    + [Classes](#classes)
+      - [Constant trait](#constant-trait)
+      - [Reflection trait](#reflection-trait)
+      - [Method helper](#method-helper)
+    + [Database](#database)
+      - [Table reader](#table-reader)
+    + [Blade helpers](#blade-helpers)
+      - [Form date field](#form-date-field)
+      - [Bootstrap form errors](#bootstrap-form-errors)
+    + [Module service provider](#module-service-provider)
 * [Change log](#change-log)
 * [Testing](#testing)
 * [Contributing](#contributing)
@@ -70,42 +70,6 @@ composer require sebastiaanluca/laravel-helpers
 ```
 
 ## Usage
-
-### Commands
-
-### Collection macros
-
-#### Carbonize
-
-#### Between
-
-#### Methodize
-
-#### mapWithIntegerKeys
-
-#### d
-
-#### ddd
-
-#### transformKeys
-
-### Classes
-
-#### Constant trait
-
-#### Reflection trait
-
-#### Method helper
-
-### Database
-
-#### Table reader
-
-### Blade helpers
-
-#### Form date field
-
-#### Bootstrap form errors
 
 ### Global methods
 
@@ -257,6 +221,44 @@ if (public_method_exists($car, 'honk')) {
     $car->honk();
 }
 ```
+
+### Collection macros
+
+#### Carbonize
+
+#### Between
+
+#### Methodize
+
+#### mapWithIntegerKeys
+
+#### d
+
+#### ddd
+
+#### transformKeys
+
+### Classes
+
+#### Constant trait
+
+#### Reflection trait
+
+#### Method helper
+
+### Database
+
+#### Table reader
+
+### Blade helpers
+
+#### Form date field
+
+#### Bootstrap form errors
+
+### Module service provider
+
+For use with [nwidart/laravel-modules](https://github.com/nWidart/laravel-modules).
 
 ## Change log
 

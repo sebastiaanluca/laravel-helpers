@@ -6,9 +6,21 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+### Added
+
+- Set up testing
+- Added a module service provider base class
+
 ### Changed
 
 - Stricter dependencies
+- Upgrade to PHPUnit 6
+
+## 0.5.2 (2017-02-14)
+
+### Changed
+
+- Make get constants on ConstantTrait public
 
 ## 0.5.1 (2017-02-10)
 
