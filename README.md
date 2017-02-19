@@ -48,6 +48,7 @@ A set of Laravel-specific helpers. Use each class/trait or register each service
       - [Form date field](#form-date-field)
       - [Bootstrap form errors](#bootstrap-form-errors)
     + [Module service provider](#module-service-provider)
+    + [Queueable job](#queueable-job)
 * [Change log](#change-log)
 * [Testing](#testing)
 * [Contributing](#contributing)
@@ -264,6 +265,8 @@ if (public_method_exists($car, 'honk')) {
 ### Module service provider
 
 For use with [nwidart/laravel-modules](https://github.com/nWidart/laravel-modules).
+
+### Queueable job
 
 ## Change log
 
