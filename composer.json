@@ -25,7 +25,7 @@
         "laravel/framework": "^5.1"
     },
     "require-dev": {
-        "orchestra/testbench": "^3.1|dev-master",
+        "orchestra/testbench": "^3.1",
         "phpunit/phpunit": "^5.7|^6",
         "raveren/kint": "^1"
     },
