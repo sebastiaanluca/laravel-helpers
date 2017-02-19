@@ -9,12 +9,17 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Added
 
 - Set up testing
-- Added a module service provider base class
 
 ### Changed
 
 - Stricter dependencies
 - Upgrade to PHPUnit 6
+
+### Removed
+
+- Module service provider (moved to [laravel-resource-flow](https://github.com/sebastiaanluca/laravel-resource-flow))
+- Base Eloquent model (moved to [laravel-resource-flow](https://github.com/sebastiaanluca/laravel-resource-flow))
+- Queueable job (moved to [laravel-resource-flow](https://github.com/sebastiaanluca/laravel-resource-flow))
 
 ## 0.5.2 (2017-02-14)
 

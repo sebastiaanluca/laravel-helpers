@@ -43,12 +43,9 @@ A set of Laravel-specific helpers. Use each class/trait or register each service
       - [Method helper](#method-helper)
     + [Database](#database)
       - [Table reader](#table-reader)
-      - [Base Eloquent model](#base-eloquent-model)
     + [Blade helpers](#blade-helpers)
       - [Form date field](#form-date-field)
       - [Bootstrap form errors](#bootstrap-form-errors)
-    + [Module service provider](#module-service-provider)
-    + [Queueable job](#queueable-job)
 * [Change log](#change-log)
 * [Testing](#testing)
 * [Contributing](#contributing)
@@ -252,8 +249,6 @@ if (public_method_exists($car, 'honk')) {
 
 #### Table reader
 
-#### Base Eloquent model
-
 ##### Fill missing attributes
 
 ### Blade helpers
@@ -261,12 +256,6 @@ if (public_method_exists($car, 'honk')) {
 #### Form date field
 
 #### Bootstrap form errors
-
-### Module service provider
-
-For use with [nwidart/laravel-modules](https://github.com/nWidart/laravel-modules).
-
-### Queueable job
 
 ## Change log
 
