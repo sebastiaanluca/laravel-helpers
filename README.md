@@ -43,6 +43,7 @@ A set of Laravel-specific helpers. Use each class/trait or register each service
       - [Method helper](#method-helper)
     + [Database](#database)
       - [Table reader](#table-reader)
+      - [Base Eloquent model](#base-eloquent-model)
     + [Blade helpers](#blade-helpers)
       - [Form date field](#form-date-field)
       - [Bootstrap form errors](#bootstrap-form-errors)
@@ -249,6 +250,10 @@ if (public_method_exists($car, 'honk')) {
 ### Database
 
 #### Table reader
+
+#### Base Eloquent model
+
+##### Fill missing attributes
 
 ### Blade helpers
 
