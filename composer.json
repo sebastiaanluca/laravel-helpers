@@ -27,13 +27,12 @@
     "require-dev": {
         "orchestra/testbench": "^3.1",
         "phpunit/phpunit": "^5.7|^6",
-        "raveren/kint": "^1"
+        "kint-php/kint": "^1"
     },
     "suggest": {
         "laravelista/ekko": "Required for `is_active_route` helper function.",
-        "raveren/kint": "A powerful and modern PHP debugging tool. Required for the global `ddd` helper function.",
-        "laravelcollective/html": "HTML and Form Builders for the Laravel Framework. Required for the Form helpers.",
-        "nwidart/laravel-modules": "Laravel module management. Required when using the module service provider."
+        "kint-php/kint": "A powerful and modern PHP debugging tool. Required for the global `ddd` helper function and collection macros.",
+        "laravelcollective/html": "HTML and Form Builders for the Laravel Framework. Required for the Form helpers."
     },
     "autoload": {
         "psr-4": {
