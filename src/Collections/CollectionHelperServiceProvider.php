@@ -5,7 +5,6 @@ namespace SebastiaanLuca\Helpers\Collections;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
-use RuntimeException;
 
 class CollectionHelperServiceProvider extends ServiceProvider
 {
