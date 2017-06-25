@@ -25,10 +25,7 @@ if (! function_exists('is_active_route')) {
      */
     function is_active_route($routeName, $output = 'active')
     {
-        /** @var \Laravelista\Ekko\Ekko $ekko */
-        $ekko = app('Laravelista\Ekko\Ekko');
-
-        return $ekko->isActiveRoute($routeName, $output);
+        return isActiveRoute($routeName, $output);
     }
 }
 
