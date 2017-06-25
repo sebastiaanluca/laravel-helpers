@@ -4,16 +4,15 @@ All Notable changes to `sebastiaanluca/laravel-helpers` will be documented in th
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-##  Unreleased
+##  Unreleased (1.0.0)
 
 ### Added
 
-- Set up testing
+- Set up testing environment and add tests for each feature
 
 ### Changed
 
-- Stricter dependencies
-- Upgrade to PHPUnit 6
+- Lock down dependencies more strictly, but allow optional use of each helper
 
 ### Removed
 
