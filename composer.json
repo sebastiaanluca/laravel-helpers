@@ -24,17 +24,25 @@
     ],
     "require": {
         "php": "^7",
-        "laravel/framework": "^5.1"
+        "illuminate/support": "^5.4"
     },
     "require-dev": {
+        "illuminate/database": "^5.4",
+        "kint-php/kint": "^2.1",
+        "laravel/framework": "^5.4",
+        "laravelcollective/html": "^5.4",
+        "laravelista/ekko": "^1.3",
+        "nesbot/carbon": "^1.22",
         "orchestra/testbench": "^3.1",
-        "phpunit/phpunit": "~4.0|~5.0|~6.0",
-        "kint-php/kint": "^2.1"
+        "phpunit/phpunit": "~4.0|~5.0|~6.0"
     },
     "suggest": {
-        "laravelista/ekko": "Required for `is_active_route` helper function.",
+        "illuminate/database": "Laravel framework database component. Required for the table reader helper.",
         "kint-php/kint": "A powerful and modern PHP debugging tool. Required for the debug helpers.",
-        "laravelcollective/html": "HTML and Form Builders for the Laravel Framework. Required for the Form helpers."
+        "laravel/framework": "The Laravel framework. Required for some global helpers and the form helpers.",
+        "laravelcollective/html": "HTML and Form Builders for the Laravel Framework. Required for the form helpers.",
+        "laravelista/ekko": "Ekko helps you mark currently active menu item in your navbar. Required for the active route helper function.",
+        "nesbot/carbon": "A simple PHP API extension for DateTime. Required for the carbonize collection macro and global helper."
     },
     "autoload": {
         "psr-4": {
