@@ -49,8 +49,6 @@ class HtmlServiceProvider extends CollectiveHtmlServiceProvider
 
     /**
      * Register the form builder instance.
-     *
-     * @return void
      */
     protected function registerFormBuilder()
     {
