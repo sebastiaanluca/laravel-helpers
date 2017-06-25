@@ -1,6 +1,8 @@
 <?php
 
+use Carbon\Carbon;
 use SebastiaanLuca\Helpers\Classes\MethodHelper;
+use SebastiaanLuca\Helpers\Pipe\Item;
 
 if (! function_exists('locale')) {
     /**
@@ -8,7 +10,7 @@ if (! function_exists('locale')) {
      *
      * @return string
      */
-    function locale()
+    function locale() : string
     {
         return config('app.locale') ?? config('app.fallback_locale');
     }
@@ -23,7 +25,7 @@ if (! function_exists('is_active_route')) {
      *
      * @return bool
      */
-    function is_active_route($routeName, $output = 'active')
+    function is_active_route($routeName, $output = 'active') : bool
     {
         return isActiveRoute($routeName, $output);
     }
@@ -54,7 +56,7 @@ if (! function_exists('carbonize')) {
      *
      * @return \Carbon\Carbon
      */
-    function carbonize($timeString = null)
+    function carbonize($timeString = null) : Carbon
     {
         return new \Carbon\Carbon($timeString);
     }
@@ -68,7 +70,7 @@ if (! function_exists('take')) {
      *
      * @return \SebastiaanLuca\Helpers\Pipe\Item
      */
-    function take($value)
+    function take($value) : Item
     {
         return new \SebastiaanLuca\Helpers\Pipe\Item($value);
     }
@@ -80,7 +82,7 @@ if (! function_exists('rand_bool')) {
      *
      * @return bool
      */
-    function rand_bool()
+    function rand_bool() : bool
     {
         return rand(0, 1) === 0;
     }
@@ -95,7 +97,7 @@ if (! function_exists('str_wrap')) {
      *
      * @return string
      */
-    function str_wrap($string, $wrapper)
+    function str_wrap($string, $wrapper) : string
     {
         return $wrapper . $string . $wrapper;
     }
@@ -109,7 +111,7 @@ if (! function_exists('is_assoc_array')) {
      *
      * @return bool
      */
-    function is_assoc_array($array)
+    function is_assoc_array($array) : bool
     {
         return array_keys($array) !== range(0, count($array) - 1);
     }
@@ -123,7 +125,7 @@ if (! function_exists('array_expand')) {
      *
      * @return array
      */
-    function array_expand(array $array)
+    function array_expand(array $array) : array
     {
         $expanded = [];
 
@@ -144,7 +146,7 @@ if (! function_exists('array_without')) {
      *
      * @return array
      */
-    function array_without(array $array, $values)
+    function array_without(array $array, $values) : array
     {
         if (! is_array($values)) {
             $values = [$values];
@@ -231,7 +233,7 @@ if (! function_exists('public_method_exists')) {
      *
      * @return bool
      */
-    function public_method_exists($object, $method)
+    function public_method_exists($object, $method) : bool
     {
         return MethodHelper::hasPublicMethod($object, $method);
     }
