@@ -4,6 +4,57 @@ use Carbon\Carbon;
 use SebastiaanLuca\Helpers\Classes\MethodHelper;
 use SebastiaanLuca\Helpers\Pipe\Item;
 
+if (! function_exists('sss')) {
+    /**
+     * Debug one or more statements in plain text using Kint and halt script execution afterwards.
+     *
+     * @param array ...$args
+     */
+    function sss(...$args)
+    {
+        s(...$args);
+
+        die;
+    }
+
+    // See https://kint-php.github.io/kint/advanced/#plugins
+    Kint::$aliases[] = 'sss';
+}
+
+if (! function_exists('ddd')) {
+    /**
+     * Debug one or more statements using Kint and halt script execution afterwards.
+     *
+     * @param array ...$args
+     */
+    function ddd(...$args)
+    {
+        d(...$args);
+
+        die;
+    }
+
+    // See https://kint-php.github.io/kint/advanced/#plugins
+    Kint::$aliases[] = 'ddd';
+}
+
+if (! function_exists('ddd_if')) {
+    /**
+     * Debug one or more statements only if the given condition is truthy (and halt script execution afterwards).
+     *
+     * @param mixed $condition
+     * @param array ...$args
+     */
+    function ddd_if($condition, ...$args)
+    {
+        if (! $condition) {
+            return;
+        }
+
+        ddd(...$args);
+    }
+}
+
 if (! function_exists('locale')) {
     /**
      * Get the active locale.
@@ -28,23 +79,6 @@ if (! function_exists('is_active_route')) {
     function is_active_route($routeName, $output = 'active')
     {
         return isActiveRoute($routeName, $output);
-    }
-}
-
-if (! function_exists('ddd_if')) {
-    /**
-     * Only debugs a statement given a truth condition.
-     *
-     * @param mixed $condition
-     * @param array ...$args
-     */
-    function ddd_if($condition, ...$args)
-    {
-        if (! $condition) {
-            return;
-        }
-
-        ddd(...$args);
     }
 }
 
