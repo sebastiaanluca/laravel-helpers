@@ -10,7 +10,7 @@ if (! function_exists('locale')) {
      */
     function locale()
     {
-        return config('app.locale', config('app.fallback_locale'));
+        return config('app.locale') ?? config('app.fallback_locale');
     }
 }
 
