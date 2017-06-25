@@ -9,17 +9,19 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Added
 
 - Set up testing environment and add tests for each feature
+- Added support for Laravel 5.5
 
 ### Changed
 
-- Lock down dependencies more strictly, but allow optional use of each helper
+- Locked down dependencies more strictly, but allow optional use of each helper
 - Tweaked Travis test script
 
 ### Removed
 
-- Module service provider (moved to [laravel-resource-flow](https://github.com/sebastiaanluca/laravel-resource-flow))
-- Base Eloquent model (moved to [laravel-resource-flow](https://github.com/sebastiaanluca/laravel-resource-flow))
-- Queueable job (moved to [laravel-resource-flow](https://github.com/sebastiaanluca/laravel-resource-flow))
+- Dropped support for Laravel 5.1, 5.2, and 5.3
+- Extracted module service provider (moved to [laravel-resource-flow](https://github.com/sebastiaanluca/laravel-resource-flow))
+- Extracted base Eloquent model (moved to [laravel-resource-flow](https://github.com/sebastiaanluca/laravel-resource-flow))
+- Extracted queueable job (moved to [laravel-resource-flow](https://github.com/sebastiaanluca/laravel-resource-flow))
 
 ## 0.5.2 (2017-02-14)
 
