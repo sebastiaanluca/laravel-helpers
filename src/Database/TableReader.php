@@ -10,28 +10,29 @@ class TableReader
      * @var \Illuminate\Database\DatabaseManager
      */
     protected $database;
-    
+
     /**
      * @var \Illuminate\Database\Connection
      */
     protected $connection;
-    
+
     /**
      * The name of the table.
      *
      * @var string
      */
     protected $table;
-    
+
     /**
      * The table's fields.
      *
-     * Consists of a field (its name), type, null (YES or NO), key (PRI, etc), default (its default value), and extra (auto_increment, on update, etc) key.
+     * Consists of a field (its name), type, null (YES or NO), key (PRI, etc), default (its default
+     * value), and extra (auto_increment, on update, etc) key.
      *
      * @var \Illuminate\Support\Collection
      */
     protected $fields;
-    
+
     /**
      * Fields that should be guarded by default.
      *
@@ -45,7 +46,7 @@ class TableReader
         'updated_at',
         'deleted_at',
     ];
-    
+
     /**
      * Default casted field types.
      *
@@ -56,7 +57,7 @@ class TableReader
         'tinyint(1)' => 'boolean',
         'json' => 'json',
     ];
-    
+
     /**
      * Default date field types.
      *
@@ -69,7 +70,7 @@ class TableReader
         'time',
         'year',
     ];
-    
+
     /**
      * TableReader constructor.
      *
@@ -80,7 +81,7 @@ class TableReader
         $this->database = $database;
         $this->connection = $this->database->connection();
     }
-    
+
     /**
      * Get the database connection.
      *
@@ -90,7 +91,7 @@ class TableReader
     {
         return $this->connection;
     }
-    
+
     /**
      * Set the database connection to use when reading the table.
      *
@@ -100,7 +101,7 @@ class TableReader
     {
         $this->connection = $this->database->connection($connection);
     }
-    
+
     /**
      * Get the name of the table.
      *
@@ -110,7 +111,7 @@ class TableReader
     {
         return $this->table;
     }
-    
+
     /**
      * Get the table's fields and additional raw information.
      *
@@ -120,7 +121,7 @@ class TableReader
     {
         return $this->fields;
     }
-    
+
     /**
      * Get the table's fields.
      *
@@ -130,7 +131,7 @@ class TableReader
     {
         return $this->fields->pluck('field')->toArray();
     }
-    
+
     /**
      * Get all guarded attributes.
      *
@@ -141,7 +142,7 @@ class TableReader
         // Compare default guarded fields with the ones in the table
         return array_values(array_intersect($this->fields->pluck('field')->toArray(), $this->defaultGuarded));
     }
-    
+
     /**
      * Get all mass-assignable attributes.
      *
@@ -151,7 +152,7 @@ class TableReader
     {
         return array_diff($this->fields->pluck('field')->toArray(), $this->defaultGuarded);
     }
-    
+
     /**
      * Get all cast attributes.
      *
@@ -160,13 +161,13 @@ class TableReader
     public function getCasts()
     {
         // Simply match the database types against any natives types and filter out "non-castworthy" fields
-        return $this->fields->pluck('type', 'field')->map(function($type, $field) {
+        return $this->fields->pluck('type', 'field')->map(function ($type, $field) {
             return $this->getCastType($type);
-        })->filter(function($type, $field) {
+        })->filter(function ($type, $field) {
             return ! empty($type);
         })->toArray();
     }
-    
+
     /**
      * Get all date attributes.
      *
@@ -174,11 +175,11 @@ class TableReader
      */
     public function getDates()
     {
-        return $this->fields->pluck('type', 'field')->filter(function($type, $field) {
+        return $this->fields->pluck('type', 'field')->filter(function ($type, $field) {
             return $this->isDate($type);
         })->keys()->toArray();
     }
-    
+
     /**
      * Get all nullable attributes.
      *
@@ -186,11 +187,11 @@ class TableReader
      */
     public function getNullableFields()
     {
-        return $this->fields->pluck('null', 'field')->filter(function($nullable, $field) {
+        return $this->fields->pluck('null', 'field')->filter(function ($nullable, $field) {
             return $nullable === 'YES';
         })->keys()->toArray();
     }
-    
+
     /**
      * Check if the table contains a given field.
      *
@@ -202,7 +203,7 @@ class TableReader
     {
         return in_array($field, $this->getFields());
     }
-    
+
     /**
      * Check if the table uses timestamps.
      *
@@ -212,7 +213,7 @@ class TableReader
     {
         return $this->hasField('created_at') && $this->hasField('updated_at');
     }
-    
+
     /**
      * Check if the table uses soft delete.
      *
@@ -222,7 +223,7 @@ class TableReader
     {
         return $this->hasField('deleted_at');
     }
-    
+
     /**
      * Read all information from the table.
      *
@@ -233,17 +234,17 @@ class TableReader
     public function read($table)
     {
         $this->table = $table;
-        
+
         $fields = collect($this->connection->select($this->connection->raw('describe ' . $this->table)));
-        
+
         // Normalize the output
-        $this->fields = $fields->map(function($field) {
+        $this->fields = $fields->map(function ($field) {
             return array_change_key_case((array)$field, CASE_LOWER);
         });
-        
+
         return $this;
     }
-    
+
     /**
      * Get the native cast type of a database field.
      *
@@ -258,10 +259,10 @@ class TableReader
                 return $cast;
             }
         }
-        
+
         return '';
     }
-    
+
     /**
      * Check if a field type is a date.
      *
@@ -274,7 +275,7 @@ class TableReader
         foreach ($this->defaultDates as $date) {
             return starts_with($type, $date);
         }
-        
+
         return false;
     }
 }

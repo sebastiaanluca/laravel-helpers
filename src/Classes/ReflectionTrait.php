@@ -7,7 +7,7 @@ use ReflectionClass;
 Trait ReflectionTrait
 {
     protected $classDirectory;
-    
+
     /**
      * Get the directory of the current class.
      *
@@ -21,11 +21,11 @@ Trait ReflectionTrait
         if ($this->classDirectory) {
             return $this->classDirectory;
         }
-        
+
         $reflection = new ReflectionClass(get_class($this));
-        
+
         $this->classDirectory = dirname($reflection->getFileName());
-        
+
         return $this->classDirectory;
     }
 }

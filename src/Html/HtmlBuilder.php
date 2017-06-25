@@ -17,14 +17,14 @@ class HtmlBuilder extends CollectiveHtmlBuilder
     {
         /** @var \Illuminate\Contracts\Support\MessageBag $errors */
         $errors = app('session')->get('errors');
-        
+
         if (! $errors || ! $errors->has($field)) {
             return '';
         }
-        
+
         return 'has-danger';
     }
-    
+
     /**
      * Get the Bootstrap error help block if the given field has a validation error.
      *
@@ -36,11 +36,11 @@ class HtmlBuilder extends CollectiveHtmlBuilder
     {
         /** @var \Illuminate\Contracts\Support\MessageBag $errors */
         $errors = app('session')->get('errors');
-        
+
         if (! $errors || ! $errors->has($field)) {
             return '';
         }
-        
+
         return '<div class="form-control-feedback">' . $errors->first($field) . '</div>';
     }
 }

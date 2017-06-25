@@ -22,18 +22,18 @@ class MethodHelper
         if (! method_exists($object, $method)) {
             return false;
         }
-        
+
         // Accessibility check
         try {
             $reflection = new ReflectionMethod($object, $method);
             $type = 'is' . studly_case($type);
-            
+
             return $reflection->{$type}();
         } catch (ReflectionException $exception) {
             return false;
         }
     }
-    
+
     /**
      * Check if an object has a given protected method.
      *
@@ -46,7 +46,7 @@ class MethodHelper
     {
         return self::hasMethod($object, $method, 'protected');
     }
-    
+
     /**
      * Check if an object has a given public method.
      *
