@@ -55,61 +55,6 @@ if (! function_exists('ddd_if')) {
     }
 }
 
-if (! function_exists('locale')) {
-    /**
-     * Get the active locale.
-     *
-     * @return string
-     */
-    function locale() : string
-    {
-        return config('app.locale') ?? config('app.fallback_locale');
-    }
-}
-
-if (! function_exists('is_active_route')) {
-    /**
-     * Check if the given route is currently active.
-     *
-     * @param string $routeName
-     * @param string $output
-     *
-     * @return mixed
-     */
-    function is_active_route($routeName, $output = 'active')
-    {
-        return isActiveRoute($routeName, $output);
-    }
-}
-
-if (! function_exists('carbonize')) {
-    /**
-     * Create a Carbon object from a string.
-     *
-     * @param string $timeString
-     *
-     * @return \Carbon\Carbon
-     */
-    function carbonize($timeString = null) : Carbon
-    {
-        return new \Carbon\Carbon($timeString);
-    }
-}
-
-if (! function_exists('take')) {
-    /**
-     * Create a new piped item from a given value.
-     *
-     * @param mixed $value
-     *
-     * @return \SebastiaanLuca\Helpers\Pipe\Item
-     */
-    function take($value) : Item
-    {
-        return new \SebastiaanLuca\Helpers\Pipe\Item($value);
-    }
-}
-
 if (! function_exists('rand_bool')) {
     /**
      * Randomly return true or false.
@@ -141,6 +86,9 @@ if (! function_exists('is_assoc_array')) {
     /**
      * Check if an array is associative.
      *
+     * Performs a simple check to determine if the given array's keys are numeric, start at 0,
+     * and count up to the amount of values it has.
+     *
      * @param array $array
      *
      * @return bool
@@ -154,6 +102,9 @@ if (! function_exists('is_assoc_array')) {
 if (! function_exists('array_expand')) {
     /**
      * Expand a flat dotted array to a multi-dimensional associative array.
+     *
+     * If a key is encountered that is already present, it will either be added to its value
+     * if that value is an array or it will override the value altogether.
      *
      * @param array $array
      *
@@ -182,11 +133,7 @@ if (! function_exists('array_without')) {
      */
     function array_without(array $array, $values) : array
     {
-        if (! is_array($values)) {
-            $values = [$values];
-        }
-
-        return array_values(array_diff($array, $values));
+        return array_values(array_diff($array, array_wrap($values)));
     }
 }
 
@@ -203,7 +150,7 @@ if (! function_exists('array_pull_values')) {
      */
     function array_pull_values(array &$array, array $values) : array
     {
-        $matches = array_intersect($array, $values);
+        $matches = array_values(array_intersect($array, $values));
 
         $array = array_without($array, $values);
 
@@ -258,6 +205,34 @@ if (! function_exists('object_hash')) {
     }
 }
 
+if (! function_exists('carbonize')) {
+    /**
+     * Create a Carbon object from a string.
+     *
+     * @param string $timeString
+     *
+     * @return \Carbon\Carbon
+     */
+    function carbonize($timeString = null) : Carbon
+    {
+        return new \Carbon\Carbon($timeString);
+    }
+}
+
+if (! function_exists('take')) {
+    /**
+     * Create a new piped item from a given value.
+     *
+     * @param mixed $value
+     *
+     * @return \SebastiaanLuca\Helpers\Pipe\Item
+     */
+    function take($value) : Item
+    {
+        return new \SebastiaanLuca\Helpers\Pipe\Item($value);
+    }
+}
+
 if (! function_exists('public_method_exists')) {
     /**
      * Check if an object has a given public method.
@@ -270,5 +245,32 @@ if (! function_exists('public_method_exists')) {
     function public_method_exists($object, $method) : bool
     {
         return MethodHelper::hasPublicMethod($object, $method);
+    }
+}
+
+if (! function_exists('locale')) {
+    /**
+     * Get the active locale.
+     *
+     * @return string
+     */
+    function locale() : string
+    {
+        return config('app.locale') ?? config('app.fallback_locale');
+    }
+}
+
+if (! function_exists('is_active_route')) {
+    /**
+     * Check if the given route is currently active.
+     *
+     * @param string $routeName
+     * @param string $output
+     *
+     * @return mixed
+     */
+    function is_active_route($routeName, $output = 'active')
+    {
+        return isActiveRoute($routeName, $output);
     }
 }
