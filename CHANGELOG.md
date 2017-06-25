@@ -13,6 +13,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Changed
 
 - Lock down dependencies more strictly, but allow optional use of each helper
+- Tweaked Travis test script
 
 ### Removed
 
