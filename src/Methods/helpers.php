@@ -23,9 +23,9 @@ if (! function_exists('is_active_route')) {
      * @param string $routeName
      * @param string $output
      *
-     * @return bool
+     * @return mixed
      */
-    function is_active_route($routeName, $output = 'active') : bool
+    function is_active_route($routeName, $output = 'active')
     {
         return isActiveRoute($routeName, $output);
     }
