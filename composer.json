@@ -1,12 +1,14 @@
 {
     "name": "sebastiaanluca/laravel-helpers",
     "type": "library",
-    "description": "A set of Laravel-specific helpers.",
+    "description": "An extensive set of Laravel-specific helpers.",
     "keywords": [
-        "Laravel",
-        "helpers",
+        "laravel",
+        "helper",
         "blade",
         "collection",
+        "response",
+        "array",
         "form",
         "pipe"
     ],
@@ -17,7 +19,7 @@
             "name": "Sebastiaan Luca",
             "email": "hello@sebastiaanluca.com",
             "homepage": "https://www.sebastiaanluca.com",
-            "role": "Author"
+            "role": "Developer"
         }
     ],
     "require": {
@@ -26,12 +28,12 @@
     },
     "require-dev": {
         "orchestra/testbench": "^3.1",
-        "phpunit/phpunit": "^5.7|^6",
-        "kint-php/kint": "^1"
+        "phpunit/phpunit": "~4.0|~5.0|~6.0",
+        "kint-php/kint": "^2.1"
     },
     "suggest": {
         "laravelista/ekko": "Required for `is_active_route` helper function.",
-        "kint-php/kint": "A powerful and modern PHP debugging tool. Required for the global `ddd` helper function and collection macros.",
+        "kint-php/kint": "A powerful and modern PHP debugging tool. Required for the debug helpers.",
         "laravelcollective/html": "HTML and Form Builders for the Laravel Framework. Required for the Form helpers."
     },
     "autoload": {
@@ -44,15 +46,10 @@
             "SebastiaanLuca\\Helpers\\Tests\\": "tests"
         }
     },
-    "extra": {
-        "branch-alias": {
-            "dev-develop": "1.0-dev"
-        }
+    "scripts": {
+        "test": "vendor/bin/phpunit"
     },
     "config": {
         "sort-packages": true
-    },
-    "scripts": {
-        "test": "phpunit"
     }
 }
