@@ -6,20 +6,12 @@ use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
 
-class CollectionHelperServiceProvider extends ServiceProvider
+class CollectionMacrosServiceProvider extends ServiceProvider
 {
     /**
      * Boot the service provider.
      */
     public function boot()
-    {
-        $this->bootMacros();
-    }
-
-    /**
-     * Boot all collection macros.
-     */
-    protected function bootMacros()
     {
         // Create Carbon instances from items in a collection
         Collection::macro('carbonize', function () {
