@@ -43,13 +43,6 @@ class CollectionHelperServiceProvider extends ServiceProvider
             });
         });
 
-        // Return
-        Collection::macro('methodize', function ($method) {
-            return collect($this->items)->map(function ($item) use ($method) {
-                return call_user_func($method, $item);
-            });
-        });
-
         // Fixed in Laravel 5.4
         Collection::macro('mapWithIntegerKeys', function ($callback) {
             $result = [];
