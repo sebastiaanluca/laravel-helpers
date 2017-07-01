@@ -43,6 +43,7 @@ class CollectionHelperServiceProvider extends ServiceProvider
             });
         });
 
+        // TODO: remove? Fixed in L5.4.x?
         // Fixed in Laravel 5.4
         Collection::macro('mapWithIntegerKeys', function ($callback) {
             $result = [];
