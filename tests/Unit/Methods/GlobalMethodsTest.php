@@ -4,7 +4,7 @@ namespace SebastiaanLuca\Helpers\Tests\Unit\Methods;
 
 use Carbon\Carbon;
 use Laravelista\Ekko\Ekko;
-use SebastiaanLuca\Helpers\Methods\GlobalMethodsServiceProvider;
+use SebastiaanLuca\Helpers\Methods\GlobalHelpersServiceProvider;
 use SebastiaanLuca\Helpers\Pipe\Item;
 use SebastiaanLuca\Helpers\Tests\TestCase;
 
@@ -148,6 +148,6 @@ class GlobalMethodsTest extends TestCase
      */
     protected function getPackageProviders($app)
     {
-        return [GlobalMethodsServiceProvider::class];
+        return [GlobalHelpersServiceProvider::class];
     }
 }

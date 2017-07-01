@@ -4,7 +4,7 @@ namespace SebastiaanLuca\Helpers\Methods;
 
 use Illuminate\Support\ServiceProvider;
 
-class GlobalMethodsServiceProvider extends ServiceProvider
+class GlobalHelpersServiceProvider extends ServiceProvider
 {
     /**
      * Register the service provider.
