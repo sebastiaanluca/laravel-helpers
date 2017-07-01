@@ -16,18 +16,14 @@ class CollectionMacrosServiceProvider extends ServiceProvider
         // Create Carbon instances from items in a collection
         Collection::macro('carbonize', function () {
             return collect($this->items)->map(function ($time) {
-                if (empty($time)) {
-                    return null;
-                }
-
                 return new Carbon($time);
             });
         });
 
         // Reduce the collection to only include strings found between another start and end string
         Collection::macro('between', function ($start, $end) {
-            return collect($this->items)->reduce(function ($items, $method) use ($start, $end) {
-                if (preg_match('/^' . $start . '(.*)' . $end . '$/', $method, $matches)) {
+            return collect($this->items)->reduce(function ($items, $value) use ($start, $end) {
+                if (preg_match('/^' . $start . '(.*)' . $end . '$/', $value, $matches)) {
                     $items[] = $matches[1];
                 }
 
