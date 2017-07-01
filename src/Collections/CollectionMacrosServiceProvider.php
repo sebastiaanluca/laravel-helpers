@@ -13,14 +13,18 @@ class CollectionMacrosServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Create Carbon instances from items in a collection
+        /**
+         * Create Carbon instances from items in a collection.
+         */
         Collection::macro('carbonize', function () {
             return collect($this->items)->map(function ($time) {
                 return new Carbon($time);
             });
         });
 
-        // Reduce the collection to only include strings found between another start and end string
+        /**
+         * Reduce the collection to only include strings found between another start and end string.
+         */
         Collection::macro('between', function ($start, $end) {
             return collect($this->items)->reduce(function ($items, $value) use ($start, $end) {
                 if (preg_match('/^' . $start . '(.*)' . $end . '$/', $value, $matches)) {
@@ -41,7 +45,7 @@ class CollectionMacrosServiceProvider extends ServiceProvider
             ddd($this);
         });
 
-        /*
+        /**
          * Perform an operation on the collection's keys.
          */
         Collection::macro('transformKeys', function (callable $operation) {
@@ -50,7 +54,7 @@ class CollectionMacrosServiceProvider extends ServiceProvider
             });
         });
 
-        /*
+        /**
          * Transpose (flip) a collection matrix (array of arrays).
          *
          * @see https://adamwathan.me/2016/04/06/cleaning-up-form-input-with-transpose/
@@ -63,7 +67,7 @@ class CollectionMacrosServiceProvider extends ServiceProvider
             return new static($items);
         });
 
-        /*
+        /**
          * Transpose (flip) a collection matrix (array of arrays) while keeping
          * its columns and row headers intact.
          */
