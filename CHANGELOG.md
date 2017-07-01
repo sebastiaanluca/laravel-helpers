@@ -15,6 +15,8 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 - Locked down dependencies more strictly, but allow optional use of each helper
 - Tweaked Travis test script
+- Renamed global method helpers service provider
+- Renamed collection service provider
 
 ### Removed
 
