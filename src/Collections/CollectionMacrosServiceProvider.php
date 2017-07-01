@@ -35,22 +35,6 @@ class CollectionMacrosServiceProvider extends ServiceProvider
             });
         });
 
-        // TODO: remove? Fixed in L5.4.x?
-        // Fixed in Laravel 5.4
-        Collection::macro('mapWithIntegerKeys', function ($callback) {
-            $result = [];
-
-            foreach ($this->items as $key => $value) {
-                $assoc = $callback($value, $key);
-
-                foreach ($assoc as $mapKey => $mapValue) {
-                    $result[$mapKey] = $mapValue;
-                }
-            }
-
-            return new static($result);
-        });
-
         Collection::macro('d', function () {
             d($this);
 
