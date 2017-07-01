@@ -55,7 +55,7 @@ class TableReader
     protected $defaultCasts = [
         'int(' => 'integer',
         'tinyint(1)' => 'boolean',
-        'json' => 'json',
+        'json' => 'array',
     ];
 
     /**
