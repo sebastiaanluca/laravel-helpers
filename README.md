@@ -1,14 +1,16 @@
 # Laravel Helpers
 
-[![Latest Version on Packagist][ico-version]][link-packagist]
-[![Software License][ico-license]](LICENSE.md)
-[![Build Status][ico-travis]][link-travis]
-[![Total Downloads][ico-downloads]][link-downloads]
+[![Latest stable release][version-badge]][link-packagist]
+[![Software license][license-badge]](LICENSE.md)
+[![Build status][travis-badge]][link-travis]
+[![Total downloads][downloads-badge]][link-packagist]
 
-[![Follow me on Twitter](https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social)](https://twitter.com/sebastiaanluca)
-[![Share this package on Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/home?status=https%3A//github.com/sebastiaanluca/php-stub-generator%20via%20%40sebastiaanluca)
+[![Read my blog][blog-link-badge]][link-blog]
+[![View my other packages and projects][packages-link-badge]][link-packages]
+[![Follow @sebastiaanluca on Twitter][twitter-profile-badge]][link-twitter]
+[![Share this package on Twitter][twitter-share-badge]][link-twitter-share]
 
-A set of Laravel-specific helpers. Use each class/trait or register each service provider when needed. Each helper is optional.
+**An extensive set of generic PHP and Laravel-specific helpers.** Each helper is optional and comes with instructions on how to use it.
 
 ## Table of contents
 
@@ -43,9 +45,6 @@ A set of Laravel-specific helpers. Use each class/trait or register each service
       - [Method helper](#method-helper)
     + [Database](#database)
       - [Table reader](#table-reader)
-    + [Blade helpers](#blade-helpers)
-      - [Form date field](#form-date-field)
-      - [Bootstrap form errors](#bootstrap-form-errors)
 * [Change log](#change-log)
 * [Testing](#testing)
 * [Contributing](#contributing)
@@ -58,17 +57,17 @@ Table of contents generated with <a href='http://ecotrust-canada.github.io/markd
 ## Requirements
 
 - PHP 7 or higher
-- Laravel 5.1 or higher
+- Laravel 5.4 or higher
 
-## Install
+## How to install
 
 Via Composer:
 
-``` bash
+```bash
 composer require sebastiaanluca/laravel-helpers
 ```
 
-## Usage
+## How to use
 
 ### Global methods
 
@@ -76,7 +75,7 @@ composer require sebastiaanluca/laravel-helpers
 
 Get the active locale.
 
-``` php
+```php
 $locale = locale();
 ```
 
@@ -86,7 +85,7 @@ Check if the given route is currently active.
 
 Note: requires the `laravelista/ekko` package ([https://github.com/laravelista/Ekko]()).
 
-``` php
+```php
 $result = is_active_route('auth/login');
 ```
 
@@ -96,7 +95,7 @@ Only debugs a statement given a truth condition.
 
 Note: requires the `raveren/kint` debug package (https://github.com/raveren/kint).
 
-``` php
+```php
 ddd_if(app()->environment() == 'local', $var1, $var2, $var3);
 ```
 
@@ -104,7 +103,7 @@ ddd_if(app()->environment() == 'local', $var1, $var2, $var3);
 
 Create a Carbon object from a string.
 
-``` php
+```php
 $time = carbonize('2017-01-18 11:30');
 ```
 
@@ -112,7 +111,7 @@ $time = carbonize('2017-01-18 11:30');
 
 Create a new piped item from a given value. See the [blog post](https://blog.sebastiaanluca.com/enabling-php-method-chaining-with-a-makeshift-pipe-operator) for more info.
 
-``` php
+```php
 $subdomain = take('https://blog.sebastiaanluca.com/')
                ->pipe('parse_url', PHP_URL_HOST)
                ->pipe('explode', '.', '$$')
@@ -124,7 +123,7 @@ $subdomain = take('https://blog.sebastiaanluca.com/')
 
 Randomly return true or false.
 
-``` php
+```php
 $bool = rand_bool();
 ```
 
@@ -132,7 +131,7 @@ $bool = rand_bool();
 
 Wrap a string with another string.
 
-``` php
+```php
 $quoted = str_wrap('foo', '"');
 
 // "foo"
@@ -142,7 +141,7 @@ $quoted = str_wrap('foo', '"');
 
 Check if an array is associative (as opposed to numeric).
 
-``` php
+```php
 $result = is_assoc_array(['color' => 'blue', 'age' => 31]);
 
 // true
@@ -152,7 +151,7 @@ $result = is_assoc_array(['color' => 'blue', 'age' => 31]);
 
 Expand a flat dotted array to a multi-dimensional associative array.
 
-``` php
+```php
 $array = array_expand(['products.desk.price' => 200]);
 
 // ['products' => ['desk' => ['price' => 200]]]
@@ -162,7 +161,7 @@ $array = array_expand(['products.desk.price' => 200]);
 
 Get the array without the given values.
 
-``` php
+```php
 $cars = ['bmw', 'mercedes', 'audi'];
 $soldOut = ['audi', 'bmw'];
 
@@ -175,7 +174,7 @@ $inStock = array_without($cars, $soldOut);
 
 Create a unique identifier for a given array.
 
-``` php
+```php
 $myArray = [
     'akey' => 'somevalue',
     'anotherkey' => 'anothervalue',
@@ -199,7 +198,7 @@ $hash = array_hash($anotherArray);
 
 Create a unique identifier for a given object. Similar to [array_hash](#array_hash), this uses `serialize` to stringify all public properties first.
 
-``` php
+```php
 class ValueObject {
     public $property = 'randomvalue';
 }
@@ -213,7 +212,7 @@ $hash = object_hash(new ValueObject);
 
 Check if an object has a given public method.
 
-``` php
+```php
 $car = new Car();
 
 if (public_method_exists($car, 'honk')) {
@@ -307,11 +306,9 @@ You can also pass some row header names if you don't want them to be automatical
 
 ##### Fill missing attributes
 
-### Blade helpers
+## License
 
-#### Form date field
-
-#### Bootstrap form errors
+This package operates under the MIT License (MIT). Please see [LICENSE](LICENSE.md) for more information.
 
 ## Change log
 
@@ -319,7 +316,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 ## Testing
 
-``` bash
+```bash
 composer install
 composer test
 ```
@@ -330,30 +327,38 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details
 
 ## Security
 
-If you discover any security related issues, please email security@sebastiaanluca.com instead of using the issue tracker.
+If you discover any security related issues, please email [hello@sebastiaanluca.com][link-author-email] instead of using the issue tracker.
 
 ## Credits
 
-- [Sebastiaan Luca][link-author]
+- [Sebastiaan Luca][link-github-profile]
 - [All Contributors][link-contributors]
 
 ## About
 
-My name is Sebastiaan and I'm a freelance back-end developer specializing in building high-end, custom Laravel applications. Check out my [portfolio][author-portfolio] for more information and my other [packages](https://github.com/sebastiaanluca?tab=repositories) to kick-start your next project. Have a project that could use some guidance? Send me an e-mail at [hello@sebastiaanluca.com][author-email]!
+My name is Sebastiaan and I'm a freelance Laravel developer specializing in building custom Laravel applications. Check out my [portfolio][link-portfolio] for more information, [my blog][link-blog] for the latest tips and tricks, and my other [packages][link-github-repositories] to kick-start your next project.
 
-## License
+Have a project that could use some guidance? Send me an e-mail at [hello@sebastiaanluca.com][link-author-email]!
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+[version-badge]: https://poser.pugx.org/sebastiaanluca/laravel-helpers/version
+[license-badge]: https://img.shields.io/badge/license-MIT-brightgreen.svg
+[travis-badge]: https://img.shields.io/travis/sebastiaanluca/laravel-helpers/master.svg
+[downloads-badge]: https://img.shields.io/packagist/dt/sebastiaanluca/laravel-helpers.svg
 
-[ico-version]: https://img.shields.io/packagist/v/sebastiaanluca/laravel-helpers.svg?style=flat-square
-[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/sebastiaanluca/laravel-helpers/master.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/sebastiaanluca/laravel-helpers.svg?style=flat-square
+[blog-link-badge]: https://img.shields.io/badge/link-blog-lightgrey.svg
+[packages-link-badge]: https://img.shields.io/badge/link-other_packages-lightgrey.svg
+[twitter-profile-badge]: https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social
+[twitter-share-badge]: https://img.shields.io/twitter/url/http/shields.io.svg?style=social
 
 [link-packagist]: https://packagist.org/packages/sebastiaanluca/laravel-helpers
 [link-travis]: https://travis-ci.org/sebastiaanluca/laravel-helpers
-[link-downloads]: https://packagist.org/packages/sebastiaanluca/laravel-helpers
 [link-contributors]: ../../contributors
-[link-author]: https://github.com/sebastiaanluca
-[author-portfolio]: http://www.sebastiaanluca.com
-[author-email]: mailto:hello@sebastiaanluca.com
+
+[link-portfolio]: https://www.sebastiaanluca.com
+[link-blog]: https://blog.sebastiaanluca.com
+[link-packages]: https://github.com/sebastiaanluca?tab=link-github-repositories
+[link-twitter]: https://twitter.com/sebastiaanluca
+[link-twitter-share]: https://twitter.com/home?status=An%20extensive%20set%20of%20generic%20PHP%20and%20Laravel-specific%20helpers,%20collection%20macros,%20and%20more!%20https%3A//github.com/sebastiaanluca/laravel-helpers%20via%20%40sebastiaanluca
+[link-github-profile]: https://github.com/sebastiaanluca
+[link-github-repositories]: https://github.com/sebastiaanluca?tab=link-github-repositories
+[link-author-email]: mailto:hello@sebastiaanluca.com

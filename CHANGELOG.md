@@ -33,6 +33,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Extracted base Eloquent model (moved to [laravel-resource-flow](https://github.com/sebastiaanluca/laravel-resource-flow))
 - Extracted queueable job (moved to [laravel-resource-flow](https://github.com/sebastiaanluca/laravel-resource-flow))
 - Removed `mapWithIntegerKeys` collection macro (fixed in Laravel 5.4.x)
+- Removed HTML and form helpers
 
 ## 0.5.2 (2017-02-14)
 
