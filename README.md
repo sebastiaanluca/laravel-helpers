@@ -264,15 +264,15 @@ How to use:
 collect([
     'A' => [
         'id' => 1,
-        'name' => 'name1',
+        'name' => 'James',
     ],
     'B' => [
         'id' => 2,
-        'name' => 'name2',
+        'name' => 'Joe',
     ],
     'C' => [
         'id' => 3,
-        'name' => 'name3',
+        'name' => 'Jonas',
     ],
 ])->transposeWithKeys()
 
@@ -284,14 +284,14 @@ collect([
 //            'C' => 3,
 //        ],
 //        'name' => [
-//            'A' => 'name1',
-//            'B' => 'name2',
-//            'C' => 'name3',
+//            'A' => 'James',
+//            'B' => 'Joe',
+//            'C' => 'Jonas',
 //        ],
 //    ]
 ```
 
-You can also pass some row header names if you don't want them to be automatically guessed. You'd then call the macro with `transposeWithKeys(['myID', 'row2'])` and the resulting rows would be `myID` and `row2` respectively instead of `id` and `name`. 
+You can also pass some row header names if you don't want them to be automatically guessed. You'd then call the macro with `transposeWithKeys(['myID', 'row2'])` and the resulting rows would be `myID` and `row2 instead of `id` and `name` respectively. 
 
 ### Classes
 
