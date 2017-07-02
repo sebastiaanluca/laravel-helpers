@@ -4,7 +4,7 @@ namespace SebastiaanLuca\Helpers\Classes;
 
 use ReflectionClass;
 
-trait ConstantTrait
+trait Constants
 {
     /**
      * Get all the class' constants.
