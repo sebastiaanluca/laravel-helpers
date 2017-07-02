@@ -42,6 +42,7 @@ class Item
         // get used though, we should replace any occurrence of it
         // with the actual value.
         if (! in_array($this->identifier, $arguments, true)) {
+            // Add the given item value as first parameter to call the pipe method with
             array_unshift($arguments, $this->value);
         }
         else {
