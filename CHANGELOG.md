@@ -19,6 +19,11 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Renamed collection service provider
 - `transposeWithKeys` now automatically guesses the row header names and allows you to override them
 - Renamed constant helper trait to `Constants` (because of the lack of a better name)
+- Renamed `hasMethod` to `hasMethodOfType` in `MethodHelper`
+
+### Fixed
+
+- Fixed `MethodHelper::hasMethodOfType` throwing exception of third `$type` parameter was not private, protected, or public
 
 ### Removed
 
