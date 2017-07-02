@@ -17,6 +17,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Tweaked Travis test script
 - Renamed global method helpers service provider
 - Renamed collection service provider
+- `transposeWithKeys` now automatically guesses the row header names and allows you to override them
 
 ### Removed
 
