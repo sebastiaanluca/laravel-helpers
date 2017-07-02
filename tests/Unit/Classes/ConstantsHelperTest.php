@@ -7,7 +7,7 @@ use SebastiaanLuca\Helpers\Tests\TestCase;
 
 class ConstantsHelperTest extends TestCase
 {
-    public function test it can return all constants()
+    public function test it returns all constants()
     {
         $class = new class
         {

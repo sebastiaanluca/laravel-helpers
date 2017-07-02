@@ -20,7 +20,7 @@ class GlobalMethodsTest extends TestCase
         $this->assertSame('wrappermiddlewrapper', str_wrap('middle', 'wrapper'));
     }
 
-    public function test it can detect an associative array()
+    public function test it detects an associative array()
     {
         $this->assertTrue(is_assoc_array([
             'key1' => 'value1',
@@ -30,7 +30,7 @@ class GlobalMethodsTest extends TestCase
         $this->assertFalse(is_assoc_array(['value1', 'value2']));
     }
 
-    public function test it can expand a flat array()
+    public function test it expands a flat array()
     {
         $this->assertSame([
             'a' => [
@@ -47,13 +47,13 @@ class GlobalMethodsTest extends TestCase
         ]));
     }
 
-    public function test it can remove values from an array()
+    public function test it removes values from an array()
     {
         $this->assertSame(['a', 1], array_without(['a', 'b', 1], 'b'));
         $this->assertSame(['a'], array_without(['a', 'b', 1], ['b', 1]));
     }
 
-    public function test it can pull values from an array()
+    public function test it pulls values from an array()
     {
         $array = ['a', 'b', 'c'];
 
@@ -61,7 +61,7 @@ class GlobalMethodsTest extends TestCase
         $this->assertSame(['a', 'c'], $array);
     }
 
-    public function test it can pull a value from an array()
+    public function test it pulls a value from an array()
     {
         $array = ['a', 'b', 'c'];
 
@@ -69,7 +69,7 @@ class GlobalMethodsTest extends TestCase
         $this->assertSame(['a', 'c'], $array);
     }
 
-    public function test it can generate a hash for an array()
+    public function test it generates an array hash()
     {
         $hash = '9ae1f8db3c2cc8381e0811dda3316176';
 
@@ -77,7 +77,7 @@ class GlobalMethodsTest extends TestCase
         $this->assertNotSame($hash, array_hash(['value1', 'value2']));
     }
 
-    public function test it can generate a hash for an object()
+    public function test it generate an object hash()
     {
         $object = new \stdClass;
         $object->property = 'value';
@@ -101,7 +101,7 @@ class GlobalMethodsTest extends TestCase
         $this->assertInstanceOf(Item::class, take('value'));
     }
 
-    public function test it can check if a public method exists()
+    public function test it checks if a public method exists()
     {
         $class = new class
         {
