@@ -4,7 +4,7 @@ namespace SebastiaanLuca\Helpers\Classes;
 
 use ReflectionClass;
 
-Trait ReflectionTrait
+Trait ProvidesClassInfo
 {
     protected $classDirectory;
 
@@ -17,7 +17,7 @@ Trait ReflectionTrait
      */
     protected function getClassDirectory()
     {
-        // Do some primitive caching
+        // Some primitive caching
         if ($this->classDirectory) {
             return $this->classDirectory;
         }

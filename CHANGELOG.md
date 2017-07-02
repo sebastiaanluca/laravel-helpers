@@ -18,8 +18,9 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Renamed global method helpers service provider
 - Renamed collection service provider
 - `transposeWithKeys` now automatically guesses the row header names and allows you to override them
-- Renamed constant helper trait to `Constants` (because of the lack of a better name)
+- Renamed constant helper trait to `Constants`
 - Renamed `hasMethod` to `hasMethodOfType` in `MethodHelper`
+- Renamed `ReflectionTrait` to `ProvidesClassInfo`
 
 ### Fixed
 
