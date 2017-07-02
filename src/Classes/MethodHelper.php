@@ -28,7 +28,9 @@ class MethodHelper
             $type = 'is' . studly_case($type);
 
             return $reflection->{$type}();
-        } catch (ReflectionException | Error $exception) {
+        } catch (ReflectionException $exception) {
+            return false;
+        } catch (Error $exception) {
             return false;
         }
     }
