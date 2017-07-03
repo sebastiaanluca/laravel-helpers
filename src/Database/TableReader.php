@@ -2,7 +2,9 @@
 
 namespace SebastiaanLuca\Helpers\Database;
 
+use Illuminate\Database\Connection;
 use Illuminate\Database\DatabaseManager;
+use Illuminate\Support\Collection;
 
 class TableReader
 {
@@ -83,11 +85,32 @@ class TableReader
     }
 
     /**
+     * Read all information from the table.
+     *
+     * @param string $table
+     *
+     * @return $this
+     */
+    public function read(string $table)
+    {
+        $this->table = $table;
+
+        $this->fields = collect($this->connection->select($this->connection->raw('describe ' . $this->table)));
+
+        // Normalize the output
+        $this->fields = $this->fields->map(function ($field) {
+            return array_change_key_case((array)$field, CASE_LOWER);
+        });
+
+        return $this;
+    }
+
+    /**
      * Get the database connection.
      *
      * @return \Illuminate\Database\Connection
      */
-    public function getConnection()
+    public function getConnection() : Connection
     {
         return $this->connection;
     }
@@ -96,10 +119,14 @@ class TableReader
      * Set the database connection to use when reading the table.
      *
      * @param string $connection
+     *
+     * @return $this
      */
-    public function setConnection($connection)
+    public function setConnection(string $connection)
     {
         $this->connection = $this->database->connection($connection);
+
+        return $this;
     }
 
     /**
@@ -107,7 +134,7 @@ class TableReader
      *
      * @return string
      */
-    public function getTable()
+    public function getTable() : string
     {
         return $this->table;
     }
@@ -117,7 +144,7 @@ class TableReader
      *
      * @return \Illuminate\Support\Collection
      */
-    public function getRawFields()
+    public function getRawFields() : Collection
     {
         return $this->fields;
     }
@@ -127,7 +154,7 @@ class TableReader
      *
      * @return array
      */
-    public function getFields()
+    public function getFields() : array
     {
         return $this->fields->pluck('field')->toArray();
     }
@@ -135,22 +162,25 @@ class TableReader
     /**
      * Get all guarded attributes.
      *
+     * Compares default guarded fields with the ones in the table.
+     *
      * @return array
      */
-    public function getGuarded()
+    public function getGuarded() : array
     {
-        // Compare default guarded fields with the ones in the table
         return array_values(array_intersect($this->fields->pluck('field')->toArray(), $this->defaultGuarded));
     }
 
     /**
      * Get all mass-assignable attributes.
      *
+     * Compares default fillable fields with the ones in the table.
+     *
      * @return array
      */
-    public function getFillable()
+    public function getFillable() : array
     {
-        return array_diff($this->fields->pluck('field')->toArray(), $this->defaultGuarded);
+        return array_values(array_diff($this->fields->pluck('field')->toArray(), $this->defaultGuarded));
     }
 
     /**
@@ -158,7 +188,7 @@ class TableReader
      *
      * @return array
      */
-    public function getCasts()
+    public function getCasts() : array
     {
         // Simply match the database types against any natives types and filter out "non-castworthy" fields
         return $this->fields->pluck('type', 'field')->map(function ($type, $field) {
@@ -173,7 +203,7 @@ class TableReader
      *
      * @return array
      */
-    public function getDates()
+    public function getDates() : array
     {
         return $this->fields->pluck('type', 'field')->filter(function ($type, $field) {
             return $this->isDate($type);
@@ -185,7 +215,7 @@ class TableReader
      *
      * @return array
      */
-    public function getNullableFields()
+    public function getNullableFields() : array
     {
         return $this->fields->pluck('null', 'field')->filter(function ($nullable, $field) {
             return $nullable === 'YES';
@@ -199,7 +229,7 @@ class TableReader
      *
      * @return bool
      */
-    public function hasField($field)
+    public function hasField(string $field) : bool
     {
         return in_array($field, $this->getFields());
     }
@@ -209,7 +239,7 @@ class TableReader
      *
      * @return bool
      */
-    public function usesTimestamps()
+    public function usesTimestamps() : bool
     {
         return $this->hasField('created_at') && $this->hasField('updated_at');
     }
@@ -219,30 +249,9 @@ class TableReader
      *
      * @return bool
      */
-    public function usesSoftDelete()
+    public function usesSoftDelete() : bool
     {
         return $this->hasField('deleted_at');
-    }
-
-    /**
-     * Read all information from the table.
-     *
-     * @param string $table
-     *
-     * @return \SebastiaanLuca\Helpers\Database\TableReader
-     */
-    public function read($table)
-    {
-        $this->table = $table;
-
-        $fields = collect($this->connection->select($this->connection->raw('describe ' . $this->table)));
-
-        // Normalize the output
-        $this->fields = $fields->map(function ($field) {
-            return array_change_key_case((array)$field, CASE_LOWER);
-        });
-
-        return $this;
     }
 
     /**
@@ -252,7 +261,7 @@ class TableReader
      *
      * @return string
      */
-    protected function getCastType($type)
+    protected function getCastType(string $type) : string
     {
         foreach ($this->defaultCasts as $character => $cast) {
             if (starts_with($type, $character)) {
@@ -270,7 +279,7 @@ class TableReader
      *
      * @return bool
      */
-    protected function isDate($type)
+    protected function isDate(string $type) : bool
     {
         foreach ($this->defaultDates as $date) {
             return starts_with($type, $date);

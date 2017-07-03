@@ -304,6 +304,8 @@ You can also pass some row header names if you don't want them to be automatical
 
 #### Table reader
 
+Note: uses default database connection when resolved from the DI container using `app(TableReader::class);`.
+
 ##### Fill missing attributes
 
 ## License
