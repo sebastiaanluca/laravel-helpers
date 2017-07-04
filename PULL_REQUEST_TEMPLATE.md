@@ -1,43 +1,34 @@
-## Description
+## PR Type
+
+What kind of pull request is this? Put an `x` in all the boxes that apply:
+
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] New feature (non-breaking change which adds functionality)
+- [ ] Extend feature (non-breaking change which extends existing functionality)
+- [ ] Change feature (non-breaking change which either changes or refactors existing functionality)
+- [ ] Breaking change (fix or feature that would cause existing functionality to change)
+
+## What does it change?
 
 Describe your changes in detail.
 
-## Motivation and context
+## Why this PR?
 
 Why is this change required? What problem does it solve?
 
-If it fixes an open issue, please link to the issue here (if you write `fixes #num`
-or `closes #num`, the issue will be automatically closed when the pull is accepted.)
-
 ## How has this been tested?
 
-Please describe in detail how you tested your changes.
+Please describe in detail how you tested your changes (or are planning on testing them).
 
-Include details of your testing environment, and the tests you ran to
-see how your change affects other areas of the code, etc.
+## Checklist
 
-## Screenshots (if appropriate)
+To facilitate merging your change and the approval of this PR, please make sure you've reviewed and applied the following:
 
-## Types of changes
-
-What types of changes does your code introduce? Put an `x` in all the boxes that apply:
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to change)
-
-## Checklist:
-
-Go over all the following points, and put an `x` in all the boxes that apply.
-
-Please, please, please, don't send your pull request until all of the boxes are ticked.
-
-- [ ] I have read the **[CONTRIBUTING](CONTRIBUTING.md)** document.
-- [ ] My pull request addresses exactly one patch/feature.
-- [ ] I have created a branch for this patch/feature.
-- [ ] Each individual commit in the pull request is meaningful.
-- [ ] I have added tests to cover my changes.
-- [ ] All new and existing tests passed.
-- [ ] If my change requires a change to the documentation, I have updated it accordingly.
-- [ ] My code follows the code style of this project.
+- This PR addresses exactly one issue
+- All changes were made in a fork of this project (preferably also in a separate branch)
+- It follows the code style of this project
+- Tests were added to cover the changes
+- All previously existing tests still pass
+- If the change to the code requires a change to the documentation, it has been updated accordingly
 
 If you're unsure about any of these, don't hesitate to ask. We're here to help!
