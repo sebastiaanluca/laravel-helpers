@@ -52,8 +52,9 @@ if (! function_exists('array_expand')) {
     /**
      * Expand a flat dotted array to a multi-dimensional associative array.
      *
-     * If a key is encountered that is already present, it will either be added to its value
-     * if that value is an array or it will override the value altogether.
+     * If a key is encountered that is already present and the existing value is an array, each
+     * new value will be added to that array. If it's not an array, each new value will override
+     * the existing one.
      *
      * @param array $array
      *

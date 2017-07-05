@@ -10,47 +10,13 @@
 [![Follow @sebastiaanluca on Twitter][twitter-profile-badge]][link-twitter]
 [![Share this package on Twitter][twitter-share-badge]][link-twitter-share]
 
-**An extensive set of generic PHP and Laravel-specific helpers.** Each helper is optional and comes with instructions on how to use it.
+*An extensive set of generic PHP and Laravel-specific helpers.**
+
+Each helper is optional and comes with instructions on how to use it.
 
 ## Table of contents
 
-* [Requirements](#requirements)
-* [Install](#install)
-* [Usage](#usage)
-    + [Global methods](#global-methods)
-      - [locale](#locale)
-      - [is_active_route](#is_active_route)
-      - [ddd_if](#ddd_if)
-      - [carbonize](#carbonize-1)
-      - [take (pipe operator)](#take-pipe-operator)
-      - [rand_bool](#rand_bool)
-      - [str_wrap](#str_wrap)
-      - [is_assoc_array](#is_assoc_array)
-      - [array_expand](#array_expand)
-      - [array_without](#array_without)
-      - [array_hash](#array_hash)
-      - [object_hash](#object_hash)
-      - [public_method_exists](#public_method_exists)
-    + [Collection macros](#collection-macros)
-      - [Carbonize](#carbonize)
-      - [Between](#between)
-      - [Methodize](#methodize)
-      - [mapWithIntegerKeys](#mapwithintegerkeys)
-      - [d](#d)
-      - [ddd](#ddd)
-      - [transformKeys](#transformkeys)
-    + [Classes](#classes)
-      - [Constant trait](#constant-trait)
-      - [Reflection trait](#reflection-trait)
-      - [Method helper](#method-helper)
-    + [Database](#database)
-      - [Table reader](#table-reader)
-* [Change log](#change-log)
-* [Testing](#testing)
-* [Contributing](#contributing)
-* [Security](#security)
-* [Credits](#credits)
-* [License](#license)
+TODO
 
 Table of contents generated with <a href='http://ecotrust-canada.github.io/markdown-toc/'>markdown-toc</a>.
 
@@ -67,64 +33,31 @@ Via Composer:
 composer require sebastiaanluca/laravel-helpers
 ```
 
+To use the global helper functions or enable the collection macros, add the corresponding service provider to your `config/app.php` file:
+
+```php
+'providers' => [
+
+    SebastiaanLuca\Helpers\Methods\GlobalHelpersServiceProvider::class,
+    SebastiaanLuca\Helpers\Collections\CollectionMacrosServiceProvider::class,
+    
+]
+```
+
+Other helpers are standalone and do not need to be activated beforehand.
+
 ## How to use
 
-### Global methods
-
-#### locale
-
-Get the active locale.
-
-```php
-$locale = locale();
-```
-
-#### is_active_route
-
-Check if the given route is currently active.
-
-Note: requires the `laravelista/ekko` package ([https://github.com/laravelista/Ekko]()).
-
-```php
-$result = is_active_route('auth/login');
-```
-
-#### ddd_if
-
-Only debugs a statement given a truth condition.
-
-Note: requires the `raveren/kint` debug package (https://github.com/raveren/kint).
-
-```php
-ddd_if(app()->environment() == 'local', $var1, $var2, $var3);
-```
-
-#### carbonize
-
-Create a Carbon object from a string.
-
-```php
-$time = carbonize('2017-01-18 11:30');
-```
-
-#### take (pipe operator)
-
-Create a new piped item from a given value. See the [blog post](https://blog.sebastiaanluca.com/enabling-php-method-chaining-with-a-makeshift-pipe-operator) for more info.
-
-```php
-$subdomain = take('https://blog.sebastiaanluca.com/')
-               ->pipe('parse_url', PHP_URL_HOST)
-               ->pipe('explode', '.', '$$')
-               ->pipe('reset')
-               ->get();
-```
+### Global helper functions
 
 #### rand_bool
 
-Randomly return true or false.
+Randomly return `true` or `false`.
 
 ```php
-$bool = rand_bool();
+$boolean = rand_bool();
+
+// true
 ```
 
 #### str_wrap
@@ -132,34 +65,66 @@ $bool = rand_bool();
 Wrap a string with another string.
 
 ```php
-$quoted = str_wrap('foo', '"');
+$quoted = str_wrap('foo', '*');
 
-// "foo"
+// "*foo*"
 ```
 
 #### is_assoc_array
 
-Check if an array is associative (as opposed to numeric).
+Check if an array is associative.
+
+Performs a simple check to determine if the given array's keys are numeric, start at 0, and count up to the amount of values it has.
 
 ```php
-$result = is_assoc_array(['color' => 'blue', 'age' => 31]);
+$assoc = is_assoc_array(['color' => 'blue', 'age' => 31]);
 
 // true
 ```
 
+```php
+$sequential = is_assoc_array([0 => 'blue', 7 => 31]);
+
+// true
+```
+
+```php
+$sequential = is_assoc_array(['blue', 31]);
+
+// false
+```
+
+```php
+$sequential = is_assoc_array([0 => 'blue', 1 => 31]);
+
+// false
+```
+
 #### array_expand
 
-Expand a flat dotted array to a multi-dimensional associative array.
+Expand a flat dotted array into a multi-dimensional associative array.
+
+If a key is encountered that is already present and the existing value is an array, each new value will be added to that array. If it's not an array, each new value will override the existing one.
 
 ```php
 $array = array_expand(['products.desk.price' => 200]);
 
-// ['products' => ['desk' => ['price' => 200]]]
+/*
+[
+    "products" => [
+        "desk" => [
+            "price" => 200,
+        ],
+    ],
+]
+*/
 ```
 
 #### array_without
 
 Get the array without the given values.
+
+Accepts either an array or a value as parameter to remove.
 
 ```php
 $cars = ['bmw', 'mercedes', 'audi'];
@@ -167,36 +132,68 @@ $soldOut = ['audi', 'bmw'];
 
 $inStock = array_without($cars, $soldOut);
 
-// ['mercedes']
+// ["mercedes"]
+```
+
+```php
+$sequence = array_without(['one', 'two', 'three'], 'two');
+
+// ["one", "three"]
+```
+
+### array_pull_value
+
+Pull a single value from a given array.
+
+Returns the given value if it was successfully removed from the source array or `null` if it was not found.
+
+```php
+$source = ['A', 'B', 'C'];
+$pulled = array_pull_value($source, 'C');
+
+// "C"
+
+// $source = ["A", "B"];
+```
+
+### array_pull_values
+
+Pull an array of values from a given array.
+
+Returns the values that were successfully removed from the source array or an empty array if none were found.
+
+```php
+$source = ['A', 'B', 'C'];
+$pulled = array_pull_values($source, ['A', 'B']);
+
+// ["A", "B"]
+
+// $source = ["C"];
 ```
 
 #### array_hash
 
-Create a unique identifier for a given array.
+Create a unique string identifier for an array.
+
+The identifier will be entirely unique for each combination of keys and values.
 
 ```php
-$myArray = [
-    'akey' => 'somevalue',
-    'anotherkey' => 'anothervalue',
-];
+$hash1 = array_hash([1, 2, 3]);
 
-$hash = array_hash($myArray);
+// "262bbc0aa0dc62a93e350f1f7df792b9"
+```
 
-// 80435ac6242e902754a268b6cb4b4c9a
+```php
+$hash2 = array_hash(['hash' => 'me']);
 
-$anotherArray = [
-    'keylessvalue',
-    'abc',
-];
-
-$hash = array_hash($anotherArray);
-
-// 9611ce5a1ab6b60e73e33942a8cf0272
+// "f712e79b502bda09a970e2d4d47e3f88"
 ```
 
 #### object_hash
 
-Create a unique identifier for a given object. Similar to [array_hash](#array_hash), this uses `serialize` to stringify all public properties first.
+Create a unique string identifier for an object.
+
+Similar to [array_hash](#array_hash), this uses `serialize` to *stringify* all public properties first. The identifier will be entirely unique based on the object class, properties, and its values.
 
 ```php
 class ValueObject {
@@ -205,20 +202,144 @@ class ValueObject {
 
 $hash = object_hash(new ValueObject);
 
-// acceaba779657cdaf00e9c93737d778f
+// "f39eaea7a1cf45f5a0c813d71b5f2f57"
 ```
 
-#### public_method_exists
+#### has_public_method
 
-Check if an object has a given public method.
+Check if a class has a certain public method.
 
 ```php
-$car = new Car();
-
-if (public_method_exists($car, 'honk')) {
-    $car->honk();
+class Hitchhiker {
+    public function answer() {
+        return 42;
+    }
 }
+
+$hash = has_public_method(Hitchhiker::class, 'answer');
+
+// true
+
+$hash = has_public_method(new Hitchhiker, 'answer');
+
+// true
 ```
+
+#### carbonize
+
+Create a Carbon datetime object from a string.
+
+```php
+$time = carbonize('2017-01-18 11:30');
+
+/*
+Carbon\Carbon {
+    "date": "2017-01-18 11:30:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC",
+}
+*/
+```
+
+#### take (pipe operator)
+
+Create a new pipe item from a given value.
+
+Allows you to chain method calls any way you see fit. See the [enabling PHP method chaining with a makeshift pipe operator](https://blog.sebastiaanluca.com/enabling-php-method-chaining-with-a-makeshift-pipe-operator) blog post for more info.
+
+```php
+$subdomain = take('https://blog.sebastiaanluca.com/')
+               ->pipe('parse_url', PHP_URL_HOST)
+               ->pipe('explode', '.', '$$')
+               ->pipe('reset')
+               ->get();
+
+// "blog"
+```
+
+#### locale
+
+Get the active app locale or the fallback locale if it's missing or not set.
+
+```php
+$locale = locale();
+
+// "en"
+```
+
+#### sss
+
+Display structured debug information about one or more values **in plain text** using Kint and halt script execution afterwards. Accepts multiple arguments to dump.
+
+```php
+sss('string');
+
+/*
+┌─────────────────────────────────────────┐
+│ literal                                 │
+└─────────────────────────────────────────┘
+string (6) "string"
+═══════════════════════════════════════════
+Called from .../src/MyClass.php:42
+*/
+
+sss('string', 0.42, ['array']);
+
+/*
+┌─────────────────────────────────────────┐
+│ literal                                 │
+└─────────────────────────────────────────┘
+string (6) "string"
+┌─────────────────────────────────────────┐
+│ literal                                 │
+└─────────────────────────────────────────┘
+double 0.42
+┌─────────────────────────────────────────┐
+│ literal                                 │
+└─────────────────────────────────────────┘
+array (1) [
+    0 => string (5) "array"
+]
+═══════════════════════════════════════════
+Called from .../src/MyClass.php:42
+*/
+```
+
+Output will be identical to `ddd` when used in a command line interface. In a browser, it'll display plain, but structured text.
+
+Requires the [kint-php/kint](https://github.com/raveren/kint) package.
+
+#### ddd
+
+Display structured debug information about one or more values using Kint and halt script execution afterwards. Accepts multiple arguments to dump. Output will be identical to `sss` when used in a command line interface. In a browser, it'll display an interactive, structured tree-view.
+
+See the [sss helper](#sss) for example output.
+
+Requires the [kint-php/kint](https://github.com/raveren/kint) package.
+
+#### sss_if
+
+Display structured debug information about one or more values **in plain text** using Kint and halt script execution afterwards, but only if the condition is truthy. Does nothing if falsy. Accepts multiple arguments to dump.
+
+```php
+sss_if($user->last_name, 'User has a last name', $user->last_name);
+```
+
+See the [sss helper](#sss) for example output.
+
+Requires the [kint-php/kint](https://github.com/raveren/kint) package.
+
+#### ddd_if
+
+Display structured debug information about one or more values using Kint and halt script execution afterwards, but only if the condition is truthy. Does nothing if falsy. Accepts multiple arguments to dump.
+
+```php
+ddd_if(app()->environment('local'), 'Debugging in a local environment!');
+```
+
+See the [ddd helper](#ddd) for example output.
+
+Requires the [kint-php/kint](https://github.com/raveren/kint) package.
 
 ### Collection macros
 
