@@ -38,6 +38,25 @@ if (! function_exists('ddd')) {
     Kint::$aliases[] = 'ddd';
 }
 
+if (! function_exists('sss_if')) {
+    /**
+     * Display structured debug information about one or more values in plain text using Kint
+     * and halt script execution afterwards, but only if the condition is truthy. Does nothing
+     * if falsy. Accepts multiple arguments to dump.
+     *
+     * @param mixed $condition
+     * @param array ...$args
+     */
+    function sss_if($condition, ...$args)
+    {
+        if (! $condition) {
+            return;
+        }
+
+        sss(...$args);
+    }
+}
+
 if (! function_exists('ddd_if')) {
     /**
      * Debug one or more statements only if the given condition is truthy (and halt script execution afterwards).

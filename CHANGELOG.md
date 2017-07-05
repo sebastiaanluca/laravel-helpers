@@ -10,6 +10,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 - Set up testing environment and add tests for each feature
 - Added support for Laravel 5.5
+- Added `sss_if` global helper
 
 ### Changed
 
