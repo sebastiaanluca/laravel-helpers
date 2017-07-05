@@ -36,6 +36,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Extracted queueable job (moved to [laravel-resource-flow](https://github.com/sebastiaanluca/laravel-resource-flow))
 - Removed `mapWithIntegerKeys` collection macro (fixed in Laravel 5.4.x)
 - Removed HTML and form helpers (tip: use Spatie's macroable https://github.com/spatie/laravel-html package instead)
+- Removed `is_active_route` global helper (use Ekko's default global helpers instead)
 
 ## 0.5.2 (2017-02-14)
 

@@ -130,15 +130,6 @@ class GlobalMethodsTest extends TestCase
         $this->assertSame($locale, locale());
     }
 
-    public function test it checks the active route()
-    {
-        $ekko = $this->mock(Ekko::class, [app('router'), app('url')]);
-
-        $ekko->shouldReceive('isActiveRoute')->once()->with('home', 'class');
-
-        is_active_route('home', 'class');
-    }
-
     /**
      * Get package providers.
      *

@@ -278,18 +278,3 @@ if (! function_exists('locale')) {
         return config('app.locale') ?? config('app.fallback_locale');
     }
 }
-
-if (! function_exists('is_active_route')) {
-    /**
-     * Check if the given route is currently active.
-     *
-     * @param string $routeName
-     * @param string $output
-     *
-     * @return mixed
-     */
-    function is_active_route($routeName, $output = 'active')
-    {
-        return isActiveRoute($routeName, $output);
-    }
-}
