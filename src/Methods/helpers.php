@@ -4,76 +4,6 @@ use Carbon\Carbon;
 use SebastiaanLuca\Helpers\Classes\MethodHelper;
 use SebastiaanLuca\Helpers\Pipe\Item;
 
-if (! function_exists('sss')) {
-    /**
-     * Debug one or more statements in plain text using Kint and halt script execution afterwards.
-     *
-     * @param array ...$args
-     */
-    function sss(...$args)
-    {
-        s(...$args);
-
-        die;
-    }
-
-    // See https://kint-php.github.io/kint/advanced/#plugins
-    Kint::$aliases[] = 'sss';
-}
-
-if (! function_exists('ddd')) {
-    /**
-     * Debug one or more statements using Kint and halt script execution afterwards.
-     *
-     * @param array ...$args
-     */
-    function ddd(...$args)
-    {
-        d(...$args);
-
-        die;
-    }
-
-    // See https://kint-php.github.io/kint/advanced/#plugins
-    Kint::$aliases[] = 'ddd';
-}
-
-if (! function_exists('sss_if')) {
-    /**
-     * Display structured debug information about one or more values in plain text using Kint
-     * and halt script execution afterwards, but only if the condition is truthy. Does nothing
-     * if falsy. Accepts multiple arguments to dump.
-     *
-     * @param mixed $condition
-     * @param array ...$args
-     */
-    function sss_if($condition, ...$args)
-    {
-        if (! $condition) {
-            return;
-        }
-
-        sss(...$args);
-    }
-}
-
-if (! function_exists('ddd_if')) {
-    /**
-     * Debug one or more statements only if the given condition is truthy (and halt script execution afterwards).
-     *
-     * @param mixed $condition
-     * @param array ...$args
-     */
-    function ddd_if($condition, ...$args)
-    {
-        if (! $condition) {
-            return;
-        }
-
-        ddd(...$args);
-    }
-}
-
 if (! function_exists('rand_bool')) {
     /**
      * Randomly return true or false.
@@ -276,5 +206,79 @@ if (! function_exists('locale')) {
     function locale() : string
     {
         return config('app.locale') ?? config('app.fallback_locale');
+    }
+}
+
+if (class_exists(Kint::class) && ! function_exists('sss')) {
+    /**
+     * Display structured debug information about one or more values in plain text using Kint
+     * and halt script execution afterwards. Accepts multiple arguments to dump.
+     *
+     * @param array ...$args
+     */
+    function sss(...$args)
+    {
+        s(...$args);
+
+        die;
+    }
+
+    // See https://kint-php.github.io/kint/advanced/#plugins
+    Kint::$aliases[] = 'sss';
+}
+
+if (class_exists(Kint::class) && ! function_exists('ddd')) {
+    /**
+     * Display structured debug information about one or more values in using Kint and halt
+     * script execution afterwards. Accepts multiple arguments to dump.
+     *
+     * @param array ...$args
+     */
+    function ddd(...$args)
+    {
+        d(...$args);
+
+        die;
+    }
+
+    // See https://kint-php.github.io/kint/advanced/#plugins
+    Kint::$aliases[] = 'ddd';
+}
+
+if (! function_exists('sss_if')) {
+    /**
+     * Display structured debug information about one or more values in plain text using Kint
+     * and halt script execution afterwards, but only if the condition is truthy. Does nothing
+     * if falsy. Accepts multiple arguments to dump.
+     *
+     * @param mixed $condition
+     * @param array ...$args
+     */
+    function sss_if($condition, ...$args)
+    {
+        if (! $condition) {
+            return;
+        }
+
+        sss(...$args);
+    }
+}
+
+if (! function_exists('ddd_if')) {
+    /**
+     * Display structured debug information about one or more values using Kint and halt script
+     * execution afterwards, but only if the condition is truthy. Does nothing if falsy. Accepts
+     * multiple arguments to dump.
+     *
+     * @param mixed $condition
+     * @param array ...$args
+     */
+    function ddd_if($condition, ...$args)
+    {
+        if (! $condition) {
+            return;
+        }
+
+        ddd(...$args);
     }
 }
