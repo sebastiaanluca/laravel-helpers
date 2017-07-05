@@ -23,6 +23,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Renamed constant helper trait to `Constants`
 - Renamed `hasMethod` to `hasMethodOfType` in `MethodHelper`
 - Renamed `ReflectionTrait` to `ProvidesClassInfo`
+- Renamed `public_method_exists` global helper to `has_public_method`
 
 ### Fixed
 

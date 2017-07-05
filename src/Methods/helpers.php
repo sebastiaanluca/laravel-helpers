@@ -154,6 +154,21 @@ if (! function_exists('object_hash')) {
     }
 }
 
+if (! function_exists('has_public_method')) {
+    /**
+     * Check if a class has a certain public method.
+     *
+     * @param object $object
+     * @param string $method
+     *
+     * @return bool
+     */
+    function has_public_method($object, $method) : bool
+    {
+        return MethodHelper::hasPublicMethod($object, $method);
+    }
+}
+
 if (! function_exists('carbonize')) {
     /**
      * Create a Carbon object from a string.
@@ -179,21 +194,6 @@ if (! function_exists('take')) {
     function take($value) : Item
     {
         return new \SebastiaanLuca\Helpers\Pipe\Item($value);
-    }
-}
-
-if (! function_exists('public_method_exists')) {
-    /**
-     * Check if an object has a given public method.
-     *
-     * @param object $object
-     * @param string $method
-     *
-     * @return bool
-     */
-    function public_method_exists($object, $method) : bool
-    {
-        return MethodHelper::hasPublicMethod($object, $method);
     }
 }
 

@@ -111,8 +111,8 @@ class GlobalMethodsTest extends TestCase
             }
         };
 
-        $this->assertTrue(public_method_exists($class, 'myMethod'));
-        $this->assertFalse(public_method_exists($class, 'myInvalidMethod'));
+        $this->assertTrue(has_public_method($class, 'myMethod'));
+        $this->assertFalse(has_public_method($class, 'myInvalidMethod'));
     }
 
     public function test it returns the current locale()
