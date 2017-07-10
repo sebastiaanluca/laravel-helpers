@@ -228,6 +228,8 @@ has_public_method(new Hitchhiker, 'answer');
 
 Create a Carbon datetime object from a string.
 
+Requires the [nesbot/carbon](https://github.com/briannesbitt/Carbon) package.
+
 ```php
 carbonize('2017-01-18 11:30');
 
@@ -260,6 +262,8 @@ take('https://blog.sebastiaanluca.com/')
 
 Get the active app locale or the fallback locale if it's missing or not set.
 
+Requires the [laravel/framework](https://github.com/laravel/framework) package.
+
 ```php
 locale();
 
@@ -269,6 +273,10 @@ locale();
 #### sss
 
 Display structured debug information about one or more values **in plain text** using Kint and halt script execution afterwards. Accepts multiple arguments to dump.
+
+Output will be identical to `ddd` when used in a command line interface. In a browser, it'll display plain, but structured text.
+
+Requires the [kint-php/kint](https://github.com/raveren/kint) package.
 
 ```php
 sss('string');
@@ -304,21 +312,19 @@ Called from .../src/MyClass.php:42
 */
 ```
 
-Output will be identical to `ddd` when used in a command line interface. In a browser, it'll display plain, but structured text.
-
-Requires the [kint-php/kint](https://github.com/raveren/kint) package.
-
 #### ddd
 
 Display structured debug information about one or more values using Kint and halt script execution afterwards. Accepts multiple arguments to dump. Output will be identical to `sss` when used in a command line interface. In a browser, it'll display an interactive, structured tree-view.
 
-See the [sss helper](#sss) for example output.
-
 Requires the [kint-php/kint](https://github.com/raveren/kint) package.
+
+See the [sss helper](#sss) for example output.
 
 #### sss_if
 
 Display structured debug information about one or more values **in plain text** using Kint and halt script execution afterwards, but only if the condition is truthy. Does nothing if falsy. Accepts multiple arguments to dump.
+
+Requires the [kint-php/kint](https://github.com/raveren/kint) package.
 
 ```php
 sss_if($user->last_name, 'User has a last name', $user->last_name);
@@ -326,11 +332,11 @@ sss_if($user->last_name, 'User has a last name', $user->last_name);
 
 See the [sss helper](#sss) for example output.
 
-Requires the [kint-php/kint](https://github.com/raveren/kint) package.
-
 #### ddd_if
 
 Display structured debug information about one or more values using Kint and halt script execution afterwards, but only if the condition is truthy. Does nothing if falsy. Accepts multiple arguments to dump.
+
+Requires the [kint-php/kint](https://github.com/raveren/kint) package.
 
 ```php
 ddd_if(app()->environment('local'), 'Debugging in a local environment!');
@@ -338,29 +344,137 @@ ddd_if(app()->environment('local'), 'Debugging in a local environment!');
 
 See the [ddd helper](#ddd) for example output.
 
-Requires the [kint-php/kint](https://github.com/raveren/kint) package.
-
 ### Collection macros
 
 #### Carbonize
 
+Create Carbon instances from items in a collection.
+
+Requires the [nesbot/carbon](https://github.com/briannesbitt/Carbon) package.
+
+```php
+collect([
+    'yesterday',
+    'tomorrow',
+    '2017-07-01',
+])->carbonize();
+
+/*
+Illuminate\Support\Collection {
+    all: [
+        Carbon\Carbon {
+            "date": "2017-07-09 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC",
+        },
+        Carbon\Carbon {
+            "date": "2017-07-11 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC",
+        },
+        Carbon\Carbon {
+            "date": "2017-07-01 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC",
+        },
+    ],
+}
+*/
+```
+
 #### Between
 
-#### Methodize
+Reduce each collection item to the value found between a given start and end string.
 
-#### mapWithIntegerKeys
+The second parameter is optional and falls back to the start string if `null`.
 
-#### d
+```php
+collect([
+    '"value1"',
+    '"value2"',
+    '"value3"',
+])->between('"', '"');
 
-#### ddd
+/*
+Illuminate\Support\Collection {
+    all: [
+        "value1",
+        "value2",
+        "value3",
+    ],
+}
+*/
+```
 
 #### transformKeys
 
+Perform an operation on the collection's keys.
+
+The callable operation can either be a globally available method or a closure.
+
+```php
+collect([
+    'a' => 'value',
+    'b' => 'value',
+    'c' => 'value',
+])->transformKeys('strtoupper');
+
+/*
+Illuminate\Support\Collection {
+    all: [
+        "A" => "value",
+        "B" => "value",
+        "C" => "value",
+    ],
+}
+*/
+```
+
+```php
+collect([
+    'a' => 'value',
+    'b' => 'value',
+    'c' => 'value',
+])->transformKeys(function (string $key) {
+    return 'prefix-' . $key;
+});
+
+/*
+Illuminate\Support\Collection {
+    all: [
+        "prefix-a" => "value",
+        "prefix-b" => "value",
+        "prefix-c" => "value",
+    ],
+}
+*/
+```
+
 #### transpose
+
+Transpose (flip) a collection matrix (array of arrays) so its columns become rows and its rows become columns.
+
+```php
+collect([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+])->transpose();
+
+/*
+Illuminate\Support\Collection {
+    all: [
+        [1, 4, 7],
+        [2, 5, 8],
+        [3, 6, 9],
+    ],
+}
+*/
+```
 
 #### transposeWithKeys
 
-Flip a collection of rows and values per column so that the columns become rows and the rows become columns.
+Flip a collection of rows and values per column so its columns become rows and its rows become columns.
 
 Before:
 
@@ -393,40 +507,281 @@ collect([
         'id' => 3,
         'name' => 'Jonas',
     ],
-])->transposeWithKeys()
+])->transposeWithKeys();
 
-// Output (inside a new collection):
-//    [
-//        'id' => [
-//            'A' => 1,
-//            'B' => 2,
-//            'C' => 3,
-//        ],
-//        'name' => [
-//            'A' => 'James',
-//            'B' => 'Joe',
-//            'C' => 'Jonas',
-//        ],
-//    ]
+/*
+Illuminate\Support\Collection {
+    all: [
+        "id" => [
+            "A" => 1,
+            "B" => 2,
+            "C" => 3,
+        ],
+        "name" => [
+            "A" => "James",
+            "B" => "Joe",
+            "C" => "Jonas",
+        ],
+    ],
+}
+*/
 ```
 
-You can also pass some row header names if you don't want them to be automatically guessed. You'd then call the macro with `transposeWithKeys(['myID', 'row2'])` and the resulting rows would be `myID` and `row2 instead of `id` and `name` respectively. 
+You can also pass some row header names if you don't want them to be automatically guessed. You'd then call the macro with `transposeWithKeys(['myID', 'row2'])` and the resulting rows would be `myID` and `row2 instead of `id` and `name` respectively.
 
-### Classes
+#### d
 
-#### Constant trait
+Display structured debug information on the collection using Kint. Can be called multiple times during a collection's method chain and outputs debug information at each point of use. Continues script execution afterwards.
 
-#### Reflection trait
+Requires the [kint-php/kint](https://github.com/raveren/kint) package.
 
-#### Method helper
+```php
+collect([
+    'id' => 6,
+    'name' => 'Sebastiaan',
+])
+->d()
+->put('role', 'author')
+->d();
+```
 
-### Database
+See the [sss helper](#sss) for example output.
 
-#### Table reader
+#### ddd
 
-Note: uses default database connection when resolved from the DI container using `app(TableReader::class);`.
+Display structured debug information on the collection using Kint. Halts script execution afterwards, so it can only be called once during a collection's method chain.
 
-##### Fill missing attributes
+Requires the [kint-php/kint](https://github.com/raveren/kint) package.
+
+```php
+collect([
+    'id' => 6,
+    'name' => 'Sebastiaan',
+])
+->d()
+->put('role', 'author')
+->ddd();
+```
+
+See the [sss helper](#sss) for example output.
+
+### Class helpers
+
+#### Constants trait
+
+The primary use of the `Constants` trait is to enable you to store all constants of a specific type in a single class or value object and have it return those with a single call.
+
+This can be useful for instance when your database uses integers to store states, but you want to use descriptive strings throughout your code. It also allows you to refactor these constants at any time without having to waste time searching your code for any raw values (and probably miss a few, introducing new bugs along the way).
+
+```php
+<?php
+
+use SebastiaanLuca\Helpers\Classes\Constants;
+
+class UserStates
+{
+    use Constants;
+
+    const REGISTERED = 'registered';
+    const ACTIVATED = 'activated';
+    const DISABLED = 'disabled';
+}
+
+UserStates::constants();
+
+// or
+
+(new UserStates)->constants();
+
+/*
+[
+    "REGISTERED" => "registered",
+    "ACTIVATED" => "activated",
+    "DISABLED" => "disabled",
+]
+*/
+```
+
+#### ProvidesClassInfo trait (`getClassDirectory`)
+
+The `ProvidesClassInfo` trait provides an easy-to-use `getClassDirectory()` helper method that returns the directory of the current class.
+
+```php
+<?php
+
+namespace Kyle\Helpers;
+
+use SebastiaanLuca\Helpers\Classes\ProvidesClassInfo;
+
+class MyClass
+{
+    use ProvidesClassInfo;
+
+    public function __construct()
+    {
+        var_dump($this->getClassDirectory());
+    }
+}
+
+// "/Users/Kyle/Projects/laravel-helpers"
+```
+
+#### MethodHelper
+
+A static class helper to help you figure out the visibility/accessibility of an object's methods.
+
+```php
+<?php
+
+class SomeClass
+{
+    protected function aPrivateMethod() : string
+    {
+        return 'private';
+    }
+
+    protected function aProtectedMethod() : string
+    {
+        return 'protected';
+    }
+
+    protected function aPublicMethod() : string
+    {
+        return 'public';
+    }
+}
+
+MethodHelper::hasMethodOfType($class, 'aPrivateMethod', 'private');
+
+// true
+
+MethodHelper::hasProtectedMethod($class, 'aProtectedMethod');
+
+// true
+
+MethodHelper::hasPublicMethod($class, 'aPublicMethod');
+
+// true
+
+MethodHelper::hasProtectedMethod($class, 'aPrivateMethod');
+
+// false
+
+MethodHelper::hasPublicMethod($class, 'invalidMethod');
+
+// false
+```
+
+### Database table reader
+
+Gives you detailed information about a given table, especially in the context of a Laravel Eloquent model.
+
+Note that this has only been tested with MySQL databases, although it might work with others too as it uses a raw `describe` statement to get a table's information. Uses the default database connection by default when resolved from the DI container, but you can set your own before calling `read`.
+
+Note: unless otherwise specified, call each method __after reading__ the table to allow for it to return something.
+
+Requires the [illuminate/database](https://github.com/illuminate/database) package.
+
+#### Loading a table's information
+
+Create a new reader to set up its internal database manager and connection:
+
+```php
+$reader = app(\SebastiaanLuca\Helpers\Database\TableReader::class);
+```
+
+Then read the table:
+
+```php
+$reader->read('users');
+```
+
+#### getConnection
+
+Get the database connection used to read the table.
+
+#### setConnection
+
+Set the database connection used to read the table. Do this __before__ reading the table.
+
+```php
+app(\SebastiaanLuca\Helpers\Database\TableReader::class)
+    ->setConnection($connection)
+    ->read('users');
+```
+
+#### getTable
+
+Get the table name that was read.
+
+#### getRawFields
+
+Get all the table's fields and additional raw information as an array.
+
+#### getFields
+
+Get a simple list of all the table's column names.
+
+#### getGuarded
+
+Get a simple list of all the table's guarded fields.
+
+Compares the table's columns with a default list and returns matches.
+
+Currently supported:
+
+- `id`
+- `password`
+- `password_hash`
+- `created_at`
+- `updated_at`
+- `deleted_at`
+
+#### getFillable
+
+Get all mass-assignable attributes.
+
+Compares default fillable fields with the ones in the table.
+
+#### getCasts
+
+Get all attributes that can be casted to native types.
+
+Matches table column types with their native counterparts.
+
+Currently supported:
+
+- `int` to `integer`
+- `tinyint(1)` to `boolean`
+- `json` to `array`
+
+#### getDates
+
+Get all attributes that can be converted to Carbon DateTime instances.
+
+Currently supported:
+
+- `timestamp`
+- `datetime`
+- `date`
+- `time`
+- `year`
+
+#### getNullableFields
+
+Get all attributes that can be `NULL`.
+
+#### hasField
+
+Check if the table has a given column.
+
+#### usesTimestamps
+
+Check if the table uses Eloquent timestamps (`created_at` and `updated_at`).
+
+#### usesSoftDelete
+
+Check if the table uses Eloquent soft deletes (`deleted_at`).
 
 ## License
 
