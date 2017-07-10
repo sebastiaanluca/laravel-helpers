@@ -4,7 +4,9 @@ All Notable changes to `sebastiaanluca/laravel-helpers` will be documented in th
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-##  Unreleased (1.0.0)
+##  Unreleased
+
+## 1.0.0 (2017-07-10)
 
 ### Added
 
@@ -28,7 +30,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ### Fixed
 
-- Fixed `MethodHelper::hasMethodOfType` throwing exception of third `$type` parameter was not private, protected, or public
+- Fixed `MethodHelper::hasMethodOfType` throwing exception if third `$type` parameter was not private, protected, or public
 
 ### Removed
 
