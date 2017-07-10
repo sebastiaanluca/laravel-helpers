@@ -10,7 +10,7 @@
 [![Follow @sebastiaanluca on Twitter][twitter-profile-badge]][link-twitter]
 [![Share this package on Twitter][twitter-share-badge]][link-twitter-share]
 
-*An extensive set of generic PHP and Laravel-specific helpers.**
+**An extensive set of generic PHP and Laravel-specific helpers.**
 
 Each helper is optional and comes with instructions on how to use it.
 
