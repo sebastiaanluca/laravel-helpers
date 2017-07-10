@@ -4,10 +4,10 @@ namespace SebastiaanLuca\Helpers\Classes;
 
 use ReflectionClass;
 
-Trait ReflectionTrait
+Trait ProvidesClassInfo
 {
     protected $classDirectory;
-    
+
     /**
      * Get the directory of the current class.
      *
@@ -17,15 +17,15 @@ Trait ReflectionTrait
      */
     protected function getClassDirectory()
     {
-        // Do some primitive caching
+        // Some primitive caching
         if ($this->classDirectory) {
             return $this->classDirectory;
         }
-        
+
         $reflection = new ReflectionClass(get_class($this));
-        
+
         $this->classDirectory = dirname($reflection->getFileName());
-        
+
         return $this->classDirectory;
     }
 }

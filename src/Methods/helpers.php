@@ -1,81 +1,8 @@
 <?php
 
+use Carbon\Carbon;
 use SebastiaanLuca\Helpers\Classes\MethodHelper;
-
-if (! function_exists('locale')) {
-    /**
-     * Get the active locale.
-     *
-     * @return string
-     */
-    function locale()
-    {
-        return config('app.locale', config('app.fallback_locale'));
-    }
-}
-
-if (! function_exists('is_active_route')) {
-    /**
-     * Check if the given route is currently active.
-     *
-     * @param string $routeName
-     * @param string $output
-     *
-     * @return bool
-     */
-    function is_active_route($routeName, $output = 'active')
-    {
-        /** @var \Laravelista\Ekko\Ekko $ekko */
-        $ekko = app('Laravelista\Ekko\Ekko');
-
-        return $ekko->isActiveRoute($routeName, $output);
-    }
-}
-
-if (! function_exists('ddd_if')) {
-    /**
-     * Only debugs a statement given a truth condition.
-     *
-     * @param mixed $condition
-     * @param array ...$args
-     */
-    function ddd_if($condition, ...$args)
-    {
-        if (! $condition) {
-            return;
-        }
-
-        ddd(...$args);
-    }
-}
-
-if (! function_exists('carbonize')) {
-    /**
-     * Create a Carbon object from a string.
-     *
-     * @param string $timeString
-     *
-     * @return \Carbon\Carbon
-     */
-    function carbonize($timeString = null)
-    {
-        return new \Carbon\Carbon($timeString);
-    }
-}
-
-if (! function_exists('take')) {
-    /**
-     * Create a new piped item from a given value.
-     *
-     * @param mixed $value
-     *
-     * @return \SebastiaanLuca\Helpers\Pipe\Item
-     */
-    function take($value)
-    {
-        return new \SebastiaanLuca\Helpers\Pipe\Item($value);
-    }
-}
+use SebastiaanLuca\Helpers\Pipe\Item;
 
 if (! function_exists('rand_bool')) {
     /**
@@ -83,7 +10,7 @@ if (! function_exists('rand_bool')) {
      *
      * @return bool
      */
-    function rand_bool()
+    function rand_bool() : bool
     {
         return rand(0, 1) === 0;
     }
@@ -98,7 +25,7 @@ if (! function_exists('str_wrap')) {
      *
      * @return string
      */
-    function str_wrap($string, $wrapper)
+    function str_wrap($string, $wrapper) : string
     {
         return $wrapper . $string . $wrapper;
     }
@@ -108,11 +35,14 @@ if (! function_exists('is_assoc_array')) {
     /**
      * Check if an array is associative.
      *
+     * Performs a simple check to determine if the given array's keys are numeric, start at 0,
+     * and count up to the amount of values it has.
+     *
      * @param array $array
      *
      * @return bool
      */
-    function is_assoc_array($array)
+    function is_assoc_array($array) : bool
     {
         return array_keys($array) !== range(0, count($array) - 1);
     }
@@ -122,11 +52,15 @@ if (! function_exists('array_expand')) {
     /**
      * Expand a flat dotted array to a multi-dimensional associative array.
      *
+     * If a key is encountered that is already present and the existing value is an array, each
+     * new value will be added to that array. If it's not an array, each new value will override
+     * the existing one.
+     *
      * @param array $array
      *
      * @return array
      */
-    function array_expand(array $array)
+    function array_expand(array $array) : array
     {
         $expanded = [];
 
@@ -147,13 +81,9 @@ if (! function_exists('array_without')) {
      *
      * @return array
      */
-    function array_without(array $array, $values)
+    function array_without(array $array, $values) : array
     {
-        if (! is_array($values)) {
-            $values = [$values];
-        }
-
-        return array_values(array_diff($array, $values));
+        return array_values(array_diff($array, array_wrap($values)));
     }
 }
 
@@ -170,7 +100,7 @@ if (! function_exists('array_pull_values')) {
      */
     function array_pull_values(array &$array, array $values) : array
     {
-        $matches = array_intersect($array, $values);
+        $matches = array_values(array_intersect($array, $values));
 
         $array = array_without($array, $values);
 
@@ -225,17 +155,131 @@ if (! function_exists('object_hash')) {
     }
 }
 
-if (! function_exists('public_method_exists')) {
+if (! function_exists('has_public_method')) {
     /**
-     * Check if an object has a given public method.
+     * Check if a class has a certain public method.
      *
      * @param object $object
      * @param string $method
      *
      * @return bool
      */
-    function public_method_exists($object, $method)
+    function has_public_method($object, $method) : bool
     {
         return MethodHelper::hasPublicMethod($object, $method);
+    }
+}
+
+if (! function_exists('carbonize')) {
+    /**
+     * Create a Carbon object from a string.
+     *
+     * @param string $timeString
+     *
+     * @return \Carbon\Carbon
+     */
+    function carbonize($timeString = null) : Carbon
+    {
+        return new \Carbon\Carbon($timeString);
+    }
+}
+
+if (! function_exists('take')) {
+    /**
+     * Create a new piped item from a given value.
+     *
+     * @param mixed $value
+     *
+     * @return \SebastiaanLuca\Helpers\Pipe\Item
+     */
+    function take($value) : Item
+    {
+        return new \SebastiaanLuca\Helpers\Pipe\Item($value);
+    }
+}
+
+if (! function_exists('locale')) {
+    /**
+     * Get the active locale.
+     *
+     * @return string
+     */
+    function locale() : string
+    {
+        return config('app.locale') ?? config('app.fallback_locale');
+    }
+}
+
+if (class_exists(Kint::class) && ! function_exists('sss')) {
+    /**
+     * Display structured debug information about one or more values in plain text using Kint
+     * and halt script execution afterwards. Accepts multiple arguments to dump.
+     *
+     * @param array ...$args
+     */
+    function sss(...$args)
+    {
+        s(...$args);
+
+        die;
+    }
+
+    // See https://kint-php.github.io/kint/advanced/#plugins
+    Kint::$aliases[] = 'sss';
+}
+
+if (class_exists(Kint::class) && ! function_exists('ddd')) {
+    /**
+     * Display structured debug information about one or more values in using Kint and halt
+     * script execution afterwards. Accepts multiple arguments to dump.
+     *
+     * @param array ...$args
+     */
+    function ddd(...$args)
+    {
+        d(...$args);
+
+        die;
+    }
+
+    // See https://kint-php.github.io/kint/advanced/#plugins
+    Kint::$aliases[] = 'ddd';
+}
+
+if (! function_exists('sss_if')) {
+    /**
+     * Display structured debug information about one or more values in plain text using Kint
+     * and halt script execution afterwards, but only if the condition is truthy. Does nothing
+     * if falsy. Accepts multiple arguments to dump.
+     *
+     * @param mixed $condition
+     * @param array ...$args
+     */
+    function sss_if($condition, ...$args)
+    {
+        if (! $condition) {
+            return;
+        }
+
+        sss(...$args);
+    }
+}
+
+if (! function_exists('ddd_if')) {
+    /**
+     * Display structured debug information about one or more values using Kint and halt script
+     * execution afterwards, but only if the condition is truthy. Does nothing if falsy. Accepts
+     * multiple arguments to dump.
+     *
+     * @param mixed $condition
+     * @param array ...$args
+     */
+    function ddd_if($condition, ...$args)
+    {
+        if (! $condition) {
+            return;
+        }
+
+        ddd(...$args);
     }
 }

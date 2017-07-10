@@ -10,7 +10,7 @@ class Item
      * @var string
      */
     protected $value;
-    
+
     /**
      * A unique string that will be replaced with the actual value when calling the pipe method
      * with it.
@@ -18,7 +18,7 @@ class Item
      * @var string
      */
     protected $identifier = '$$';
-    
+
     /**
      * Item constructor.
      *
@@ -28,7 +28,7 @@ class Item
     {
         $this->value = $value;
     }
-    
+
     /**
      * @param \Closure|string $callback
      * @param array ...$arguments
@@ -42,20 +42,22 @@ class Item
         // get used though, we should replace any occurrence of it
         // with the actual value.
         if (! in_array($this->identifier, $arguments, true)) {
+            // Add the given item value as first parameter to call the pipe method with
             array_unshift($arguments, $this->value);
-        } else {
+        }
+        else {
             $arguments = array_map(function ($argument) {
                 return $argument === '$$' ? $this->value : $argument;
             }, $arguments);
         }
-        
+
         // Call the piped method
         $this->value = $callback(...$arguments);
-        
+
         // Allow method chaining
         return $this;
     }
-    
+
     /**
      * Get the current value.
      *

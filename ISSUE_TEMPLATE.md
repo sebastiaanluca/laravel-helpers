@@ -1,25 +1,24 @@
-## Detailed description
+## Description
 
-Provide a detailed description of the change or addition you are proposing.
+Make it clear if the issue is a **bug**, an **enhancement** or just a **question**. The easiest way to indicate this is to prefix the title, e.g. `[Question] I have a question`.
 
-Make it clear if the issue is a bug, an enhancement or just a question.
+Provide a detailed description of the change or addition you are proposing. Include some screenshots or code examples if possible.
+
+### Your environment
+
+If you're reporting a bug or asking a specific question, include as many relevant details about your environment so we can reproduce it. The more, the better.
+
+- Package version or last commit
+- Operating system and version
+- PHP version
+- Laravel version
+- Related package versions
+- …
 
 ## Context
 
-Why is this change important to you? How would you use it?
-
-How can it benefit other users?
+Why is this change important to you? How would you use it? How can it benefit other users?
 
 ## Possible implementation
 
 Not obligatory, but suggest an idea for implementing addition or change.
-
-## Your environment
-
-Include as many relevant details about the environment you experienced the bug in and how to reproduce it.
-
-* Version used (e.g. PHP 5.6, HHVM 3):
-* Operating system and version (e.g. Ubuntu 16.04, Windows 7):
-* Link to your project:
-* ...
-* ...

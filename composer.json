@@ -1,12 +1,14 @@
 {
     "name": "sebastiaanluca/laravel-helpers",
     "type": "library",
-    "description": "A set of Laravel-specific helpers.",
+    "description": "An extensive set of generic PHP and Laravel-specific helpers.",
     "keywords": [
-        "Laravel",
-        "helpers",
+        "laravel",
+        "helper",
         "blade",
         "collection",
+        "response",
+        "array",
         "form",
         "pipe"
     ],
@@ -17,35 +19,44 @@
             "name": "Sebastiaan Luca",
             "email": "hello@sebastiaanluca.com",
             "homepage": "https://www.sebastiaanluca.com",
-            "role": "Author"
+            "role": "Developer"
         }
     ],
     "require": {
-        "php": "^7.0",
-        "laravel/framework": "5.1.*|5.2.*|5.3.*|5.4.*"
+        "php": "^7",
+        "illuminate/support": "^5.4"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.0|^5.7.6"
+        "illuminate/database": "^5.4",
+        "kint-php/kint": "^2.1",
+        "laravel/framework": "^5.4",
+        "laravelcollective/html": "^5.4",
+        "laravelista/ekko": "^1.3",
+        "mockery/mockery": "^0.9.9",
+        "nesbot/carbon": "^1.22",
+        "orchestra/testbench": "^3.4.2",
+        "phpunit/phpunit": "^6.2"
     },
     "suggest": {
-        "laravelista/ekko": "Required for `is_active_route` helper function.",
-        "raveren/kint": "A powerful and modern PHP debugging tool. Required for the global `ddd` helper function.",
-        "laravelcollective/html": "HTML and Form Builders for the Laravel Framework. Required for the Form helpers."
+        "illuminate/database": "Laravel framework database component. Required for the table reader helper.",
+        "kint-php/kint": "A powerful and modern PHP debugging tool. Required for the debug helpers.",
+        "laravel/framework": "The Laravel framework. Required for some global helpers and the form helpers.",
+        "nesbot/carbon": "A simple PHP API extension for DateTime. Required for the carbonize collection macro and global helper."
     },
     "autoload": {
         "psr-4": {
-            "SebastiaanLuca\\Helpers\\": "src/"
+            "SebastiaanLuca\\Helpers\\": "src"
         }
     },
-    "extra": {
-        "branch-alias": {
-            "dev-develop": "1.0-dev"
+    "autoload-dev": {
+        "psr-4": {
+            "SebastiaanLuca\\Helpers\\Tests\\": "tests"
         }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
     },
     "config": {
         "sort-packages": true
-    },
-    "scripts": {
-        "test": "phpunit"
     }
 }
