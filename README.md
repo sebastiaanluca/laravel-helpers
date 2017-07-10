@@ -18,52 +18,51 @@ Each helper is optional and comes with instructions on how to use it.
 
 - [Requirements](#requirements)
 - [How to install](#how-to-install)
-- [How to use](#how-to-use)
-    - [Global helper functions](#global-helper-functions)
-        - [rand_bool](#rand_bool)
-        - [str_wrap](#str_wrap)
-        - [is_assoc_array](#is_assoc_array)
-        - [array_expand](#array_expand)
-        - [array_without](#array_without)
-        - [array_pull_value](#array_pull_value)
-        - [array_pull_values](#array_pull_values)
-        - [array_hash](#array_hash)
-        - [object_hash](#object_hash)
-        - [has_public_method](#has_public_method)
-        - [carbonize](#carbonize)
-        - [take (pipe operator)](#take-pipe-operator)
-        - [locale](#locale)
-        - [sss](#sss)
-        - [ddd](#ddd)
-        - [sss_if](#sss_if)
-        - [ddd_if](#ddd_if)
-    - [Collection macros](#collection-macros)
-        - [Carbonize](#carbonize)
-        - [Between](#between)
-        - [transformKeys](#transformkeys)
-        - [transpose](#transpose)
-        - [transposeWithKeys](#transposewithkeys)
-        - [d](#d)
-        - [ddd](#ddd-1)
-    - [Class helpers](#class-helpers)
-        - [Constants trait](#constants-trait)
-        - [ProvidesClassInfo trait](#providesclassinfo-trait)
-        - [MethodHelper](#methodhelper)
-    - [Database table reader](#database-table-reader)
-        - [Loading a table's information](#loading-a-tables-information)
-        - [getConnection](#getconnection)
-        - [setConnection](#setconnection)
-        - [table](#table)
-        - [rawFields](#rawfields)
-        - [fields](#fields)
-        - [guarded](#guarded)
-        - [fillable](#fillable)
-        - [casts](#casts)
-        - [dates](#dates)
-        - [nullable](#nullable)
-        - [hasField](#hasfield)
-        - [usesTimestamps](#usestimestamps)
-        - [usesSoftDelete](#usessoftdelete)
+- [Global helper functions](#global-helper-functions)
+    - [rand_bool](#rand_bool)
+    - [str_wrap](#str_wrap)
+    - [is_assoc_array](#is_assoc_array)
+    - [array_expand](#array_expand)
+    - [array_without](#array_without)
+    - [array_pull_value](#array_pull_value)
+    - [array_pull_values](#array_pull_values)
+    - [array_hash](#array_hash)
+    - [object_hash](#object_hash)
+    - [has_public_method](#has_public_method)
+    - [carbonize](#carbonize)
+    - [take (pipe operator)](#take-pipe-operator)
+    - [locale](#locale)
+    - [sss](#sss)
+    - [ddd](#ddd)
+    - [sss_if](#sss_if)
+    - [ddd_if](#ddd_if)
+- [Collection macros](#collection-macros)
+    - [Carbonize](#carbonize)
+    - [Between](#between)
+    - [transformKeys](#transformkeys)
+    - [transpose](#transpose)
+    - [transposeWithKeys](#transposewithkeys)
+    - [d](#d)
+    - [ddd](#ddd-1)
+- [Class helpers](#class-helpers)
+    - [Constants trait](#constants-trait)
+    - [ProvidesClassInfo trait](#providesclassinfo-trait)
+    - [MethodHelper](#methodhelper)
+- [Database table reader](#database-table-reader)
+    - [Loading a table's information](#loading-a-tables-information)
+    - [getConnection](#getconnection)
+    - [setConnection](#setconnection)
+    - [table](#table)
+    - [rawFields](#rawfields)
+    - [fields](#fields)
+    - [guarded](#guarded)
+    - [fillable](#fillable)
+    - [casts](#casts)
+    - [dates](#dates)
+    - [nullable](#nullable)
+    - [hasField](#hasfield)
+    - [usesTimestamps](#usestimestamps)
+    - [usesSoftDelete](#usessoftdelete)
 - [License](#license)
 - [Change log](#change-log)
 - [Testing](#testing)
@@ -98,11 +97,9 @@ To use the global helper functions or enable the collection macros, add the corr
 
 Other helpers are standalone and do not need to be activated beforehand.
 
-## How to use
+## Global helper functions
 
-### Global helper functions
-
-#### rand_bool
+### rand_bool
 
 Randomly return `true` or `false`.
 
@@ -112,7 +109,7 @@ rand_bool();
 // true
 ```
 
-#### str_wrap
+### str_wrap
 
 Wrap a string with another string.
 
@@ -122,7 +119,7 @@ str_wrap('foo', '*');
 // "*foo*"
 ```
 
-#### is_assoc_array
+### is_assoc_array
 
 Check if an array is associative.
 
@@ -152,7 +149,7 @@ is_assoc_array([0 => 'blue', 1 => 31]);
 // false
 ```
 
-#### array_expand
+### array_expand
 
 Expand a flat dotted array into a multi-dimensional associative array.
 
@@ -172,7 +169,7 @@ array_expand(['products.desk.price' => 200]);
 */
 ```
 
-#### array_without
+### array_without
 
 Get the array without the given values.
 
@@ -193,7 +190,7 @@ array_without(['one', 'two', 'three'], 'two');
 // ["one", "three"]
 ```
 
-#### array_pull_value
+### array_pull_value
 
 Pull a single value from a given array.
 
@@ -208,7 +205,7 @@ $removed = array_pull_value($source, 'C');
 // $source = ["A", "B"]
 ```
 
-#### array_pull_values
+### array_pull_values
 
 Pull an array of values from a given array.
 
@@ -222,7 +219,7 @@ $removed = array_pull_values($source, ['A', 'B']);
 // $source = ["C"]
 ```
 
-#### array_hash
+### array_hash
 
 Create a unique string identifier for an array.
 
@@ -240,7 +237,7 @@ array_hash(['hash' => 'me']);
 // "f712e79b502bda09a970e2d4d47e3f88"
 ```
 
-#### object_hash
+### object_hash
 
 Create a unique string identifier for an object.
 
@@ -256,7 +253,7 @@ object_hash(new ValueObject);
 // "f39eaea7a1cf45f5a0c813d71b5f2f57"
 ```
 
-#### has_public_method
+### has_public_method
 
 Check if a class has a certain public method.
 
@@ -276,7 +273,7 @@ has_public_method(new Hitchhiker, 'answer');
 // true
 ```
 
-#### carbonize
+### carbonize
 
 Create a Carbon datetime object from a string.
 
@@ -294,7 +291,7 @@ Carbon\Carbon {
 */
 ```
 
-#### take (pipe operator)
+### take (pipe operator)
 
 Create a new pipe item from a given value.
 
@@ -310,7 +307,7 @@ take('https://blog.sebastiaanluca.com/')
 // "blog"
 ```
 
-#### locale
+### locale
 
 Get the active app locale or the fallback locale if it's missing or not set.
 
@@ -322,7 +319,7 @@ locale();
 // "en"
 ```
 
-#### sss
+### sss
 
 Display structured debug information about one or more values **in plain text** using Kint and halt script execution afterwards. Accepts multiple arguments to dump.
 
@@ -364,7 +361,7 @@ Called from .../src/MyClass.php:42
 */
 ```
 
-#### ddd
+### ddd
 
 Display structured debug information about one or more values using Kint and halt script execution afterwards. Accepts multiple arguments to dump. Output will be identical to `sss` when used in a command line interface. In a browser, it'll display an interactive, structured tree-view.
 
@@ -372,7 +369,7 @@ Requires the [kint-php/kint](https://github.com/raveren/kint) package.
 
 See the [sss helper](#sss) for example output.
 
-#### sss_if
+### sss_if
 
 Display structured debug information about one or more values **in plain text** using Kint and halt script execution afterwards, but only if the condition is truthy. Does nothing if falsy. Accepts multiple arguments to dump.
 
@@ -384,7 +381,7 @@ sss_if($user->last_name, 'User has a last name', $user->last_name);
 
 See the [sss helper](#sss) for example output.
 
-#### ddd_if
+### ddd_if
 
 Display structured debug information about one or more values using Kint and halt script execution afterwards, but only if the condition is truthy. Does nothing if falsy. Accepts multiple arguments to dump.
 
@@ -396,9 +393,9 @@ ddd_if(app()->environment('local'), 'Debugging in a local environment!');
 
 See the [ddd helper](#ddd) for example output.
 
-### Collection macros
+## Collection macros
 
-#### Carbonize
+### carbonize
 
 Create Carbon instances from items in a collection.
 
@@ -434,7 +431,7 @@ Illuminate\Support\Collection {
 */
 ```
 
-#### Between
+### between
 
 Reduce each collection item to the value found between a given start and end string.
 
@@ -458,7 +455,7 @@ Illuminate\Support\Collection {
 */
 ```
 
-#### transformKeys
+### transformKeys
 
 Perform an operation on the collection's keys.
 
@@ -502,7 +499,7 @@ Illuminate\Support\Collection {
 */
 ```
 
-#### transpose
+### transpose
 
 Transpose (flip) a collection matrix (array of arrays) so its columns become rows and its rows become columns.
 
@@ -524,7 +521,7 @@ Illuminate\Support\Collection {
 */
 ```
 
-#### transposeWithKeys
+### transposeWithKeys
 
 Flip a collection of rows and values per column so its columns become rows and its rows become columns.
 
@@ -581,7 +578,7 @@ Illuminate\Support\Collection {
 
 You can also pass some row header names if you don't want them to be automatically guessed. You'd then call the macro with `transposeWithKeys(['myID', 'row2'])` and the resulting rows would be `myID` and `row2` instead of `id` and `name` respectively.
 
-#### d
+### d
 
 Display structured debug information on the collection using Kint. Can be called multiple times during a collection's method chain and outputs debug information at each point of use. Continues script execution afterwards.
 
@@ -599,7 +596,7 @@ collect([
 
 See the [sss helper](#sss) for example output.
 
-#### ddd
+### ddd
 
 Display structured debug information on the collection using Kint. Halts script execution afterwards, so it can only be called once during a collection's method chain.
 
@@ -617,9 +614,9 @@ collect([
 
 See the [sss helper](#sss) for example output.
 
-### Class helpers
+## Class helpers
 
-#### Constants trait
+### Constants trait
 
 The primary use of the `Constants` trait is to enable you to store all constants of a specific type in a single class or value object and have it return those with a single call.
 
@@ -654,7 +651,7 @@ UserStates::constants();
 */
 ```
 
-#### ProvidesClassInfo trait
+### ProvidesClassInfo trait
 
 The `ProvidesClassInfo` trait provides an easy-to-use `getClassDirectory()` helper method that returns the directory of the current class.
 
@@ -678,7 +675,7 @@ class MyClass
 // "/Users/Kyle/Projects/laravel-helpers"
 ```
 
-#### MethodHelper
+### MethodHelper
 
 A static class helper to help you figure out the visibility/accessibility of an object's methods.
 
@@ -724,7 +721,7 @@ MethodHelper::hasPublicMethod($class, 'invalidMethod');
 // false
 ```
 
-### Database table reader
+## Database table reader
 
 The database table reader gives you detailed information about a given table, especially in the context of a Laravel Eloquent model.
 
@@ -734,7 +731,7 @@ Note: unless otherwise specified, call each method __after reading__ the table t
 
 Requires the [illuminate/database](https://github.com/illuminate/database) package.
 
-#### Loading a table's information
+### Loading a table's information
 
 Create a new reader to set up its internal database manager and connection:
 
@@ -748,7 +745,7 @@ Then read the table:
 $reader->read('users');
 ```
 
-#### getConnection
+### getConnection
 
 Get the database connection used to read the table.
 
@@ -762,19 +759,19 @@ app(\SebastiaanLuca\Helpers\Database\TableReader::class)
     ->read('users');
 ```
 
-#### table
+### table
 
 Get the table name that was read.
 
-#### rawFields
+### rawFields
 
 Get all the table's fields and additional raw information as an array.
 
-#### fields
+### fields
 
 Get a simple list of all the table's column names.
 
-#### guarded
+### guarded
 
 Get a simple list of all the table's guarded fields.
 
@@ -789,13 +786,13 @@ Currently supported:
 - `updated_at`
 - `deleted_at`
 
-#### fillable
+### fillable
 
 Get all mass-assignable attributes.
 
 Compares default fillable fields with the ones in the table.
 
-#### casts
+### casts
 
 Get all attributes that can be casted to native types.
 
@@ -807,7 +804,7 @@ Currently supported:
 - `tinyint(1)` to `boolean`
 - `json` to `array`
 
-#### dates
+### dates
 
 Get all attributes that can be converted to Carbon DateTime instances.
 
@@ -819,19 +816,19 @@ Currently supported:
 - `time`
 - `year`
 
-#### nullable
+### nullable
 
 Get all attributes that can be `NULL`.
 
-#### hasField
+### hasField
 
 Check if the table has a given column.
 
-#### usesTimestamps
+### usesTimestamps
 
 Check if the table uses Eloquent timestamps (`created_at` and `updated_at`).
 
-#### usesSoftDelete
+### usesSoftDelete
 
 Check if the table uses Eloquent soft deletes (`deleted_at`).
 
@@ -865,7 +862,7 @@ If you discover any security related issues, please email [hello@sebastiaanluca.
 
 ## About
 
-My name is Sebastiaan and I'm a freelance Laravel developer specializing in building custom Laravel applications. Check out my [portfolio][link-portfolio] for more information, [my blog][link-blog] for the latest tips and tricks, and my other [packages][link-github-repositories] to kick-start your next project.
+My name is Sebastiaan and I'm a freelance Laravel developer specializing in building custom Laravel applications. Check out my [portfolio][link-portfolio] for more information, [my blog][link-blog] for the latest tips and tricks, and my other [packages][link-packages] to kick-start your next project.
 
 Have a project that could use some guidance? Send me an e-mail at [hello@sebastiaanluca.com][link-author-email]!
 
@@ -889,5 +886,4 @@ Have a project that could use some guidance? Send me an e-mail at [hello@sebasti
 [link-twitter]: https://twitter.com/sebastiaanluca
 [link-twitter-share]: https://twitter.com/home?status=An%20extensive%20set%20of%20generic%20PHP%20and%20Laravel-specific%20helpers,%20collection%20macros,%20and%20more!%20https%3A//github.com/sebastiaanluca/laravel-helpers%20via%20%40sebastiaanluca
 [link-github-profile]: https://github.com/sebastiaanluca
-[link-github-repositories]: https://github.com/sebastiaanluca?tab=link-github-repositories
 [link-author-email]: mailto:hello@sebastiaanluca.com
