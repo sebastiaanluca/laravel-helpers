@@ -140,7 +140,7 @@ class TableReader
     }
 
     /**
-     * Get the table's fields and additional raw information.
+     * Get all the table's fields and additional raw information.
      *
      * @return \Illuminate\Support\Collection
      */
@@ -162,7 +162,7 @@ class TableReader
     /**
      * Get all guarded attributes.
      *
-     * Compares default guarded fields with the ones in the table.
+     * Compares the table's columns with a default list and returns matches.
      *
      * @return array
      */
@@ -184,7 +184,7 @@ class TableReader
     }
 
     /**
-     * Get all cast attributes.
+     * Get all attributes that can be casted to native types.
      *
      * @return array
      */
