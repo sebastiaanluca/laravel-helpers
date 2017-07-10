@@ -134,7 +134,7 @@ class TableReader
      *
      * @return string
      */
-    public function getTable() : string
+    public function table() : string
     {
         return $this->table;
     }
@@ -144,7 +144,7 @@ class TableReader
      *
      * @return \Illuminate\Support\Collection
      */
-    public function getRawFields() : Collection
+    public function rawFields() : Collection
     {
         return $this->fields;
     }
@@ -154,7 +154,7 @@ class TableReader
      *
      * @return array
      */
-    public function getFields() : array
+    public function fields() : array
     {
         return $this->fields->pluck('field')->toArray();
     }
@@ -166,7 +166,7 @@ class TableReader
      *
      * @return array
      */
-    public function getGuarded() : array
+    public function guarded() : array
     {
         return array_values(array_intersect($this->fields->pluck('field')->toArray(), $this->defaultGuarded));
     }
@@ -178,7 +178,7 @@ class TableReader
      *
      * @return array
      */
-    public function getFillable() : array
+    public function fillable() : array
     {
         return array_values(array_diff($this->fields->pluck('field')->toArray(), $this->defaultGuarded));
     }
@@ -188,7 +188,7 @@ class TableReader
      *
      * @return array
      */
-    public function getCasts() : array
+    public function casts() : array
     {
         // Simply match the database types against any natives types and filter out "non-castworthy" fields
         return $this->fields->pluck('type', 'field')->map(function ($type, $field) {
@@ -203,7 +203,7 @@ class TableReader
      *
      * @return array
      */
-    public function getDates() : array
+    public function dates() : array
     {
         return $this->fields->pluck('type', 'field')->filter(function ($type, $field) {
             return $this->isDate($type);
@@ -215,7 +215,7 @@ class TableReader
      *
      * @return array
      */
-    public function getNullableFields() : array
+    public function nullable() : array
     {
         return $this->fields->pluck('null', 'field')->filter(function ($nullable, $field) {
             return $nullable === 'YES';
@@ -231,7 +231,7 @@ class TableReader
      */
     public function hasField(string $field) : bool
     {
-        return in_array($field, $this->getFields());
+        return in_array($field, $this->fields());
     }
 
     /**

@@ -41,7 +41,7 @@ class TableReaderTest extends TestCase
     {
         $this->assertSame(
             $this->structure,
-            $this->reader->read('table')->getRawFields()->toArray()
+            $this->reader->read('table')->rawFields()->toArray()
         );
     }
 
@@ -63,7 +63,7 @@ class TableReaderTest extends TestCase
                 'updated_at',
                 'deleted_at',
             ],
-            $this->reader->read('table')->getFields()
+            $this->reader->read('table')->fields()
         );
     }
 
@@ -77,7 +77,7 @@ class TableReaderTest extends TestCase
                 'updated_at',
                 'deleted_at',
             ],
-            $this->reader->read('table')->getGuarded()
+            $this->reader->read('table')->guarded()
         );
     }
 
@@ -94,7 +94,7 @@ class TableReaderTest extends TestCase
                 'country',
                 'is_active',
             ],
-            $this->reader->read('table')->getFillable()
+            $this->reader->read('table')->fillable()
         );
     }
 
@@ -105,7 +105,7 @@ class TableReaderTest extends TestCase
                 'id' => 'integer',
                 'is_active' => 'boolean',
             ],
-            $this->reader->read('table')->getCasts()
+            $this->reader->read('table')->casts()
         );
     }
 
@@ -117,7 +117,7 @@ class TableReaderTest extends TestCase
                 'updated_at',
                 'deleted_at',
             ],
-            $this->reader->read('table')->getDates()
+            $this->reader->read('table')->dates()
         );
     }
 
@@ -135,7 +135,7 @@ class TableReaderTest extends TestCase
                 'updated_at',
                 'deleted_at',
             ],
-            $this->reader->read('table')->getNullableFields()
+            $this->reader->read('table')->nullable()
         );
     }
 
@@ -171,7 +171,7 @@ class TableReaderTest extends TestCase
     {
         $this->assertSame(
             'table',
-            $this->reader->read('table')->getTable()
+            $this->reader->read('table')->table()
         );
     }
 

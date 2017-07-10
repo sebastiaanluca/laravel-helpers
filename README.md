@@ -710,19 +710,19 @@ app(\SebastiaanLuca\Helpers\Database\TableReader::class)
     ->read('users');
 ```
 
-#### getTable
+#### table
 
 Get the table name that was read.
 
-#### getRawFields
+#### rawFields
 
 Get all the table's fields and additional raw information as an array.
 
-#### getFields
+#### fields
 
 Get a simple list of all the table's column names.
 
-#### getGuarded
+#### guarded
 
 Get a simple list of all the table's guarded fields.
 
@@ -737,13 +737,13 @@ Currently supported:
 - `updated_at`
 - `deleted_at`
 
-#### getFillable
+#### fillable
 
 Get all mass-assignable attributes.
 
 Compares default fillable fields with the ones in the table.
 
-#### getCasts
+#### casts
 
 Get all attributes that can be casted to native types.
 
@@ -755,7 +755,7 @@ Currently supported:
 - `tinyint(1)` to `boolean`
 - `json` to `array`
 
-#### getDates
+#### dates
 
 Get all attributes that can be converted to Carbon DateTime instances.
 
@@ -767,7 +767,7 @@ Currently supported:
 - `time`
 - `year`
 
-#### getNullableFields
+#### nullable
 
 Get all attributes that can be `NULL`.
 
