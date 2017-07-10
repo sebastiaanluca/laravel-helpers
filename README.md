@@ -16,28 +16,28 @@ Each helper is optional and comes with instructions on how to use it.
 
 ## Table of contents
 
-* [Requirements](#requirements)
-* [How to install](#how-to-install)
-* [How to use](#how-to-use)
-    + [Global helper functions](#global-helper-functions)
-        - [rand\_bool](#rand--bool)
-        - [str\_wrap](#str--wrap)
-        - [is\_assoc\_array](#is--assoc--array)
-        - [array\_expand](#array--expand)
-        - [array\_without](#array--without)
-        - [array\_pull\_value](#array--pull--value)
-        - [array\_pull\_values](#array--pull--values)
-        - [array\_hash](#array--hash)
-        - [object\_hash](#object--hash)
-        - [has_public_method](#has-public-method)
+- [Requirements](#requirements)
+- [How to install](#how-to-install)
+- [How to use](#how-to-use)
+    - [Global helper functions](#global-helper-functions)
+        - [rand_bool](#rand_bool)
+        - [str_wrap](#str_wrap)
+        - [is_assoc_array](#is_assoc_array)
+        - [array_expand](#array_expand)
+        - [array_without](#array_without)
+        - [array_pull_value](#array_pull_value)
+        - [array_pull_values](#array_pull_values)
+        - [array_hash](#array_hash)
+        - [object_hash](#object_hash)
+        - [has_public_method](#has_public_method)
         - [carbonize](#carbonize)
-        - [take (pipe operator)](#take--pipe-operator-)
+        - [take (pipe operator)](#take-pipe-operator)
         - [locale](#locale)
         - [sss](#sss)
         - [ddd](#ddd)
-        - [sss\_if](#sss--if)
-        - [ddd\_if](#ddd--if)
-    + [Collection macros](#collection-macros)
+        - [sss_if](#sss_if)
+        - [ddd_if](#ddd_if)
+    - [Collection macros](#collection-macros)
         - [Carbonize](#carbonize)
         - [Between](#between)
         - [transformKeys](#transformkeys)
@@ -45,12 +45,12 @@ Each helper is optional and comes with instructions on how to use it.
         - [transposeWithKeys](#transposewithkeys)
         - [d](#d)
         - [ddd](#ddd-1)
-    + [Class helpers](#class-helpers)
+    - [Class helpers](#class-helpers)
         - [Constants trait](#constants-trait)
         - [ProvidesClassInfo trait](#providesclassinfo-trait)
         - [MethodHelper](#methodhelper)
-    + [Database table reader](#database-table-reader)
-        - [Loading a table's information](#loading-a-table-s-information)
+    - [Database table reader](#database-table-reader)
+        - [Loading a table's information](#loading-a-tables-information)
         - [getConnection](#getconnection)
         - [setConnection](#setconnection)
         - [table](#table)
@@ -64,15 +64,15 @@ Each helper is optional and comes with instructions on how to use it.
         - [hasField](#hasfield)
         - [usesTimestamps](#usestimestamps)
         - [usesSoftDelete](#usessoftdelete)
-* [License](#license)
-* [Change log](#change-log)
-* [Testing](#testing)
-* [Contributing](#contributing)
-* [Security](#security)
-* [Credits](#credits)
-* [About](#about)
+- [License](#license)
+- [Change log](#change-log)
+- [Testing](#testing)
+- [Contributing](#contributing)
+- [Security](#security)
+- [Credits](#credits)
+- [About](#about)
 
-Table of contents generated with <a href='http://ecotrust-canada.github.io/markdown-toc/'>markdown-toc</a>.
+<!-- /TOC -->
 
 ## Requirements
 
@@ -104,7 +104,7 @@ Other helpers are standalone and do not need to be activated beforehand.
 
 ### Global helper functions
 
-#### rand\_bool
+#### rand_bool
 
 Randomly return `true` or `false`.
 
@@ -114,7 +114,7 @@ rand_bool();
 // true
 ```
 
-#### str\_wrap
+#### str_wrap
 
 Wrap a string with another string.
 
@@ -124,7 +124,7 @@ str_wrap('foo', '*');
 // "*foo*"
 ```
 
-#### is\_assoc\_array
+#### is_assoc_array
 
 Check if an array is associative.
 
@@ -154,7 +154,7 @@ is_assoc_array([0 => 'blue', 1 => 31]);
 // false
 ```
 
-#### array\_expand
+#### array_expand
 
 Expand a flat dotted array into a multi-dimensional associative array.
 
@@ -174,7 +174,7 @@ array_expand(['products.desk.price' => 200]);
 */
 ```
 
-#### array\_without
+#### array_without
 
 Get the array without the given values.
 
@@ -195,7 +195,7 @@ array_without(['one', 'two', 'three'], 'two');
 // ["one", "three"]
 ```
 
-#### array\_pull\_value
+#### array_pull_value
 
 Pull a single value from a given array.
 
@@ -210,7 +210,7 @@ $removed = array_pull_value($source, 'C');
 // $source = ["A", "B"]
 ```
 
-#### array\_pull\_values
+#### array_pull_values
 
 Pull an array of values from a given array.
 
@@ -224,7 +224,7 @@ $removed = array_pull_values($source, ['A', 'B']);
 // $source = ["C"]
 ```
 
-#### array\_hash
+#### array_hash
 
 Create a unique string identifier for an array.
 
@@ -242,7 +242,7 @@ array_hash(['hash' => 'me']);
 // "f712e79b502bda09a970e2d4d47e3f88"
 ```
 
-#### object\_hash
+#### object_hash
 
 Create a unique string identifier for an object.
 
@@ -374,7 +374,7 @@ Requires the [kint-php/kint](https://github.com/raveren/kint) package.
 
 See the [sss helper](#sss) for example output.
 
-#### sss\_if
+#### sss_if
 
 Display structured debug information about one or more values **in plain text** using Kint and halt script execution afterwards, but only if the condition is truthy. Does nothing if falsy. Accepts multiple arguments to dump.
 
@@ -386,7 +386,7 @@ sss_if($user->last_name, 'User has a last name', $user->last_name);
 
 See the [sss helper](#sss) for example output.
 
-#### ddd\_if
+#### ddd_if
 
 Display structured debug information about one or more values using Kint and halt script execution afterwards, but only if the condition is truthy. Does nothing if falsy. Accepts multiple arguments to dump.
 
