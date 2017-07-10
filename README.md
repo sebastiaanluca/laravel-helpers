@@ -20,23 +20,23 @@ Each helper is optional and comes with instructions on how to use it.
 * [How to install](#how-to-install)
 * [How to use](#how-to-use)
     + [Global helper functions](#global-helper-functions)
-        - [rand_bool](#rand-bool)
-        - [str_wrap](#str-wrap)
-        - [is_assoc_array](#is-assoc-array)
-        - [array_expand](#array-expand)
-        - [array_without](#array-without)
-        + [array_pull_value](#array-pull-value)
-        + [array_pull_values](#array-pull-values)
-        - [array_hash](#array-hash)
-        - [object_hash](#object-hash)
+        - [rand\_bool](#rand--bool)
+        - [str\_wrap](#str--wrap)
+        - [is\_assoc\_array](#is--assoc--array)
+        - [array\_expand](#array--expand)
+        - [array\_without](#array--without)
+        - [array\_pull\_value](#array--pull--value)
+        - [array\_pull\_values](#array--pull--values)
+        - [array\_hash](#array--hash)
+        - [object\_hash](#object--hash)
         - [has_public_method](#has-public-method)
         - [carbonize](#carbonize)
         - [take (pipe operator)](#take--pipe-operator-)
         - [locale](#locale)
         - [sss](#sss)
         - [ddd](#ddd)
-        - [sss_if](#sss-if)
-        - [ddd_if](#ddd-if)
+        - [sss\_if](#sss--if)
+        - [ddd\_if](#ddd--if)
     + [Collection macros](#collection-macros)
         - [Carbonize](#carbonize)
         - [Between](#between)
@@ -104,7 +104,7 @@ Other helpers are standalone and do not need to be activated beforehand.
 
 ### Global helper functions
 
-#### rand_bool
+#### rand\_bool
 
 Randomly return `true` or `false`.
 
@@ -114,7 +114,7 @@ rand_bool();
 // true
 ```
 
-#### str_wrap
+#### str\_wrap
 
 Wrap a string with another string.
 
@@ -124,7 +124,7 @@ str_wrap('foo', '*');
 // "*foo*"
 ```
 
-#### is_assoc_array
+#### is\_assoc\_array
 
 Check if an array is associative.
 
@@ -154,7 +154,7 @@ is_assoc_array([0 => 'blue', 1 => 31]);
 // false
 ```
 
-#### array_expand
+#### array\_expand
 
 Expand a flat dotted array into a multi-dimensional associative array.
 
@@ -174,7 +174,7 @@ array_expand(['products.desk.price' => 200]);
 */
 ```
 
-#### array_without
+#### array\_without
 
 Get the array without the given values.
 
@@ -195,7 +195,7 @@ array_without(['one', 'two', 'three'], 'two');
 // ["one", "three"]
 ```
 
-### array_pull_value
+#### array\_pull\_value
 
 Pull a single value from a given array.
 
@@ -210,7 +210,7 @@ $removed = array_pull_value($source, 'C');
 // $source = ["A", "B"]
 ```
 
-### array_pull_values
+#### array\_pull\_values
 
 Pull an array of values from a given array.
 
@@ -224,7 +224,7 @@ $removed = array_pull_values($source, ['A', 'B']);
 // $source = ["C"]
 ```
 
-#### array_hash
+#### array\_hash
 
 Create a unique string identifier for an array.
 
@@ -242,7 +242,7 @@ array_hash(['hash' => 'me']);
 // "f712e79b502bda09a970e2d4d47e3f88"
 ```
 
-#### object_hash
+#### object\_hash
 
 Create a unique string identifier for an object.
 
@@ -374,7 +374,7 @@ Requires the [kint-php/kint](https://github.com/raveren/kint) package.
 
 See the [sss helper](#sss) for example output.
 
-#### sss_if
+#### sss\_if
 
 Display structured debug information about one or more values **in plain text** using Kint and halt script execution afterwards, but only if the condition is truthy. Does nothing if falsy. Accepts multiple arguments to dump.
 
@@ -386,7 +386,7 @@ sss_if($user->last_name, 'User has a last name', $user->last_name);
 
 See the [sss helper](#sss) for example output.
 
-#### ddd_if
+#### ddd\_if
 
 Display structured debug information about one or more values using Kint and halt script execution afterwards, but only if the condition is truthy. Does nothing if falsy. Accepts multiple arguments to dump.
 
