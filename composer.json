@@ -41,8 +41,6 @@
         "illuminate/database": "Laravel framework database component. Required for the table reader helper.",
         "kint-php/kint": "A powerful and modern PHP debugging tool. Required for the debug helpers.",
         "laravel/framework": "The Laravel framework. Required for some global helpers and the form helpers.",
-        "laravelcollective/html": "HTML and Form Builders for the Laravel Framework. Required for the form helpers.",
-        "laravelista/ekko": "Ekko helps you mark currently active menu item in your navbar. Required for the active route helper function.",
         "nesbot/carbon": "A simple PHP API extension for DateTime. Required for the carbonize collection macro and global helper."
     },
     "autoload": {
