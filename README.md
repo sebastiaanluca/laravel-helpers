@@ -72,8 +72,6 @@ Each helper is optional and comes with instructions on how to use it.
 - [Credits](#credits)
 - [About](#about)
 
-<!-- /TOC -->
-
 ## Requirements
 
 - PHP 7 or higher
