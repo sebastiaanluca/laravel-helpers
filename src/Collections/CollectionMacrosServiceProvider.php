@@ -23,9 +23,11 @@ class CollectionMacrosServiceProvider extends ServiceProvider
         });
 
         /**
-         * Reduce the collection to only include strings found between another start and end string.
+         * Reduce each collection item to the value found between a given start and end string.
          */
-        Collection::macro('between', function ($start, $end) {
+        Collection::macro('between', function ($start, $end = null) {
+            $end = $end ?? $start;
+
             return collect($this->items)->reduce(function ($items, $value) use ($start, $end) {
                 if (preg_match('/^' . $start . '(.*)' . $end . '$/', $value, $matches)) {
                     $items[] = $matches[1];

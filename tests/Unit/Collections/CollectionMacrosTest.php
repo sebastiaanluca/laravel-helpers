@@ -40,6 +40,22 @@ class CollectionMacrosTest extends TestCase
         );
     }
 
+    public function test it creates a collection of values found between one given value()
+    {
+        $this->assertEquals(
+            collect([
+                'value1',
+                'value2',
+                'value3',
+            ]),
+            collect([
+                '"value1"',
+                '"value2"',
+                '"value3"',
+            ])->between('"')
+        );
+    }
+
     public function test it transforms keys using a callable()
     {
         $this->assertEquals(
