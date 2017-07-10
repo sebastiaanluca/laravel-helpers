@@ -55,7 +55,7 @@ Other helpers are standalone and do not need to be activated beforehand.
 Randomly return `true` or `false`.
 
 ```php
-$boolean = rand_bool();
+rand_bool();
 
 // true
 ```
@@ -65,7 +65,7 @@ $boolean = rand_bool();
 Wrap a string with another string.
 
 ```php
-$quoted = str_wrap('foo', '*');
+str_wrap('foo', '*');
 
 // "*foo*"
 ```
@@ -77,25 +77,25 @@ Check if an array is associative.
 Performs a simple check to determine if the given array's keys are numeric, start at 0, and count up to the amount of values it has.
 
 ```php
-$assoc = is_assoc_array(['color' => 'blue', 'age' => 31]);
+is_assoc_array(['color' => 'blue', 'age' => 31]);
 
 // true
 ```
 
 ```php
-$sequential = is_assoc_array([0 => 'blue', 7 => 31]);
+is_assoc_array([0 => 'blue', 7 => 31]);
 
 // true
 ```
 
 ```php
-$sequential = is_assoc_array(['blue', 31]);
+is_assoc_array(['blue', 31]);
 
 // false
 ```
 
 ```php
-$sequential = is_assoc_array([0 => 'blue', 1 => 31]);
+is_assoc_array([0 => 'blue', 1 => 31]);
 
 // false
 ```
@@ -107,7 +107,7 @@ Expand a flat dotted array into a multi-dimensional associative array.
 If a key is encountered that is already present and the existing value is an array, each new value will be added to that array. If it's not an array, each new value will override the existing one.
 
 ```php
-$array = array_expand(['products.desk.price' => 200]);
+array_expand(['products.desk.price' => 200]);
 
 /*
 [
@@ -136,7 +136,7 @@ $inStock = array_without($cars, $soldOut);
 ```
 
 ```php
-$sequence = array_without(['one', 'two', 'three'], 'two');
+array_without(['one', 'two', 'three'], 'two');
 
 // ["one", "three"]
 ```
@@ -149,11 +149,11 @@ Returns the given value if it was successfully removed from the source array or 
 
 ```php
 $source = ['A', 'B', 'C'];
-$pulled = array_pull_value($source, 'C');
 
-// "C"
+$removed = array_pull_value($source, 'C');
 
-// $source = ["A", "B"];
+// $removed = "C"
+// $source = ["A", "B"]
 ```
 
 ### array_pull_values
@@ -164,11 +164,10 @@ Returns the values that were successfully removed from the source array or an em
 
 ```php
 $source = ['A', 'B', 'C'];
-$pulled = array_pull_values($source, ['A', 'B']);
+$removed = array_pull_values($source, ['A', 'B']);
 
-// ["A", "B"]
-
-// $source = ["C"];
+// $removed = ["A", "B"]
+// $source = ["C"]
 ```
 
 #### array_hash
@@ -178,13 +177,13 @@ Create a unique string identifier for an array.
 The identifier will be entirely unique for each combination of keys and values.
 
 ```php
-$hash1 = array_hash([1, 2, 3]);
+array_hash([1, 2, 3]);
 
 // "262bbc0aa0dc62a93e350f1f7df792b9"
 ```
 
 ```php
-$hash2 = array_hash(['hash' => 'me']);
+array_hash(['hash' => 'me']);
 
 // "f712e79b502bda09a970e2d4d47e3f88"
 ```
@@ -200,7 +199,7 @@ class ValueObject {
     public $property = 'randomvalue';
 }
 
-$hash = object_hash(new ValueObject);
+object_hash(new ValueObject);
 
 // "f39eaea7a1cf45f5a0c813d71b5f2f57"
 ```
@@ -216,11 +215,11 @@ class Hitchhiker {
     }
 }
 
-$hash = has_public_method(Hitchhiker::class, 'answer');
+has_public_method(Hitchhiker::class, 'answer');
 
 // true
 
-$hash = has_public_method(new Hitchhiker, 'answer');
+has_public_method(new Hitchhiker, 'answer');
 
 // true
 ```
@@ -230,7 +229,7 @@ $hash = has_public_method(new Hitchhiker, 'answer');
 Create a Carbon datetime object from a string.
 
 ```php
-$time = carbonize('2017-01-18 11:30');
+carbonize('2017-01-18 11:30');
 
 /*
 Carbon\Carbon {
@@ -248,11 +247,11 @@ Create a new pipe item from a given value.
 Allows you to chain method calls any way you see fit. See the [enabling PHP method chaining with a makeshift pipe operator](https://blog.sebastiaanluca.com/enabling-php-method-chaining-with-a-makeshift-pipe-operator) blog post for more info.
 
 ```php
-$subdomain = take('https://blog.sebastiaanluca.com/')
-               ->pipe('parse_url', PHP_URL_HOST)
-               ->pipe('explode', '.', '$$')
-               ->pipe('reset')
-               ->get();
+take('https://blog.sebastiaanluca.com/')
+    ->pipe('parse_url', PHP_URL_HOST)
+    ->pipe('explode', '.', '$$')
+    ->pipe('reset')
+    ->get();
 
 // "blog"
 ```
@@ -262,7 +261,7 @@ $subdomain = take('https://blog.sebastiaanluca.com/')
 Get the active app locale or the fallback locale if it's missing or not set.
 
 ```php
-$locale = locale();
+locale();
 
 // "en"
 ```
