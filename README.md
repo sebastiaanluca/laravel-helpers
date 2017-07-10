@@ -479,7 +479,7 @@ Have a project that could use some guidance? Send me an e-mail at [hello@sebasti
 
 [link-portfolio]: https://www.sebastiaanluca.com
 [link-blog]: https://blog.sebastiaanluca.com
-[link-packages]: https://github.com/sebastiaanluca?tab=link-github-repositories
+[link-packages]: https://packagist.org/packages/sebastiaanluca
 [link-twitter]: https://twitter.com/sebastiaanluca
 [link-twitter-share]: https://twitter.com/home?status=An%20extensive%20set%20of%20generic%20PHP%20and%20Laravel-specific%20helpers,%20collection%20macros,%20and%20more!%20https%3A//github.com/sebastiaanluca/laravel-helpers%20via%20%40sebastiaanluca
 [link-github-profile]: https://github.com/sebastiaanluca
