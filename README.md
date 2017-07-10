@@ -16,7 +16,61 @@ Each helper is optional and comes with instructions on how to use it.
 
 ## Table of contents
 
-TODO
+* [Requirements](#requirements)
+* [How to install](#how-to-install)
+* [How to use](#how-to-use)
+    + [Global helper functions](#global-helper-functions)
+        - [rand_bool](#rand-bool)
+        - [str_wrap](#str-wrap)
+        - [is_assoc_array](#is-assoc-array)
+        - [array_expand](#array-expand)
+        - [array_without](#array-without)
+        + [array_pull_value](#array-pull-value)
+        + [array_pull_values](#array-pull-values)
+        - [array_hash](#array-hash)
+        - [object_hash](#object-hash)
+        - [has_public_method](#has-public-method)
+        - [carbonize](#carbonize)
+        - [take (pipe operator)](#take--pipe-operator-)
+        - [locale](#locale)
+        - [sss](#sss)
+        - [ddd](#ddd)
+        - [sss_if](#sss-if)
+        - [ddd_if](#ddd-if)
+    + [Collection macros](#collection-macros)
+        - [Carbonize](#carbonize)
+        - [Between](#between)
+        - [transformKeys](#transformkeys)
+        - [transpose](#transpose)
+        - [transposeWithKeys](#transposewithkeys)
+        - [d](#d)
+        - [ddd](#ddd-1)
+    + [Class helpers](#class-helpers)
+        - [Constants trait](#constants-trait)
+        - [ProvidesClassInfo trait](#providesclassinfo-trait)
+        - [MethodHelper](#methodhelper)
+    + [Database table reader](#database-table-reader)
+        - [Loading a table's information](#loading-a-table-s-information)
+        - [getConnection](#getconnection)
+        - [setConnection](#setconnection)
+        - [table](#table)
+        - [rawFields](#rawfields)
+        - [fields](#fields)
+        - [guarded](#guarded)
+        - [fillable](#fillable)
+        - [casts](#casts)
+        - [dates](#dates)
+        - [nullable](#nullable)
+        - [hasField](#hasfield)
+        - [usesTimestamps](#usestimestamps)
+        - [usesSoftDelete](#usessoftdelete)
+* [License](#license)
+* [Change log](#change-log)
+* [Testing](#testing)
+* [Contributing](#contributing)
+* [Security](#security)
+* [Credits](#credits)
+* [About](#about)
 
 Table of contents generated with <a href='http://ecotrust-canada.github.io/markdown-toc/'>markdown-toc</a>.
 
@@ -602,7 +656,7 @@ UserStates::constants();
 */
 ```
 
-#### ProvidesClassInfo trait (`getClassDirectory`)
+#### ProvidesClassInfo trait
 
 The `ProvidesClassInfo` trait provides an easy-to-use `getClassDirectory()` helper method that returns the directory of the current class.
 
