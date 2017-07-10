@@ -37,16 +37,6 @@ class CollectionMacrosServiceProvider extends ServiceProvider
             });
         });
 
-        Collection::macro('d', function () {
-            d($this);
-
-            return $this;
-        });
-
-        Collection::macro('ddd', function () {
-            ddd($this);
-        });
-
         /**
          * Perform an operation on the collection's keys.
          */
@@ -92,6 +82,16 @@ class CollectionMacrosServiceProvider extends ServiceProvider
             $items = array_combine($rows, $items);
 
             return new static($items);
+        });
+
+        Collection::macro('d', function () {
+            d($this);
+
+            return $this;
+        });
+
+        Collection::macro('ddd', function () {
+            ddd($this);
         });
     }
 }
