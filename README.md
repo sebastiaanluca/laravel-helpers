@@ -728,7 +728,7 @@ MethodHelper::hasPublicMethod($class, 'invalidMethod');
 
 ### Database table reader
 
-Gives you detailed information about a given table, especially in the context of a Laravel Eloquent model.
+The database table reader gives you detailed information about a given table, especially in the context of a Laravel Eloquent model.
 
 Note that this has only been tested with MySQL databases, although it might work with others too as it uses a raw `describe` statement to get a table's information. Uses the default database connection by default when resolved from the DI container, but you can set your own before calling `read`.
 
