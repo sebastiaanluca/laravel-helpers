@@ -15,4 +15,14 @@ trait Constants
     {
         return (new ReflectionClass(__CLASS__))->getConstants();
     }
+
+    /**
+     * Shorthand helper to get all the class' constants.
+     *
+     * @return array
+     */
+    public static function constants() : array
+    {
+        return static::getConstants();
+    }
 }
