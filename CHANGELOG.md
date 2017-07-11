@@ -6,6 +6,12 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+## 1.0.1 (2017-07-11)
+
+### Fixed
+
+- Fixed method helper example code in readme
+
 ## 1.0.0 (2017-07-10)
 
 ### Added
