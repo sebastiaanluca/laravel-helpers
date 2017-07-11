@@ -684,7 +684,7 @@ A static class helper to help you figure out the visibility/accessibility of an 
 
 class SomeClass
 {
-    protected function aPrivateMethod() : string
+    private function aPrivateMethod() : string
     {
         return 'private';
     }
@@ -694,7 +694,7 @@ class SomeClass
         return 'protected';
     }
 
-    protected function aPublicMethod() : string
+    public function aPublicMethod() : string
     {
         return 'public';
     }
