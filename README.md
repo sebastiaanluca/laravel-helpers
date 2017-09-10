@@ -1,41 +1,41 @@
 <p align="center">
-    <img title="Laravel Helpers" height="100" src="https://raw.githubusercontent.com/sebastiaanluca/laravel-helpers/develop/logo.png" />
+<img title="Laravel Helpers" height="100" src="https://raw.githubusercontent.com/sebastiaanluca/laravel-helpers/develop/logo.png" />
 </p>
 
 <p align="center">
-    <a href="https://packagist.org/packages/sebastiaanluca/laravel-helpers">
-        <img src="https://poser.pugx.org/sebastiaanluca/laravel-helpers/version" alt="Latest stable release" />
-    </a>
+<a href="https://packagist.org/packages/sebastiaanluca/laravel-helpers">
+    <img src="https://poser.pugx.org/sebastiaanluca/laravel-helpers/version" alt="Latest stable release" />
+</a>
 
-    <a href="LICENSE.md">
-        <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="Software license" />
-    </a>
+<a href="LICENSE.md">
+    <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="Software license" />
+</a>
 
-    <a href="https://travis-ci.org/sebastiaanluca/laravel-helpers">
-        <img src="https://img.shields.io/travis/sebastiaanluca/laravel-helpers/master.svg" alt="Build status" />
-    </a>
+<a href="https://travis-ci.org/sebastiaanluca/laravel-helpers">
+    <img src="https://img.shields.io/travis/sebastiaanluca/laravel-helpers/master.svg" alt="Build status" />
+</a>
 
-    <a href="https://packagist.org/packages/sebastiaanluca/laravel-helpers">
-        <img src="https://img.shields.io/packagist/dt/sebastiaanluca/laravel-helpers.svg" alt="Total downloads" />
-    </a>
+<a href="https://packagist.org/packages/sebastiaanluca/laravel-helpers">
+    <img src="https://img.shields.io/packagist/dt/sebastiaanluca/laravel-helpers.svg" alt="Total downloads" />
+</a>
 </p>
 
 <p align="center">
-    <a href="https://blog.sebastiaanluca.com">
-    <img src="https://img.shields.io/badge/link-blog-lightgrey.sv" alt="Read my blog" />
-    </a>
+<a href="https://blog.sebastiaanluca.com">
+<img src="https://img.shields.io/badge/link-blog-lightgrey.sv" alt="Read my blog" />
+</a>
 
-    <a href="https://packagist.org/packages/sebastiaanluca">
-    <img src="https://img.shields.io/badge/link-other_packages-lightgrey.svg" alt="View my other packages and projects" />
-    </a>
+<a href="https://packagist.org/packages/sebastiaanluca">
+<img src="https://img.shields.io/badge/link-other_packages-lightgrey.svg" alt="View my other packages and projects" />
+</a>
 
-    <a href="https://twitter.com/sebastiaanluca">
-    <img src="https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social" alt="Follow @sebastiaanluca on Twitter" />
-    </a>
+<a href="https://twitter.com/sebastiaanluca">
+<img src="https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social" alt="Follow @sebastiaanluca on Twitter" />
+</a>
 
-    <a href="https://twitter.com/home?status=An%20extensive%20set%20of%20generic%20PHP%20and%20Laravel-specific%20helpers,%20collection%20macros,%20and%20more!%20https%3A//github.com/sebastiaanluca/laravel-helpers%20via%20%40sebastiaanluca">
-    <img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social" alt="Share this package on Twitter" />
-    </a>
+<a href="https://twitter.com/home?status=An%20extensive%20set%20of%20generic%20PHP%20and%20Laravel-specific%20helpers,%20collection%20macros,%20and%20more!%20https%3A//github.com/sebastiaanluca/laravel-helpers%20via%20%40sebastiaanluca">
+<img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social" alt="Share this package on Twitter" />
+</a>
 </p>
 
 # Laravel Helpers
