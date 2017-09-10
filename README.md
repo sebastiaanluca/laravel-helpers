@@ -1,5 +1,5 @@
 <p align="center">
-<img title="Laravel Helpers" height="100" src="https://raw.githubusercontent.com/sebastiaanluca/laravel-helpers/develop/logo.png"></img>
+<img title="Laravel Helpers" src="https://raw.githubusercontent.com/sebastiaanluca/laravel-helpers/develop/logo.png" style="width: auto; height: auto; max-height: 100px;"></img>
 </p>
 
 <p align="center">
