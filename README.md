@@ -888,6 +888,7 @@ If you discover any security related issues, please email [hello@sebastiaanluca.
 ## Credits
 
 - [Sebastiaan Luca][link-github-profile]
+- Logo by [Vitor Caneco](https://github.com/caneco)
 - [All Contributors][link-contributors]
 
 ## About
