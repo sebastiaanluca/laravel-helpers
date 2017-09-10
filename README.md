@@ -1,16 +1,44 @@
-<img title="Laravel Helpers" height="56" src="https://raw.githubusercontent.com/caneco/laravel-helpers/develop/logo.png">
+<p align="center">
+    <img title="Laravel Helpers" height="100" src="https://raw.githubusercontent.com/sebastiaanluca/laravel-helpers/develop/logo.png" />
+</p>
+
+<p align="center">
+    <a href="https://packagist.org/packages/sebastiaanluca/laravel-helpers">
+        <img src="https://poser.pugx.org/sebastiaanluca/laravel-helpers/version" alt="Latest stable release" />
+    </a>
+
+    <a href="LICENSE.md">
+        <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="Software license" />
+    </a>
+
+    <a href="https://travis-ci.org/sebastiaanluca/laravel-helpers">
+        <img src="https://img.shields.io/travis/sebastiaanluca/laravel-helpers/master.svg" alt="Build status" />
+    </a>
+
+    <a href="https://packagist.org/packages/sebastiaanluca/laravel-helpers">
+        <img src="https://img.shields.io/packagist/dt/sebastiaanluca/laravel-helpers.svg" alt="Total downloads" />
+    </a>
+</p>
+
+<p align="center">
+    <a href="https://blog.sebastiaanluca.com">
+    <img src="https://img.shields.io/badge/link-blog-lightgrey.sv" alt="Read my blog" />
+    </a>
+
+    <a href="https://packagist.org/packages/sebastiaanluca">
+    <img src="https://img.shields.io/badge/link-other_packages-lightgrey.svg" alt="View my other packages and projects" />
+    </a>
+
+    <a href="https://twitter.com/sebastiaanluca">
+    <img src="https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social" alt="Follow @sebastiaanluca on Twitter" />
+    </a>
+
+    <a href="https://twitter.com/home?status=An%20extensive%20set%20of%20generic%20PHP%20and%20Laravel-specific%20helpers,%20collection%20macros,%20and%20more!%20https%3A//github.com/sebastiaanluca/laravel-helpers%20via%20%40sebastiaanluca">
+    <img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social" alt="Share this package on Twitter" />
+    </a>
+</p>
 
 # Laravel Helpers
-
-[![Latest stable release][version-badge]][link-packagist]
-[![Software license][license-badge]](LICENSE.md)
-[![Build status][travis-badge]][link-travis]
-[![Total downloads][downloads-badge]][link-packagist]
-
-[![Read my blog][blog-link-badge]][link-blog]
-[![View my other packages and projects][packages-link-badge]][link-packages]
-[![Follow @sebastiaanluca on Twitter][twitter-profile-badge]][link-twitter]
-[![Share this package on Twitter][twitter-share-badge]][link-twitter-share]
 
 **An extensive set of generic PHP and Laravel-specific helpers.**
 
@@ -868,16 +896,6 @@ My name is Sebastiaan and I'm a freelance Laravel developer specializing in buil
 
 Have a project that could use some guidance? Send me an e-mail at [hello@sebastiaanluca.com][link-author-email]!
 
-[version-badge]: https://poser.pugx.org/sebastiaanluca/laravel-helpers/version
-[license-badge]: https://img.shields.io/badge/license-MIT-brightgreen.svg
-[travis-badge]: https://img.shields.io/travis/sebastiaanluca/laravel-helpers/master.svg
-[downloads-badge]: https://img.shields.io/packagist/dt/sebastiaanluca/laravel-helpers.svg
-
-[blog-link-badge]: https://img.shields.io/badge/link-blog-lightgrey.svg
-[packages-link-badge]: https://img.shields.io/badge/link-other_packages-lightgrey.svg
-[twitter-profile-badge]: https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social
-[twitter-share-badge]: https://img.shields.io/twitter/url/http/shields.io.svg?style=social
-
 [link-packagist]: https://packagist.org/packages/sebastiaanluca/laravel-helpers
 [link-travis]: https://travis-ci.org/sebastiaanluca/laravel-helpers
 [link-contributors]: ../../contributors
@@ -885,7 +903,5 @@ Have a project that could use some guidance? Send me an e-mail at [hello@sebasti
 [link-portfolio]: https://www.sebastiaanluca.com
 [link-blog]: https://blog.sebastiaanluca.com
 [link-packages]: https://packagist.org/packages/sebastiaanluca
-[link-twitter]: https://twitter.com/sebastiaanluca
-[link-twitter-share]: https://twitter.com/home?status=An%20extensive%20set%20of%20generic%20PHP%20and%20Laravel-specific%20helpers,%20collection%20macros,%20and%20more!%20https%3A//github.com/sebastiaanluca/laravel-helpers%20via%20%40sebastiaanluca
 [link-github-profile]: https://github.com/sebastiaanluca
 [link-author-email]: mailto:hello@sebastiaanluca.com
