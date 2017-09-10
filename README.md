@@ -1,3 +1,5 @@
+<img title="Laravel Helpers" height="56" src="https://raw.githubusercontent.com/caneco/laravel-helpers/develop/logo.png">
+
 # Laravel Helpers
 
 [![Latest stable release][version-badge]][link-packagist]
@@ -91,7 +93,7 @@ To use the global helper functions or enable the collection macros, add the corr
 
     SebastiaanLuca\Helpers\Methods\GlobalHelpersServiceProvider::class,
     SebastiaanLuca\Helpers\Collections\CollectionMacrosServiceProvider::class,
-    
+
 ]
 ```
 
