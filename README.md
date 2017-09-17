@@ -81,7 +81,7 @@ Each helper is optional and comes with instructions on how to use it.
 
 ## Requirements
 
-- PHP 7 or higher
+- PHP 7.1 or higher
 - Laravel 5.5 or higher
 
 ## How to install
