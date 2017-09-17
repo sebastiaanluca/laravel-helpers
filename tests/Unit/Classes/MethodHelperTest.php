@@ -7,7 +7,10 @@ use SebastiaanLuca\Helpers\Tests\TestCase;
 
 class MethodHelperTest extends TestCase
 {
-    public function test it detects if a method of a certain visibility exists()
+    /**
+     * @test
+     */
+    function it detects if a method of a certain visibility exists()
     {
         $class = new class
         {
@@ -20,7 +23,10 @@ class MethodHelperTest extends TestCase
         $this->assertTrue(MethodHelper::hasMethodOfType($class, 'myMethod', 'private'));
     }
 
-    public function test it detects a missing method()
+    /**
+     * @test
+     */
+    function it detects a missing method()
     {
         $class = new class
         {
@@ -33,7 +39,10 @@ class MethodHelperTest extends TestCase
         $this->assertFalse(MethodHelper::hasMethodOfType($class, 'myInvalidMethod', 'protected'));
     }
 
-    public function test it detects a method with different visibility()
+    /**
+     * @test
+     */
+    function it detects a method with different visibility()
     {
         $class = new class
         {
@@ -46,7 +55,10 @@ class MethodHelperTest extends TestCase
         $this->assertFalse(MethodHelper::hasMethodOfType($class, 'myMethod', 'private'));
     }
 
-    public function test it detects a protected method()
+    /**
+     * @test
+     */
+    function it detects a protected method()
     {
         $class = new class
         {
@@ -59,7 +71,10 @@ class MethodHelperTest extends TestCase
         $this->assertTrue(MethodHelper::hasProtectedMethod($class, 'myMethod'));
     }
 
-    public function test it detects a public method()
+    /**
+     * @test
+     */
+    function it detects a public method()
     {
         $class = new class
         {

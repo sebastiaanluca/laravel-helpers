@@ -7,7 +7,10 @@ use SebastiaanLuca\Helpers\Tests\TestCase;
 
 class PipeTest extends TestCase
 {
-    public function test it can transform a value using a callable string method()
+    /**
+     * @test
+     */
+    function it can transform a value using a callable string method()
     {
         $this->assertSame(
             'STRING',
@@ -15,7 +18,10 @@ class PipeTest extends TestCase
         );
     }
 
-    public function test it can transform a value using a closure()
+    /**
+     * @test
+     */
+    function it can transform a value using a closure()
     {
         $this->assertSame(
             'prefixed-string',
@@ -25,7 +31,10 @@ class PipeTest extends TestCase
         );
     }
 
-    public function test it can transform a value while accepting pipe parameters()
+    /**
+     * @test
+     */
+    function it can transform a value while accepting pipe parameters()
     {
         $this->assertSame(
             'value',
@@ -33,7 +42,10 @@ class PipeTest extends TestCase
         );
     }
 
-    public function test it can transform a complex value in multiple steps()
+    /**
+     * @test
+     */
+    function it can transform a complex value in multiple steps()
     {
         $this->assertSame(
             'blog',
@@ -46,7 +58,10 @@ class PipeTest extends TestCase
         );
     }
 
-    public function test it returns an item object when get has not been called yet()
+    /**
+     * @test
+     */
+    function it returns an item object when get has not been called yet()
     {
         $this->assertInstanceOf(Item::class, (new Item('string'))->pipe('strtoupper'));
     }

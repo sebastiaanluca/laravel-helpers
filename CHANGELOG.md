@@ -10,6 +10,10 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 - Added logo (by caneco)
 
+### Changed
+
+- Simplified all tests
+
 ## 1.0.1 (2017-07-11)
 
 ### Fixed

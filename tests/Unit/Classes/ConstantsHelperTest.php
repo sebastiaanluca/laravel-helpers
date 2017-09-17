@@ -7,7 +7,10 @@ use SebastiaanLuca\Helpers\Tests\TestCase;
 
 class ConstantsHelperTest extends TestCase
 {
-    public function test it returns all constants()
+    /**
+     * @test
+     */
+    function it returns all constants()
     {
         $class = new class
         {
@@ -25,7 +28,10 @@ class ConstantsHelperTest extends TestCase
         ], $class::getConstants());
     }
 
-    public function test it returns all constants through the shorthand method()
+    /**
+     * @test
+     */
+    function it returns all constants through the shorthand method()
     {
         $class = new class
         {

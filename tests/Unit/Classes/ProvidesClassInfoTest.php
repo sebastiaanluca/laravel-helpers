@@ -8,7 +8,10 @@ use SebastiaanLuca\Helpers\Tests\TestCase;
 
 class ProvidesClassInfoTest extends TestCase
 {
-    public function test it returns the class directory()
+    /**
+     * @test
+     */
+    function test it returns the class directory()
     {
         $class = new class
         {
