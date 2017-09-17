@@ -14,6 +14,10 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 - Simplified all tests
 
+### Removed
+
+- Removed deprecated `use Laravelista\Ekko\Ekko;` import
+
 ## 1.0.1 (2017-07-11)
 
 ### Fixed
