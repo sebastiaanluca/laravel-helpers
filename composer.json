@@ -30,8 +30,6 @@
         "illuminate/database": "^5.5",
         "kint-php/kint": "^2.2",
         "laravel/framework": "^5.5",
-        "laravelcollective/html": "^5.5",
-        "laravelista/ekko": "^1.4",
         "mockery/mockery": "^0.9.9",
         "nesbot/carbon": "^1.22",
         "orchestra/testbench": "^3.5",
