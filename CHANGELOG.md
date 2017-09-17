@@ -17,6 +17,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Removed
 
 - Removed deprecated `use Laravelista\Ekko\Ekko;` import
+- Removed support for Laravel 5.4
 
 ## 1.0.1 (2017-07-11)
 
