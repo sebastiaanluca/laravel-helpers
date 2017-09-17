@@ -29,7 +29,10 @@ class TableReaderTest extends TestCase
      */
     protected $reader;
 
-    public function test it can read a table()
+    /**
+     * @test
+     */
+    function it can read a table()
     {
         $this->assertInstanceOf(
             TableReader::class,
@@ -37,7 +40,10 @@ class TableReaderTest extends TestCase
         );
     }
 
-    public function test it can return a list of raw fields()
+    /**
+     * @test
+     */
+    function it can return a list of raw fields()
     {
         $this->assertSame(
             $this->structure,
@@ -45,7 +51,10 @@ class TableReaderTest extends TestCase
         );
     }
 
-    public function test it can return a list of fields()
+    /**
+     * @test
+     */
+    function it can return a list of fields()
     {
         $this->assertSame(
             [
@@ -67,7 +76,10 @@ class TableReaderTest extends TestCase
         );
     }
 
-    public function test it can return a list of guarded fields()
+    /**
+     * @test
+     */
+    function it can return a list of guarded fields()
     {
         $this->assertSame(
             [
@@ -81,7 +93,10 @@ class TableReaderTest extends TestCase
         );
     }
 
-    public function test it can return a list of fillable fields()
+    /**
+     * @test
+     */
+    function it can return a list of fillable fields()
     {
         $this->assertSame(
             [
@@ -98,7 +113,10 @@ class TableReaderTest extends TestCase
         );
     }
 
-    public function test it can return a list of castable fields()
+    /**
+     * @test
+     */
+    function it can return a list of castable fields()
     {
         $this->assertSame(
             [
@@ -109,7 +127,10 @@ class TableReaderTest extends TestCase
         );
     }
 
-    public function test it can return a list of date fields()
+    /**
+     * @test
+     */
+    function it can return a list of date fields()
     {
         $this->assertSame(
             [
@@ -121,7 +142,10 @@ class TableReaderTest extends TestCase
         );
     }
 
-    public function test it can return a list of nullable fields()
+    /**
+     * @test
+     */
+    function it can return a list of nullable fields()
     {
         $this->assertSame(
             [
@@ -139,35 +163,50 @@ class TableReaderTest extends TestCase
         );
     }
 
-    public function test it can detect if a given field exists()
+    /**
+     * @test
+     */
+    function it can detect if a given field exists()
     {
         $this->assertTrue(
             $this->reader->read('table')->hasField('postal_code')
         );
     }
 
-    public function test it can detect if a given field does not exist()
+    /**
+     * @test
+     */
+    function it can detect if a given field does not exist()
     {
         $this->assertFalse(
             $this->reader->read('table')->hasField('non_existent_field')
         );
     }
 
-    public function test it can detect if a table uses timestamps()
+    /**
+     * @test
+     */
+    function it can detect if a table uses timestamps()
     {
         $this->assertTrue(
             $this->reader->read('table')->usesTimestamps()
         );
     }
 
-    public function test it can detect if a table uses soft delete()
+    /**
+     * @test
+     */
+    function it can detect if a table uses soft delete()
     {
         $this->assertTrue(
             $this->reader->read('table')->usesSoftDelete()
         );
     }
 
-    public function test it can return the table()
+    /**
+     * @test
+     */
+    function it can return the table()
     {
         $this->assertSame(
             'table',
@@ -175,7 +214,10 @@ class TableReaderTest extends TestCase
         );
     }
 
-    public function test it can return the connection()
+    /**
+     * @test
+     */
+    function it can return the connection()
     {
         $this->assertSame(
             $this->connection,
@@ -183,7 +225,10 @@ class TableReaderTest extends TestCase
         );
     }
 
-    public function test it can set the connection()
+    /**
+     * @test
+     */
+    function it can set the connection()
     {
         $secondaryConnection = Mockery::mock(Connection::class);
 

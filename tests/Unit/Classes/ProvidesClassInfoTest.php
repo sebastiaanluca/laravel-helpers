@@ -11,7 +11,7 @@ class ProvidesClassInfoTest extends TestCase
     /**
      * @test
      */
-    function test it returns the class directory()
+    function it returns the class directory()
     {
         $class = new class
         {
