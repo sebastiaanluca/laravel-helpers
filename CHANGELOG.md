@@ -12,6 +12,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ### Changed
 
+- Added better installation instructions in readme
 - Simplified all tests
 
 ### Removed

@@ -92,20 +92,28 @@ Via Composer:
 composer require sebastiaanluca/laravel-helpers
 ```
 
-To use the global helper functions or enable the collection macros, add the corresponding service provider to your `config/app.php` file:
+To enable all helpers this package has to offer, add their service providers to your `config/app.php` file:
 
 ```php
 'providers' => [
-
     SebastiaanLuca\Helpers\Methods\GlobalHelpersServiceProvider::class,
     SebastiaanLuca\Helpers\Collections\CollectionMacrosServiceProvider::class,
-
-]
+],
 ```
 
 Other helpers are standalone and do not need to be activated beforehand.
 
+You can find more info on how to use a helper in their respective section (see the table of contents above for an overview).
+
 ## Global helper functions
+
+To enable the global helper functions, manually add the service provider to your `config/app.php` file:
+
+```php
+'providers' => [
+    SebastiaanLuca\Helpers\Methods\GlobalHelpersServiceProvider::class,
+],
+```
 
 ### rand_bool
 
@@ -402,6 +410,14 @@ ddd_if(app()->environment('local'), 'Debugging in a local environment!');
 See the [ddd helper](#ddd) for example output.
 
 ## Collection macros
+
+To enable the collection macros, manually add the service provider to your `config/app.php` file:
+
+```php
+'providers' => [
+    SebastiaanLuca\Helpers\Collections\CollectionMacrosServiceProvider::class,
+],
+```
 
 ### carbonize
 
