@@ -27,6 +27,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Fixed
 
 - Fixed method helper example code in readme
+- Upgraded Mockery dependency to fix an error on PHP 7.2 (see https://github.com/mockery/mockery/pull/718)
 
 ## 1.0.0 (2017-07-10)
 
