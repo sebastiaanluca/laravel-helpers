@@ -34,7 +34,7 @@
         "nesbot/carbon": "^1.22",
         "orchestra/testbench": "^3.5",
         "phpunit/phpunit": "^6.4",
-        "spatie/laravel-html": "^2.4"
+        "spatie/laravel-html": "^2.9"
     },
     "suggest": {
         "illuminate/database": "Laravel framework database component. Required for the table reader helper.",
