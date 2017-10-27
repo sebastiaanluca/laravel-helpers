@@ -291,7 +291,7 @@ has_public_method(new Hitchhiker, 'answer');
 
 ### carbonize
 
-Create a Carbon datetime object from a string.
+Create a Carbon datetime object from a string or return a new object referencing the current date and time.
 
 Requires the [nesbot/carbon](https://github.com/briannesbitt/Carbon) package.
 
@@ -301,6 +301,16 @@ carbonize('2017-01-18 11:30');
 /*
 Carbon\Carbon {
     "date": "2017-01-18 11:30:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC",
+}
+*/
+
+carbonize();
+
+/*
+Carbon\Carbon {
+    "date": "2017-10-27 16:18:00.000000",
     "timezone_type": 3,
     "timezone": "UTC",
 }

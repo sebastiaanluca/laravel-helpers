@@ -14,6 +14,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 - Added better installation instructions in readme
 - Simplified all tests
+- Added `carbonize()` example without passing a value
 
 ### Removed
 
