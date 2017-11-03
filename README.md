@@ -26,7 +26,7 @@ Each helper is optional and comes with instructions on how to use it.
 
 - [Requirements](#requirements)
 - [How to install](#how-to-install)
-- [Global helper functions](#global-helper-functions)
+- [Generic global helper functions](#generic-global-helper-functions)
     - [rand_bool](#rand_bool)
     - [str_wrap](#str_wrap)
     - [is_assoc_array](#is_assoc_array)
@@ -39,7 +39,10 @@ Each helper is optional and comes with instructions on how to use it.
     - [has_public_method](#has_public_method)
     - [carbonize](#carbonize)
     - [take (pipe operator)](#take-pipe-operator)
+- [Framework global helper functions](#framework-global-helper-functions)
     - [locale](#locale)
+    - [is_logged_in](#is_logged_in)
+- [Debug global helper functions](#debug-global-helper-functions)
     - [sss](#sss)
     - [ddd](#ddd)
     - [sss_if](#sss_if)
@@ -103,11 +106,11 @@ To enable all helpers this package has to offer, add their service providers to 
 
 Other helpers are standalone and do not need to be activated beforehand.
 
-You can find more info on how to use a helper in their respective section (see the table of contents above for an overview).
+You can find more info on how to use a helper and what there requirements are in their respective section (see the table of contents above for an overview).
 
-## Global helper functions
+## Generic global helper functions
 
-To enable the global helper functions, manually add the service provider to your `config/app.php` file:
+To enable the generic global helper functions, manually add the service provider to your `config/app.php` file:
 
 ```php
 'providers' => [
@@ -333,16 +336,52 @@ take('https://blog.sebastiaanluca.com/')
 // "blog"
 ```
 
+## Global framework helper functions
+
+To enable the global framework helper functions, manually add the service provider to your `config/app.php` file:
+
+```php
+'providers' => [
+    SebastiaanLuca\Helpers\Methods\GlobalHelpersServiceProvider::class,
+],
+```
+
+Global framework helper functions require the [laravel/framework](https://github.com/laravel/framework) package.
+
 ### locale
 
 Get the active app locale or the fallback locale if it's missing or not set.
-
-Requires the [laravel/framework](https://github.com/laravel/framework) package.
 
 ```php
 locale();
 
 // "en"
+```
+
+### is_logged_in
+
+Determine if there's a current user logged in or not.
+
+```php
+// When not authenticated
+is_logged_in();
+
+// false
+
+// When authenticated as a user
+is_logged_in();
+
+// true
+```
+
+## Global debug helper functions
+
+To enable the global debug helper functions, manually add the service provider to your `config/app.php` file:
+
+```php
+'providers' => [
+    SebastiaanLuca\Helpers\Methods\GlobalHelpersServiceProvider::class,
+],
 ```
 
 ### sss
