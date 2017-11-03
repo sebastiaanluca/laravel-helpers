@@ -377,7 +377,7 @@ is_guest();
 
 ### is_logged_in
 
-Determine if there's a current user logged in or not.
+Determine if the current user is authenticated.
 
 ```php
 // When not authenticated
