@@ -7,7 +7,7 @@ use SebastiaanLuca\Helpers\Methods\GlobalHelpersServiceProvider;
 use SebastiaanLuca\Helpers\Pipe\Item;
 use SebastiaanLuca\Helpers\Tests\TestCase;
 
-class GlobalMethodsTest extends TestCase
+class GenericHelpersTest extends TestCase
 {
     /**
      * @test
@@ -154,27 +154,6 @@ class GlobalMethodsTest extends TestCase
     }
 
     /**
-     * @test
-     */
-    function it returns the current locale()
-    {
-        config(['app.locale' => $locale = 'randomlocale']);
-
-        $this->assertSame($locale, locale());
-    }
-
-    /**
-     * @test
-     */
-    function it returns the fallback locale if locale not set()
-    {
-        config(['app.locale' => null]);
-        config(['app.fallback_locale' => $locale = 'fallbacklocale']);
-
-        $this->assertSame($locale, locale());
-    }
-
-    /**
      * Get package providers.
      *
      * @param \Illuminate\Foundation\Application $app
@@ -183,6 +162,8 @@ class GlobalMethodsTest extends TestCase
      */
     protected function getPackageProviders($app)
     {
-        return [GlobalHelpersServiceProvider::class];
+        return [
+            GlobalHelpersServiceProvider::class,
+        ];
     }
 }
