@@ -32,7 +32,7 @@ class LaravelHelpersTest extends TestCase
     /**
      * @test
      */
-    public function it returns false if a user is not logged in()
+    public function it returns false if the current user is not logged in()
     {
         $this->assertFalse(is_logged_in());
     }
@@ -40,7 +40,7 @@ class LaravelHelpersTest extends TestCase
     /**
      * @test
      */
-    public function it returns true if a user is logged in()
+    public function it returns true if the current user is logged in()
     {
         $this->be(new User);
 
