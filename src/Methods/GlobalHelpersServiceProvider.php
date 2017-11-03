@@ -12,7 +12,7 @@ class GlobalHelpersServiceProvider extends ServiceProvider
     public function register()
     {
         require_once __DIR__ . '/generic.php';
-        require_once __DIR__ . '/laravel.php';
+        require_once __DIR__ . '/framework.php';
         require_once __DIR__ . '/debug.php';
     }
 }
