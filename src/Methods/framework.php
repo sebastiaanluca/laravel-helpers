@@ -12,6 +12,18 @@ if (! function_exists('locale')) {
     }
 }
 
+if (! function_exists('is_guest')) {
+    /**
+     * Determine if the current user is a guest.
+     *
+     * @return bool
+     */
+    function is_guest() : bool
+    {
+        return auth()->guest();
+    }
+}
+
 if (! function_exists('is_logged_in')) {
     /**
      * Determine if the current user is authenticated.

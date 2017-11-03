@@ -9,6 +9,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Added
 
 - Added logo (by caneco)
+- Added `is_guest` helper
 - Added `is_logged_in` helper
 
 ### Changed

@@ -41,6 +41,7 @@ Each helper is optional and comes with instructions on how to use it.
     - [take (pipe operator)](#take-pipe-operator)
 - [Framework global helper functions](#framework-global-helper-functions)
     - [locale](#locale)
+    - [is_guest](#is_guest)
     - [is_logged_in](#is_logged_in)
 - [Debug global helper functions](#debug-global-helper-functions)
     - [sss](#sss)
@@ -356,6 +357,22 @@ Get the active app locale or the fallback locale if it's missing or not set.
 locale();
 
 // "en"
+```
+
+### is_guest
+
+Determine if the current user is a guest.
+
+```php
+// When not authenticated
+is_guest();
+
+// true
+
+// When authenticated as a user
+is_guest();
+
+// false
 ```
 
 ### is_logged_in

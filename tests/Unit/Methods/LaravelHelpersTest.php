@@ -32,6 +32,24 @@ class LaravelHelpersTest extends TestCase
     /**
      * @test
      */
+    public function it returns true if the current user is a guest()
+    {
+        $this->assertTrue(is_guest());
+    }
+
+    /**
+     * @test
+     */
+    public function it returns false if the current user is not a guest()
+    {
+        $this->be(new User);
+
+        $this->assertFalse(is_guest());
+    }
+
+    /**
+     * @test
+     */
     public function it returns false if the current user is not logged in()
     {
         $this->assertFalse(is_logged_in());
