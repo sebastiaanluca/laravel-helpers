@@ -197,3 +197,24 @@ if (! function_exists('take')) {
         return new \SebastiaanLuca\Helpers\Pipe\Item($value);
     }
 }
+
+if (! function_exists('create_temporary_file')) {
+    /**
+     * Create a temporary file.
+     *
+     * Returns an array with the file handle (resource) and the full path as string.
+     *
+     * The temporary file is readable and writeable by default. The file is automatically removed when
+     * closed (for example, by calling fclose() on the handle, or when there are no remaining references
+     * to the file handle), or when the script ends.
+     *
+     * @return array An array with  a `file` and `path` key.
+     */
+    function create_temporary_file() : array
+    {
+        $file = tmpfile();
+        $path = stream_get_meta_data($file)['uri'];
+
+        return compact('file', 'path');
+    }
+}

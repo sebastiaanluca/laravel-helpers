@@ -154,6 +154,38 @@ class GenericHelpersTest extends TestCase
     }
 
     /**
+     * @test
+     */
+    public function create_temporary_file creates a temporary file and returns its pointer and full path()
+    {
+        $file = create_temporary_file();
+
+        dd($file);
+
+        $this->assertArrayHasKey('file', $file);
+        $this->assertArrayHasKey('path', $file);
+
+        $this->assertInternalType('resource', $file['file']);
+
+        $this->assertInternalType('string', $file['path']);
+        $this->assertFileExists($file['path']);
+    }
+
+    /**
+     * @test
+     */
+    public function the file created by create_temporary_file is automatically deleted when it goes out of scope()
+    {
+        $file = create_temporary_file();
+
+        $path = $file['path'];
+
+        unset($file);
+
+        $this->assertFileNotExists($path);
+    }
+
+    /**
      * Get package providers.
      *
      * @param \Illuminate\Foundation\Application $app

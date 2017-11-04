@@ -39,6 +39,7 @@ Each helper is optional and comes with instructions on how to use it.
     - [has_public_method](#has_public_method)
     - [carbonize](#carbonize)
     - [take (pipe operator)](#take-pipe-operator)
+    - [create_temporary_file](#create_temporary_file)
 - [Framework global helper functions](#framework-global-helper-functions)
     - [locale](#locale)
     - [is_guest](#is_guest)
@@ -337,6 +338,38 @@ take('https://blog.sebastiaanluca.com/')
     ->get();
 
 // "blog"
+```
+
+### create_temporary_file
+
+Create a temporary file.
+
+Returns an array with the file handle (resource) and the full path as string.
+
+The temporary file is readable and writeable by default. The file is automatically removed when closed (for example, by calling fclose() on the handle, or when there are no remaining references to the file handle), or when the script ends.
+
+See [](http://php.net/manual/en/function.tmpfile.php) for more information.
+
+```php
+create_temporary_file();
+
+/*
+[
+    "file" => stream resource {
+        timed_out: false
+        blocked: true
+        eof: false
+        wrapper_type: "plainfile"
+        stream_type: "STDIO"
+        mode: "r+b"
+        unread_bytes: 0
+        seekable: true
+        uri: "/tmp/phpxm4bcZ"
+        options: []
+    }
+    "path" => "/tmp/phpxm4bcZ"
+]
+*/
 ```
 
 ## Global framework helper functions

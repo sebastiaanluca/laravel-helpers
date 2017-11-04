@@ -13,6 +13,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Added `is_logged_in` helper
 - Added `user` helper
 - Added `me` helper
+- Added `create_temporary_file` helper
 
 ### Changed
 
