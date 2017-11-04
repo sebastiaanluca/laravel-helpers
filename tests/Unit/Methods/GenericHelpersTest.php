@@ -160,8 +160,6 @@ class GenericHelpersTest extends TestCase
     {
         $file = create_temporary_file();
 
-        dd($file);
-
         $this->assertArrayHasKey('file', $file);
         $this->assertArrayHasKey('path', $file);
 
