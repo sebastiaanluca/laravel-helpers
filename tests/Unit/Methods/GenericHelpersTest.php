@@ -12,7 +12,7 @@ class GenericHelpersTest extends TestCase
     /**
      * @test
      */
-    function it returns a random bool()
+    function rand_bool returns a random bool()
     {
         $this->assertInternalType('bool', rand_bool());
     }
@@ -20,7 +20,7 @@ class GenericHelpersTest extends TestCase
     /**
      * @test
      */
-    function it wraps a string()
+    function str_wrap wraps a string()
     {
         $this->assertSame('wrappermiddlewrapper', str_wrap('middle', 'wrapper'));
     }
@@ -28,7 +28,7 @@ class GenericHelpersTest extends TestCase
     /**
      * @test
      */
-    function it detects an associative array()
+    function is_assoc_array detects an associative array()
     {
         $this->assertTrue(is_assoc_array([
             'key1' => 'value1',
@@ -41,7 +41,7 @@ class GenericHelpersTest extends TestCase
     /**
      * @test
      */
-    function it expands a flat array()
+    function array_expand expands a flat array()
     {
         $this->assertSame([
             'a' => [
@@ -61,7 +61,7 @@ class GenericHelpersTest extends TestCase
     /**
      * @test
      */
-    function it removes values from an array()
+    function array_without removes values from an array()
     {
         $this->assertSame(['a', 1], array_without(['a', 'b', 1], 'b'));
         $this->assertSame(['a'], array_without(['a', 'b', 1], ['b', 1]));
@@ -70,7 +70,7 @@ class GenericHelpersTest extends TestCase
     /**
      * @test
      */
-    function it pulls values from an array()
+    function array_pull_values pulls values from an array()
     {
         $array = ['a', 'b', 'c'];
 
@@ -81,7 +81,7 @@ class GenericHelpersTest extends TestCase
     /**
      * @test
      */
-    function it pulls a value from an array()
+    function array_pull_value pulls a value from an array()
     {
         $array = ['a', 'b', 'c'];
 
@@ -92,7 +92,7 @@ class GenericHelpersTest extends TestCase
     /**
      * @test
      */
-    function it generates an array hash()
+    function array_hash generates an array hash()
     {
         $hash = '9ae1f8db3c2cc8381e0811dda3316176';
 
@@ -103,7 +103,7 @@ class GenericHelpersTest extends TestCase
     /**
      * @test
      */
-    function it generate an object hash()
+    function object_hash generate an object hash()
     {
         $object = new \stdClass;
         $object->property = 'value';
@@ -120,7 +120,7 @@ class GenericHelpersTest extends TestCase
     /**
      * @test
      */
-    function it creates a carbon instance from a string()
+    function carbonize creates a carbon instance from a string()
     {
         $this->assertEquals(new Carbon('tomorrow'), carbonize('tomorrow'));
     }
@@ -128,7 +128,7 @@ class GenericHelpersTest extends TestCase
     /**
      * @test
      */
-    function it creates a pipe item()
+    function take creates a pipe item()
     {
         $this->assertInstanceOf(Item::class, take('value'));
     }
@@ -136,7 +136,7 @@ class GenericHelpersTest extends TestCase
     /**
      * @test
      */
-    function it checks if a public method exists()
+    function has_public_method checks if a public method exists()
     {
         $class = new class
         {

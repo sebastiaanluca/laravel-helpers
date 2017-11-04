@@ -12,7 +12,7 @@ class LaravelHelpersTest extends TestCase
     /**
      * @test
      */
-    function it returns the current locale()
+    function locale returns the current locale()
     {
         config(['app.locale' => $locale = 'randomlocale']);
 
@@ -22,7 +22,7 @@ class LaravelHelpersTest extends TestCase
     /**
      * @test
      */
-    function it returns the fallback locale if locale not set()
+    function locale returns the fallback locale if locale not set()
     {
         config(['app.locale' => null]);
         config(['app.fallback_locale' => $locale = 'fallbacklocale']);
@@ -33,7 +33,7 @@ class LaravelHelpersTest extends TestCase
     /**
      * @test
      */
-    public function it returns true if the current user is a guest()
+    public function is_guest returns true if the current user is a guest()
     {
         $this->assertTrue(is_guest());
     }
@@ -41,7 +41,7 @@ class LaravelHelpersTest extends TestCase
     /**
      * @test
      */
-    public function it returns false if the current user is not a guest()
+    public function is_guest returns false if the current user is not a guest()
     {
         $this->be(new User);
 
@@ -51,7 +51,7 @@ class LaravelHelpersTest extends TestCase
     /**
      * @test
      */
-    public function it returns false if the current user is not logged in()
+    public function is_logged_in returns false if the current user is not logged in()
     {
         $this->assertFalse(is_logged_in());
     }
@@ -59,7 +59,7 @@ class LaravelHelpersTest extends TestCase
     /**
      * @test
      */
-    public function it returns true if the current user is logged in()
+    public function is_logged_in returns true if the current user is logged in()
     {
         $this->be(new User);
 
