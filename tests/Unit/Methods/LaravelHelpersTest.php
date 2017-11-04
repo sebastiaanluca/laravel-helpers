@@ -88,6 +88,27 @@ class LaravelHelpersTest extends TestCase
     }
 
     /**
+     * @test
+     */
+    public function me returns null if the current user is not logged in()
+    {
+        $this->assertNull(me());
+    }
+
+    /**
+     * @test
+     */
+    public function me returns the user object if the current user is logged in()
+    {
+        $this->be(new User);
+
+        $this->assertInstanceOf(
+            Authenticatable::class,
+            me()
+        );
+    }
+
+    /**
      * Get package providers.
      *
      * @param \Illuminate\Foundation\Application $app

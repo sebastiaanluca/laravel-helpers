@@ -49,3 +49,15 @@ if (! function_exists('user')) {
         return auth()->user();
     }
 }
+
+if (! function_exists('me')) {
+    /**
+     * Get the currently authenticated user.
+     *
+     * @return \Illuminate\Contracts\Auth\Authenticatable|null
+     */
+    function me() : ?Authenticatable
+    {
+        return auth()->user();
+    }
+}
