@@ -364,6 +364,8 @@ locale();
 
 Determine if the current user is a guest.
 
+The opposite of [is_logged_in](#is_logged_in).
+
 ```php
 // When not authenticated
 is_guest();
@@ -379,6 +381,8 @@ is_guest();
 ### is_logged_in
 
 Determine if the current user is authenticated.
+
+The opposite of [is_guest](#is_guest).
 
 ```php
 // When not authenticated
