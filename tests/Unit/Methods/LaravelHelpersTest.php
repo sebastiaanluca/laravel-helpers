@@ -2,6 +2,7 @@
 
 namespace SebastiaanLuca\Helpers\Tests\Unit\Methods;
 
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Foundation\Auth\User;
 use SebastiaanLuca\Helpers\Methods\GlobalHelpersServiceProvider;
 use SebastiaanLuca\Helpers\Tests\TestCase;
@@ -63,6 +64,27 @@ class LaravelHelpersTest extends TestCase
         $this->be(new User);
 
         $this->assertTrue(is_logged_in());
+    }
+
+    /**
+     * @test
+     */
+    public function user returns null if the current user is not logged in()
+    {
+        $this->assertNull(user());
+    }
+
+    /**
+     * @test
+     */
+    public function user returns the user object if the current user is logged in()
+    {
+        $this->be(new User);
+
+        $this->assertInstanceOf(
+            Authenticatable::class,
+            user()
+        );
     }
 
     /**

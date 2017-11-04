@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Contracts\Auth\Authenticatable;
+
 if (! function_exists('locale')) {
     /**
      * Get the active locale.
@@ -33,5 +35,17 @@ if (! function_exists('is_logged_in')) {
     function is_logged_in() : bool
     {
         return auth()->check();
+    }
+}
+
+if (! function_exists('user')) {
+    /**
+     * Get the currently authenticated user.
+     *
+     * @return \Illuminate\Contracts\Auth\Authenticatable|null
+     */
+    function user() : ?Authenticatable
+    {
+        return auth()->user();
     }
 }

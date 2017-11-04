@@ -11,6 +11,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Added logo (by caneco)
 - Added `is_guest` helper
 - Added `is_logged_in` helper
+- Added `user` helper
 
 ### Changed
 

@@ -43,6 +43,7 @@ Each helper is optional and comes with instructions on how to use it.
     - [locale](#locale)
     - [is_guest](#is_guest)
     - [is_logged_in](#is_logged_in)
+    - [user](#user)
 - [Debug global helper functions](#debug-global-helper-functions)
     - [sss](#sss)
     - [ddd](#ddd)
@@ -389,6 +390,24 @@ is_logged_in();
 is_logged_in();
 
 // true
+```
+
+### user
+
+Get the currently authenticated user (if there is one).
+
+When logged in, returns your user model or object that implements `\Illuminate\Contracts\Auth\Authenticatable`.
+
+```php
+// When not authenticated
+user();
+
+// null
+
+// When authenticated as a user
+user();
+
+// Illuminate\Foundation\Auth\User {}
 ```
 
 ## Global debug helper functions
