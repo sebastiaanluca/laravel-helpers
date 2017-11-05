@@ -6,6 +6,10 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+### Fixed
+
+- Use the item pipe operator class identifier instead of a hardcoded `$$` string ([#11](https://github.com/sebastiaanluca/laravel-helpers/pull/11))
+
 ## 1.0.0 (2017-07-10)
 
 ### Added
