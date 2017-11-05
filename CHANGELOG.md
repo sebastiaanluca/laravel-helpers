@@ -35,6 +35,18 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Fixed method helper example code in readme
 - Upgraded Mockery dependency to fix an error on PHP 7.2 (see https://github.com/mockery/mockery/pull/718)
 
+## 1.0.2 (2017-11-05)
+
+### Fixed
+
+- Use the item pipe operator class identifier instead of a hardcoded `$$` string ([#11](https://github.com/sebastiaanluca/laravel-helpers/pull/11))
+
+## 1.0.1 (2017-07-11)
+
+### Fixed
+
+- Fixed method helper readme example
+
 ## 1.0.0 (2017-07-10)
 
 ### Added

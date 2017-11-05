@@ -65,4 +65,19 @@ class PipeTest extends TestCase
     {
         $this->assertInstanceOf(Item::class, (new Item('string'))->pipe('strtoupper'));
     }
+
+    public function test it uses the identifier to replace the actual value()
+    {
+        $this->assertSame(
+            'The meaning of everything is to make everything be more.',
+            (new ExtendedItem('The meaning of life is to make life be more.'))
+                ->pipe('str_replace', 'life', 'everything', '42')
+                ->get()
+        );
+    }
+}
+
+class ExtendedItem extends Item
+{
+    protected $identifier = '42';
 }

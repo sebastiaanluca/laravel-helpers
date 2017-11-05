@@ -7,7 +7,7 @@ class Item
     /**
      * The current value being handled.
      *
-     * @var string
+     * @var mixed
      */
     protected $value;
 
@@ -47,7 +47,7 @@ class Item
         }
         else {
             $arguments = array_map(function ($argument) {
-                return $argument === '$$' ? $this->value : $argument;
+                return $argument === $this->identifier ? $this->value : $argument;
             }, $arguments);
         }
 
