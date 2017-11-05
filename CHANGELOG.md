@@ -28,11 +28,8 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Removed deprecated `use Laravelista\Ekko\Ekko;` import
 - Removed laravelcollective/html and laravelista/ekko Composer dev dependencies
 
-## 1.0.1 (2017-07-11)
-
 ### Fixed
 
-- Fixed method helper example code in readme
 - Upgraded Mockery dependency to fix an error on PHP 7.2 (see https://github.com/mockery/mockery/pull/718)
 
 ## 1.0.2 (2017-11-05)
