@@ -25,7 +25,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Removed support for Laravel 5.4
 - Removed deprecated `use Laravelista\Ekko\Ekko;` import
 - Removed laravelcollective/html and laravelista/ekko composer dev dependencies
-- Removed all non-Laravel helpers to individual packages
+- Extracted all non-Laravel helpers to individual packages
 
 ### Fixed
 
