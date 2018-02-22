@@ -41,6 +41,7 @@ branches:
   only:
     - master
     - develop
+    - feature/extract-helpers
 
 notifications:
   email:
