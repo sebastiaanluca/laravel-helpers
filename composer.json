@@ -20,7 +20,8 @@
     ],
     "require": {
         "php": "^7.1",
-        "laravel/framework": "^5.5"
+        "laravel/framework": "^5.5",
+        "nesbot/carbon": "^1.22"
     },
     "require-dev": {
         "mockery/mockery": "^1.0",
