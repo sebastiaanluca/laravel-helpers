@@ -18,6 +18,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 - Added better installation instructions in readme
 - Simplified all tests
+- Require the `nesbot/carbon` package
 
 ### Removed
 
