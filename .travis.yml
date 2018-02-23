@@ -29,7 +29,7 @@ before_install:
   - travis_retry composer self-update
   - if [[ -n ${MINIMUM_STABILITY} ]]; then composer config minimum-stability ${MINIMUM_STABILITY}; echo "Minimum stability set to ${MINIMUM_STABILITY}"; else echo "Minimum stability left unchanged"; fi
   - if [[ -n ${ORCHESTRA_VERSION} ]]; then composer require orchestra/testbench=${ORCHESTRA_VERSION} --dev --no-update; else echo "orchestra/testbench version requirement left unchanged"; fi
-  - composer require laravel/framework=${LARAVEL_VERSION} --dev --no-update
+  - composer require laravel/framework=${LARAVEL_VERSION} --no-update
 
 install:
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
