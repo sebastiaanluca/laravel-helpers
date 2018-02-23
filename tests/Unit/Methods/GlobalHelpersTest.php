@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User;
 use SebastiaanLuca\Helpers\Methods\GlobalHelpersServiceProvider;
 use SebastiaanLuca\Helpers\Tests\TestCase;
 
-class LaravelHelpersTest extends TestCase
+class GlobalHelpersTest extends TestCase
 {
     /**
      * @test
