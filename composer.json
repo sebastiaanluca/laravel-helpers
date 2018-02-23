@@ -43,5 +43,13 @@
     },
     "config": {
         "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SebastiaanLuca\\Helpers\\Methods\\GlobalHelpersServiceProvider",
+                "SebastiaanLuca\\Helpers\\Collections\\CollectionMacrosServiceProvider"
+            ]
+        }
     }
 }
