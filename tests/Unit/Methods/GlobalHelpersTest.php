@@ -4,7 +4,6 @@ namespace SebastiaanLuca\Helpers\Tests\Unit\Methods;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Foundation\Auth\User;
-use SebastiaanLuca\Helpers\Methods\GlobalHelpersServiceProvider;
 use SebastiaanLuca\Helpers\Tests\TestCase;
 
 class GlobalHelpersTest extends TestCase
@@ -106,19 +105,5 @@ class GlobalHelpersTest extends TestCase
             Authenticatable::class,
             me()
         );
-    }
-
-    /**
-     * Get package providers.
-     *
-     * @param \Illuminate\Foundation\Application $app
-     *
-     * @return array
-     */
-    protected function getPackageProviders($app)
-    {
-        return [
-            GlobalHelpersServiceProvider::class,
-        ];
     }
 }
