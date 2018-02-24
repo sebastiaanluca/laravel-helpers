@@ -31,7 +31,10 @@
     "autoload": {
         "psr-4": {
             "SebastiaanLuca\\Helpers\\": "src"
-        }
+        },
+        "files": [
+            "src/Methods/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -47,7 +50,6 @@
     "extra": {
         "laravel": {
             "providers": [
-                "SebastiaanLuca\\Helpers\\Methods\\GlobalHelpersServiceProvider",
                 "SebastiaanLuca\\Helpers\\Collections\\CollectionMacrosServiceProvider"
             ]
         }
