@@ -16,9 +16,9 @@
 <a href="https://twitter.com/home?status=https://twitter.com/intent/tweet?text=Check%20out%20this%20extensive%20set%20of%20Laravel%20framework%20helper%20functions%20and%20collection%20macros!%20Via%20@sebastiaanluca%20https://github.com/sebastiaanluca/laravel-helpers"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social" alt="Share this package on Twitter"></img></a>
 </p>
 
-# Laravel Helpers
-
-**An extensive set of Laravel framework helper functions and collection macros.**
+<p align="center">
+<strong>An extensive set of Laravel framework helper functions and collection macros.</strong>
+</p>
 
 ## Table of contents
 
