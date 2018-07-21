@@ -27,7 +27,7 @@
 - [Framework helper functions](#framework-helper-functions)
     - [locale](#locale)
     - [is_guest](#is_guest)
-    - [is_logged_in](#is_logged_in)
+    - [is\_logged\_in](#is_logged_in)
     - [user](#user)
     - [me](#me)
 - [Collection macros](#collection-macros)
@@ -95,7 +95,7 @@ is_guest();
 // false
 ```
 
-### is_logged_in
+### is\_logged\_in
 
 Determine if the current user is authenticated.
 
@@ -333,42 +333,6 @@ Illuminate\Support\Collection {
 ```
 
 You can also pass some row header names if you don't want them to be automatically guessed. You'd then call the macro with `transposeWithKeys(['myID', 'row2'])` and the resulting rows would be `myID` and `row2` instead of `id` and `name` respectively.
-
-### d
-
-Display structured debug information on the collection using Kint. Can be called multiple times during a collection's method chain and outputs debug information at each point of use. Continues script execution afterwards.
-
-Explicitly requires the [kint-php/kint](https://github.com/raveren/kint) package.
-
-```php
-collect([
-    'id' => 6,
-    'name' => 'Sebastiaan',
-])
-->d()
-->put('role', 'author')
-->d();
-```
-
-See the [sss helper](#sss) for example output.
-
-### ddd
-
-Display structured debug information on the collection using Kint. Halts script execution afterwards, so it can only be called once during a collection's method chain.
-
-Explicitly requires the [kint-php/kint](https://github.com/raveren/kint) package.
-
-```php
-collect([
-    'id' => 6,
-    'name' => 'Sebastiaan',
-])
-->d()
-->put('role', 'author')
-->ddd();
-```
-
-See the [sss helper](#sss) for example output.
 
 ## License
 
