@@ -24,9 +24,9 @@
         "nesbot/carbon": "^1.22"
     },
     "require-dev": {
-        "mockery/mockery": "^1.0",
-        "orchestra/testbench": "^3.5",
-        "phpunit/phpunit": "^6.4|^7.0"
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "^3.6",
+        "phpunit/phpunit": "^6.4|^7.2"
     },
     "autoload": {
         "psr-4": {
