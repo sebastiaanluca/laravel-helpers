@@ -13,12 +13,12 @@
 <a href="https://blog.sebastiaanluca.com"><img src="https://img.shields.io/badge/link-blog-lightgrey.svg" alt="Read my blog"></img></a>
 <a href="https://packagist.org/packages/sebastiaanluca"><img src="https://img.shields.io/badge/link-other_packages-lightgrey.svg" alt="View my other packages and projects"></img></a>
 <a href="https://twitter.com/sebastiaanluca"><img src="https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social" alt="Follow @sebastiaanluca on Twitter"></img></a>
-<a href="https://twitter.com/home?status=https://twitter.com/intent/tweet?text=Check%20out%20this%20extensive%20set%20of%20Laravel%20framework%20helper%20functions%20and%20macros!%20Via%20@sebastiaanluca%20https://github.com/sebastiaanluca/laravel-helpers"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social" alt="Share this package on Twitter"></img></a>
+<a href="https://twitter.com/home?status=https://twitter.com/intent/tweet?text=Check%20out%20this%20extensive%20set%20of%20Laravel%20framework%20helper%20functions%20and%20collection%20macros!%20Via%20@sebastiaanluca%20https://github.com/sebastiaanluca/laravel-helpers"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social" alt="Share this package on Twitter"></img></a>
 </p>
 
 # Laravel Helpers
 
-**An extensive set of Laravel framework helper functions and macros.**
+**An extensive set of Laravel framework helper functions and collection macros.**
 
 ## Table of contents
 
