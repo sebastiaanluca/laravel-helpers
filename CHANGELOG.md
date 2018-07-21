@@ -33,6 +33,12 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 - Upgraded Mockery dependency to fix a test error on PHP 7.2 (see https://github.com/mockery/mockery/pull/718)
 
+## 1.0.3 (2018-07-21)
+
+### Fixed
+
+- Fixed transposing of an empty collection
+
 ## 1.0.2 (2017-11-05)
 
 ### Fixed

@@ -234,6 +234,12 @@ class CollectionMacrosTest extends TestCase
             ])->transposeWithKeys()
         );
     }
+    
+    public function test it can transpose an empty collection()
+    {
+        $this->assertEquals(collect(), collect()->transpose());
+        $this->assertEquals(collect(), collect()->transposeWithKeys());
+    }
 
     /**
      * Get package providers.
