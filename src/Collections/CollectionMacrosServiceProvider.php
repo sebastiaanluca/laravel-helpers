@@ -52,6 +52,10 @@ class CollectionMacrosServiceProvider extends ServiceProvider
          * @see https://adamwathan.me/2016/04/06/cleaning-up-form-input-with-transpose/
          */
         Collection::macro('transpose', function () {
+            if ($this->isEmpty()) {
+                return $this;
+            }
+            
             $items = array_map(function (...$items) {
                 return $items;
             }, ...$this->values());
@@ -66,6 +70,10 @@ class CollectionMacrosServiceProvider extends ServiceProvider
          * parse more than one missing column.
          */
         Collection::macro('transposeWithKeys', function (array $rows = null) {
+            if ($this->isEmpty()) {
+                return $this;
+            }
+            
             $rows = $rows ?? $this->values()->reduce(function (array $rows, array $values) {
                     return array_unique(array_merge($rows, array_keys($values)));
                 }, []);
