@@ -36,7 +36,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ### Fixed
 
-- Fix transposing of an empty collection
+- Fixed transposing of an empty collection
 
 ## 1.0.2 (2017-11-05)
 
