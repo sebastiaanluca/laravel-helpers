@@ -1,7 +1,7 @@
 {
     "name": "sebastiaanluca/laravel-helpers",
     "type": "library",
-    "description": "An extensive set of Laravel-specific helpers.",
+    "description": "An extensive set of Laravel framework helpers.",
     "keywords": [
         "laravel",
         "helpers",

@@ -13,12 +13,12 @@
 <a href="https://blog.sebastiaanluca.com"><img src="https://img.shields.io/badge/link-blog-lightgrey.svg" alt="Read my blog"></img></a>
 <a href="https://packagist.org/packages/sebastiaanluca"><img src="https://img.shields.io/badge/link-other_packages-lightgrey.svg" alt="View my other packages and projects"></img></a>
 <a href="https://twitter.com/sebastiaanluca"><img src="https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social" alt="Follow @sebastiaanluca on Twitter"></img></a>
-<a href="https://twitter.com/home?status=An%20extensive%20set%20of%20Laravel-specific%20helpers%20and%20collection%20macros!%20https%3A//github.com/sebastiaanluca/laravel-helpers%20via%20%40sebastiaanluca"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social" alt="Share this package on Twitter"></img></a>
+<a href="https://twitter.com/home?status=An%20extensive%20set%20of%20Laravel%20framework%20helpers%20and%20collection%20macros!%20https%3A//github.com/sebastiaanluca/laravel-helpers%20via%20%40sebastiaanluca"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social" alt="Share this package on Twitter"></img></a>
 </p>
 
 # Laravel Helpers
 
-**An extensive set of Laravel-specific helpers.**
+**An extensive set of Laravel framework helpers.**
 
 ## Table of contents
 
