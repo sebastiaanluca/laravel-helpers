@@ -23,9 +23,15 @@
         "laravel/framework": "^5.6"
     },
     "require-dev": {
+        "kint-php/kint": "^2.2",
         "mockery/mockery": "^1.1",
+        "nesbot/carbon": "^1.25",
         "orchestra/testbench": "^3.6",
         "phpunit/phpunit": "^6.4|^7.2"
+    },
+    "suggest": {
+        "kint-php/kint": "A powerful and modern PHP debugging tool. Required for the debug collection macros.",
+        "nesbot/carbon": "A simple PHP API extension for DateTime. Required for the carbonize collection macro."
     },
     "autoload": {
         "psr-4": {
