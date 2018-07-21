@@ -11,7 +11,7 @@ class GlobalHelpersTest extends TestCase
     /**
      * @test
      */
-    function locale returns the current locale()
+    public function locale returns the current locale() : void
     {
         config(['app.locale' => $locale = 'randomlocale']);
 
@@ -21,7 +21,7 @@ class GlobalHelpersTest extends TestCase
     /**
      * @test
      */
-    function locale returns the fallback locale if locale not set()
+    public function locale returns the fallback locale if locale not set() : void
     {
         config(['app.locale' => null]);
         config(['app.fallback_locale' => $locale = 'fallbacklocale']);
@@ -32,7 +32,7 @@ class GlobalHelpersTest extends TestCase
     /**
      * @test
      */
-    public function is_guest returns true if the current user is a guest()
+    public function is_guest returns true if the current user is a guest() : void
     {
         $this->assertTrue(is_guest());
     }
@@ -40,7 +40,7 @@ class GlobalHelpersTest extends TestCase
     /**
      * @test
      */
-    public function is_guest returns false if the current user is not a guest()
+    public function is_guest returns false if the current user is not a guest() : void
     {
         $this->be(new User);
 
@@ -50,7 +50,7 @@ class GlobalHelpersTest extends TestCase
     /**
      * @test
      */
-    public function is_logged_in returns false if the current user is not logged in()
+    public function is_logged_in returns false if the current user is not logged in() : void
     {
         $this->assertFalse(is_logged_in());
     }
@@ -58,7 +58,7 @@ class GlobalHelpersTest extends TestCase
     /**
      * @test
      */
-    public function is_logged_in returns true if the current user is logged in()
+    public function is_logged_in returns true if the current user is logged in() : void
     {
         $this->be(new User);
 
@@ -68,7 +68,7 @@ class GlobalHelpersTest extends TestCase
     /**
      * @test
      */
-    public function user returns null if the current user is not logged in()
+    public function user returns null if the current user is not logged in() : void
     {
         $this->assertNull(user());
     }
@@ -76,7 +76,7 @@ class GlobalHelpersTest extends TestCase
     /**
      * @test
      */
-    public function user returns the user object if the current user is logged in()
+    public function user returns the user object if the current user is logged in() : void
     {
         $this->be(new User);
 
@@ -89,7 +89,7 @@ class GlobalHelpersTest extends TestCase
     /**
      * @test
      */
-    public function me returns null if the current user is not logged in()
+    public function me returns null if the current user is not logged in() : void
     {
         $this->assertNull(me());
     }
@@ -97,7 +97,7 @@ class GlobalHelpersTest extends TestCase
     /**
      * @test
      */
-    public function me returns the user object if the current user is logged in()
+    public function me returns the user object if the current user is logged in() : void
     {
         $this->be(new User);
 

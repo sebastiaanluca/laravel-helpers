@@ -11,7 +11,7 @@ class CollectionMacrosTest extends TestCase
     /**
      * @test
      */
-    function it creates a collection of carbon instances()
+    public function it creates a collection of carbon instances() : void
     {
         $this->assertEquals(
             collect([
@@ -30,7 +30,7 @@ class CollectionMacrosTest extends TestCase
     /**
      * @test
      */
-    function it creates a collection of values found between two given values()
+    public function it creates a collection of values found between two given values() : void
     {
         $this->assertEquals(
             collect([
@@ -49,7 +49,7 @@ class CollectionMacrosTest extends TestCase
     /**
      * @test
      */
-    function it creates a collection of values found between one given value()
+    public function it creates a collection of values found between one given value() : void
     {
         $this->assertEquals(
             collect([
@@ -68,7 +68,7 @@ class CollectionMacrosTest extends TestCase
     /**
      * @test
      */
-    function it transforms keys using a callable()
+    public function it transforms keys using a callable() : void
     {
         $this->assertEquals(
             collect([
@@ -87,7 +87,7 @@ class CollectionMacrosTest extends TestCase
     /**
      * @test
      */
-    function it transforms keys using a callback()
+    public function it transforms keys using a callback() : void
     {
         $this->assertEquals(
             collect([
@@ -108,7 +108,7 @@ class CollectionMacrosTest extends TestCase
     /**
      * @test
      */
-    function it transposes a matrix collection()
+    public function it transposes a matrix collection() : void
     {
         $this->assertEquals(
             collect([
@@ -127,7 +127,7 @@ class CollectionMacrosTest extends TestCase
     /**
      * @test
      */
-    function it transposes a matrix collection including keys()
+    public function it transposes a matrix collection including keys() : void
     {
         $this->assertEquals(
             collect([
@@ -162,7 +162,7 @@ class CollectionMacrosTest extends TestCase
     /**
      * @test
      */
-    function it transposes a matrix collection including keys automatically()
+    public function it transposes a matrix collection including keys automatically() : void
     {
         $this->assertEquals(
             collect([
@@ -197,7 +197,7 @@ class CollectionMacrosTest extends TestCase
     /**
      * @test
      */
-    function it transposes a matrix collection including keys automatically and handles extra fields()
+    public function it transposes a matrix collection including keys automatically and handles extra fields() : void
     {
         $this->assertEquals(
             collect([
@@ -234,8 +234,8 @@ class CollectionMacrosTest extends TestCase
             ])->transposeWithKeys()
         );
     }
-    
-    public function test it can transpose an empty collection()
+
+    public function test it can transpose an empty collection() : void
     {
         $this->assertEquals(collect(), collect()->transpose());
         $this->assertEquals(collect(), collect()->transposeWithKeys());
@@ -248,8 +248,10 @@ class CollectionMacrosTest extends TestCase
      *
      * @return array
      */
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app) : array
     {
-        return [CollectionMacrosServiceProvider::class];
+        return [
+            CollectionMacrosServiceProvider::class,
+        ];
     }
 }
