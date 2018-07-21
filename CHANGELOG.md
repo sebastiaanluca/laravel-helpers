@@ -6,6 +6,12 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+## 1.0.3 (2018-07-21)
+
+### Fixed
+
+- Fix transposing of an empty collection
+
 ## 1.0.2 (2017-11-05)
 
 ### Fixed
