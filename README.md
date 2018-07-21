@@ -334,6 +334,38 @@ Illuminate\Support\Collection {
 
 You can also pass some row header names if you don't want them to be automatically guessed. You'd then call the macro with `transposeWithKeys(['myID', 'row2'])` and the resulting rows would be `myID` and `row2` instead of `id` and `name` respectively.
 
+### d
+
+Display structured debug information on the collection using Kint. Can be called multiple times during a collection's method chain and outputs debug information at each point of use. Continues script execution afterwards.
+
+Explicitly requires the [kint-php/kint](https://github.com/raveren/kint) package.
+
+```php
+collect([
+    'id' => 6,
+    'name' => 'Sebastiaan',
+])
+->d()
+->put('role', 'author')
+->d();
+```
+
+### ddd
+
+Display structured debug information on the collection using Kint. Halts script execution afterwards, so it can only be called once during a collection's method chain.
+
+Explicitly requires the [kint-php/kint](https://github.com/raveren/kint) package.
+
+```php
+collect([
+    'id' => 6,
+    'name' => 'Sebastiaan',
+])
+->d()
+->put('role', 'author')
+->ddd();
+```
+
 ## License
 
 This package operates under the MIT License (MIT). Please see [LICENSE](LICENSE.md) for more information.
