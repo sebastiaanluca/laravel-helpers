@@ -1,41 +1,36 @@
-# Laravel Helpers
+<p align="center">
+<img title="Laravel Helpers" src="https://raw.githubusercontent.com/sebastiaanluca/laravel-helpers/develop/logo.png"></img>
+</p>
 
-[![Latest stable release][version-badge]][link-packagist]
-[![Software license][license-badge]](LICENSE.md)
-[![Build status][travis-badge]][link-travis]
-[![Total downloads][downloads-badge]][link-packagist]
+<p align="center">
+<a href="https://packagist.org/packages/sebastiaanluca/laravel-helpers"><img src="https://poser.pugx.org/sebastiaanluca/laravel-helpers/version" alt="Latest stable release"></img></a>
+<a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="Software license"></img></a>
+<a href="https://travis-ci.org/sebastiaanluca/laravel-helpers"><img src="https://img.shields.io/travis/sebastiaanluca/laravel-helpers/master.svg" alt="Build status"></img></a>
+<a href="https://packagist.org/packages/sebastiaanluca/laravel-helpers"><img src="https://img.shields.io/packagist/dt/sebastiaanluca/laravel-helpers.svg" alt="Total downloads"></img></a>
+</p>
 
-[![Read my blog][blog-link-badge]][link-blog]
-[![View my other packages and projects][packages-link-badge]][link-packages]
-[![Follow @sebastiaanluca on Twitter][twitter-profile-badge]][link-twitter]
-[![Share this package on Twitter][twitter-share-badge]][link-twitter-share]
+<p align="center">
+<a href="https://blog.sebastiaanluca.com"><img src="https://img.shields.io/badge/link-blog-lightgrey.svg" alt="Read my blog"></img></a>
+<a href="https://packagist.org/packages/sebastiaanluca"><img src="https://img.shields.io/badge/link-other_packages-lightgrey.svg" alt="View my other packages and projects"></img></a>
+<a href="https://twitter.com/sebastiaanluca"><img src="https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social" alt="Follow @sebastiaanluca on Twitter"></img></a>
+<a href="https://twitter.com/home?status=https://twitter.com/intent/tweet?text=Check%20out%20this%20extensive%20set%20of%20Laravel%20framework%20helper%20functions%20and%20collection%20macros!%20Via%20@sebastiaanluca%20https://github.com/sebastiaanluca/laravel-helpers"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social" alt="Share this package on Twitter"></img></a>
+</p>
 
-**An extensive set of generic PHP and Laravel-specific helpers.**
-
-Each helper is optional and comes with instructions on how to use it.
+<p align="center">
+<strong>An extensive set of Laravel framework helper functions and collection macros.</strong>
+</p>
 
 ## Table of contents
 
 - [Requirements](#requirements)
 - [How to install](#how-to-install)
-- [Global helper functions](#global-helper-functions)
-    - [rand_bool](#rand_bool)
-    - [str_wrap](#str_wrap)
-    - [is_assoc_array](#is_assoc_array)
-    - [array_expand](#array_expand)
-    - [array_without](#array_without)
-    - [array_pull_value](#array_pull_value)
-    - [array_pull_values](#array_pull_values)
-    - [array_hash](#array_hash)
-    - [object_hash](#object_hash)
-    - [has_public_method](#has_public_method)
-    - [carbonize](#carbonize)
-    - [take (pipe operator)](#take-pipe-operator)
+- [Upgrading from 1.x](#upgrading-from-1x)
+- [Framework helper functions](#framework-helper-functions)
     - [locale](#locale)
-    - [sss](#sss)
-    - [ddd](#ddd)
-    - [sss_if](#sss_if)
-    - [ddd_if](#ddd_if)
+    - [is_guest](#is_guest)
+    - [is\_logged\_in](#is_logged_in)
+    - [me](#me)
+    - [user](#user)
 - [Collection macros](#collection-macros)
     - [Carbonize](#carbonize)
     - [Between](#between)
@@ -43,26 +38,7 @@ Each helper is optional and comes with instructions on how to use it.
     - [transpose](#transpose)
     - [transposeWithKeys](#transposewithkeys)
     - [d](#d)
-    - [ddd](#ddd-1)
-- [Class helpers](#class-helpers)
-    - [Constants trait](#constants-trait)
-    - [ProvidesClassInfo trait](#providesclassinfo-trait)
-    - [MethodHelper](#methodhelper)
-- [Database table reader](#database-table-reader)
-    - [Loading a table's information](#loading-a-tables-information)
-    - [getConnection](#getconnection)
-    - [setConnection](#setconnection)
-    - [table](#table)
-    - [rawFields](#rawfields)
-    - [fields](#fields)
-    - [guarded](#guarded)
-    - [fillable](#fillable)
-    - [casts](#casts)
-    - [dates](#dates)
-    - [nullable](#nullable)
-    - [hasField](#hasfield)
-    - [usesTimestamps](#usestimestamps)
-    - [usesSoftDelete](#usessoftdelete)
+    - [ddd](#ddd)
 - [License](#license)
 - [Change log](#change-log)
 - [Testing](#testing)
@@ -73,245 +49,36 @@ Each helper is optional and comes with instructions on how to use it.
 
 ## Requirements
 
-- PHP 7 or higher
-- Laravel 5.4 or higher
+- PHP 7.2 or higher
+- Laravel 5.6 or higher
 
 ## How to install
 
-Via Composer:
+Just add the package to your project using Composer and Laravel will auto-discover it:
 
 ```bash
 composer require sebastiaanluca/laravel-helpers
 ```
 
-To use the global helper functions or enable the collection macros, add the corresponding service provider to your `config/app.php` file:
+If you want to use the collection debug macros, install the [kint-php/kint](https://github.com/raveren/kint) package as a dev dependency:
 
-```php
-'providers' => [
-
-    SebastiaanLuca\Helpers\Methods\GlobalHelpersServiceProvider::class,
-    SebastiaanLuca\Helpers\Collections\CollectionMacrosServiceProvider::class,
-    
-]
+```bash
+composer require kint-php/kint --dev
 ```
 
-Other helpers are standalone and do not need to be activated beforehand.
+## Upgrading from 1.x
 
-## Global helper functions
+All essential generic PHP helpers have been extracted to their own [sebastiaanluca/php-helpers](https://github.com/sebastiaanluca/php-helpers) package and some other helpers have been removed in anticipation of their own package. In effect and from now on, Laravel Helpers will only contain helpers for the Laravel framework.
 
-### rand_bool
+In addition, the minimum requirements have been upgraded to PHP 7.2 and Laravel 5.6.
 
-Randomly return `true` or `false`.
+[See the changelog](CHANGELOG.md#200-2018-07-22) for more information.
 
-```php
-rand_bool();
-
-// true
-```
-
-### str_wrap
-
-Wrap a string with another string.
-
-```php
-str_wrap('foo', '*');
-
-// "*foo*"
-```
-
-### is_assoc_array
-
-Check if an array is associative.
-
-Performs a simple check to determine if the given array's keys are numeric, start at 0, and count up to the amount of values it has.
-
-```php
-is_assoc_array(['color' => 'blue', 'age' => 31]);
-
-// true
-```
-
-```php
-is_assoc_array([0 => 'blue', 7 => 31]);
-
-// true
-```
-
-```php
-is_assoc_array(['blue', 31]);
-
-// false
-```
-
-```php
-is_assoc_array([0 => 'blue', 1 => 31]);
-
-// false
-```
-
-### array_expand
-
-Expand a flat dotted array into a multi-dimensional associative array.
-
-If a key is encountered that is already present and the existing value is an array, each new value will be added to that array. If it's not an array, each new value will override the existing one.
-
-```php
-array_expand(['products.desk.price' => 200]);
-
-/*
-[
-    "products" => [
-        "desk" => [
-            "price" => 200,
-        ],
-    ],
-]
-*/
-```
-
-### array_without
-
-Get the array without the given values.
-
-Accepts either an array or a value as parameter to remove.
-
-```php
-$cars = ['bmw', 'mercedes', 'audi'];
-$soldOut = ['audi', 'bmw'];
-
-$inStock = array_without($cars, $soldOut);
-
-// ["mercedes"]
-```
-
-```php
-array_without(['one', 'two', 'three'], 'two');
-
-// ["one", "three"]
-```
-
-### array_pull_value
-
-Pull a single value from a given array.
-
-Returns the given value if it was successfully removed from the source array or `null` if it was not found.
-
-```php
-$source = ['A', 'B', 'C'];
-
-$removed = array_pull_value($source, 'C');
-
-// $removed = "C"
-// $source = ["A", "B"]
-```
-
-### array_pull_values
-
-Pull an array of values from a given array.
-
-Returns the values that were successfully removed from the source array or an empty array if none were found.
-
-```php
-$source = ['A', 'B', 'C'];
-$removed = array_pull_values($source, ['A', 'B']);
-
-// $removed = ["A", "B"]
-// $source = ["C"]
-```
-
-### array_hash
-
-Create a unique string identifier for an array.
-
-The identifier will be entirely unique for each combination of keys and values.
-
-```php
-array_hash([1, 2, 3]);
-
-// "262bbc0aa0dc62a93e350f1f7df792b9"
-```
-
-```php
-array_hash(['hash' => 'me']);
-
-// "f712e79b502bda09a970e2d4d47e3f88"
-```
-
-### object_hash
-
-Create a unique string identifier for an object.
-
-Similar to [array_hash](#array_hash), this uses `serialize` to *stringify* all public properties first. The identifier will be entirely unique based on the object class, properties, and its values.
-
-```php
-class ValueObject {
-    public $property = 'randomvalue';
-}
-
-object_hash(new ValueObject);
-
-// "f39eaea7a1cf45f5a0c813d71b5f2f57"
-```
-
-### has_public_method
-
-Check if a class has a certain public method.
-
-```php
-class Hitchhiker {
-    public function answer() {
-        return 42;
-    }
-}
-
-has_public_method(Hitchhiker::class, 'answer');
-
-// true
-
-has_public_method(new Hitchhiker, 'answer');
-
-// true
-```
-
-### carbonize
-
-Create a Carbon datetime object from a string.
-
-Requires the [nesbot/carbon](https://github.com/briannesbitt/Carbon) package.
-
-```php
-carbonize('2017-01-18 11:30');
-
-/*
-Carbon\Carbon {
-    "date": "2017-01-18 11:30:00.000000",
-    "timezone_type": 3,
-    "timezone": "UTC",
-}
-*/
-```
-
-### take (pipe operator)
-
-Create a new pipe item from a given value.
-
-Allows you to chain method calls any way you see fit. See the [enabling PHP method chaining with a makeshift pipe operator](https://blog.sebastiaanluca.com/enabling-php-method-chaining-with-a-makeshift-pipe-operator) blog post for more info.
-
-```php
-take('https://blog.sebastiaanluca.com/')
-    ->pipe('parse_url', PHP_URL_HOST)
-    ->pipe('explode', '.', '$$')
-    ->pipe('reset')
-    ->get();
-
-// "blog"
-```
+## Framework helper functions
 
 ### locale
 
 Get the active app locale or the fallback locale if it's missing or not set.
-
-Requires the [laravel/framework](https://github.com/laravel/framework) package.
 
 ```php
 locale();
@@ -319,87 +86,85 @@ locale();
 // "en"
 ```
 
-### sss
+### is_guest
 
-Display structured debug information about one or more values **in plain text** using Kint and halt script execution afterwards. Accepts multiple arguments to dump.
+Determine if the current user is a guest.
 
-Output will be identical to `ddd` when used in a command line interface. In a browser, it'll display plain, but structured text.
-
-Requires the [kint-php/kint](https://github.com/raveren/kint) package.
+The opposite of [is_logged_in](#is_logged_in).
 
 ```php
-sss('string');
+// When not authenticated
+is_guest();
 
-/*
-┌─────────────────────────────────────────┐
-│ literal                                 │
-└─────────────────────────────────────────┘
-string (6) "string"
-═══════════════════════════════════════════
-Called from .../src/MyClass.php:42
-*/
+// true
 
-sss('string', 0.42, ['array']);
+// When authenticated as a user
+is_guest();
 
-/*
-┌─────────────────────────────────────────┐
-│ literal                                 │
-└─────────────────────────────────────────┘
-string (6) "string"
-┌─────────────────────────────────────────┐
-│ literal                                 │
-└─────────────────────────────────────────┘
-double 0.42
-┌─────────────────────────────────────────┐
-│ literal                                 │
-└─────────────────────────────────────────┘
-array (1) [
-    0 => string (5) "array"
-]
-═══════════════════════════════════════════
-Called from .../src/MyClass.php:42
-*/
+// false
 ```
 
-### ddd
+### is\_logged\_in
 
-Display structured debug information about one or more values using Kint and halt script execution afterwards. Accepts multiple arguments to dump. Output will be identical to `sss` when used in a command line interface. In a browser, it'll display an interactive, structured tree-view.
+Determine if the current user is authenticated.
 
-Requires the [kint-php/kint](https://github.com/raveren/kint) package.
-
-See the [sss helper](#sss) for example output.
-
-### sss_if
-
-Display structured debug information about one or more values **in plain text** using Kint and halt script execution afterwards, but only if the condition is truthy. Does nothing if falsy. Accepts multiple arguments to dump.
-
-Requires the [kint-php/kint](https://github.com/raveren/kint) package.
+The opposite of [is_guest](#is_guest).
 
 ```php
-sss_if($user->last_name, 'User has a last name', $user->last_name);
+// When not authenticated
+is_logged_in();
+
+// false
+
+// When authenticated as a user
+is_logged_in();
+
+// true
 ```
 
-See the [sss helper](#sss) for example output.
+### user
 
-### ddd_if
+Get the currently authenticated user (if there is one).
 
-Display structured debug information about one or more values using Kint and halt script execution afterwards, but only if the condition is truthy. Does nothing if falsy. Accepts multiple arguments to dump.
-
-Requires the [kint-php/kint](https://github.com/raveren/kint) package.
+When logged in, returns your user model or object that implements `\Illuminate\Contracts\Auth\Authenticatable`.
 
 ```php
-ddd_if(app()->environment('local'), 'Debugging in a local environment!');
+// When not authenticated
+user();
+
+// null
+
+// When authenticated as a user
+user();
+
+// Illuminate\Foundation\Auth\User {}
 ```
 
-See the [ddd helper](#ddd) for example output.
+### me
+
+Get the currently authenticated user (if there is one).
+
+When logged in, returns your user model or object that implements `\Illuminate\Contracts\Auth\Authenticatable`.
+
+An alternative for [user](#user).
+
+```php
+// When not authenticated
+me();
+
+// null
+
+// When authenticated as a user
+me();
+
+// Illuminate\Foundation\Auth\User {}
+```
 
 ## Collection macros
 
 ### carbonize
 
 Create Carbon instances from items in a collection.
-
-Requires the [nesbot/carbon](https://github.com/briannesbitt/Carbon) package.
 
 ```php
 collect([
@@ -582,7 +347,7 @@ You can also pass some row header names if you don't want them to be automatical
 
 Display structured debug information on the collection using Kint. Can be called multiple times during a collection's method chain and outputs debug information at each point of use. Continues script execution afterwards.
 
-Requires the [kint-php/kint](https://github.com/raveren/kint) package.
+Explicitly requires the [kint-php/kint](https://github.com/raveren/kint) package.
 
 ```php
 collect([
@@ -594,13 +359,11 @@ collect([
 ->d();
 ```
 
-See the [sss helper](#sss) for example output.
-
 ### ddd
 
 Display structured debug information on the collection using Kint. Halts script execution afterwards, so it can only be called once during a collection's method chain.
 
-Requires the [kint-php/kint](https://github.com/raveren/kint) package.
+Explicitly requires the [kint-php/kint](https://github.com/raveren/kint) package.
 
 ```php
 collect([
@@ -611,226 +374,6 @@ collect([
 ->put('role', 'author')
 ->ddd();
 ```
-
-See the [sss helper](#sss) for example output.
-
-## Class helpers
-
-### Constants trait
-
-The primary use of the `Constants` trait is to enable you to store all constants of a specific type in a single class or value object and have it return those with a single call.
-
-This can be useful for instance when your database uses integers to store states, but you want to use descriptive strings throughout your code. It also allows you to refactor these constants at any time without having to waste time searching your code for any raw values (and probably miss a few, introducing new bugs along the way).
-
-```php
-<?php
-
-use SebastiaanLuca\Helpers\Classes\Constants;
-
-class UserStates
-{
-    use Constants;
-
-    const REGISTERED = 'registered';
-    const ACTIVATED = 'activated';
-    const DISABLED = 'disabled';
-}
-
-UserStates::constants();
-
-// or
-
-(new UserStates)->constants();
-
-/*
-[
-    "REGISTERED" => "registered",
-    "ACTIVATED" => "activated",
-    "DISABLED" => "disabled",
-]
-*/
-```
-
-### ProvidesClassInfo trait
-
-The `ProvidesClassInfo` trait provides an easy-to-use `getClassDirectory()` helper method that returns the directory of the current class.
-
-```php
-<?php
-
-namespace Kyle\Helpers;
-
-use SebastiaanLuca\Helpers\Classes\ProvidesClassInfo;
-
-class MyClass
-{
-    use ProvidesClassInfo;
-
-    public function __construct()
-    {
-        var_dump($this->getClassDirectory());
-    }
-}
-
-// "/Users/Kyle/Projects/laravel-helpers"
-```
-
-### MethodHelper
-
-A static class helper to help you figure out the visibility/accessibility of an object's methods.
-
-```php
-<?php
-
-class SomeClass
-{
-    private function aPrivateMethod() : string
-    {
-        return 'private';
-    }
-
-    protected function aProtectedMethod() : string
-    {
-        return 'protected';
-    }
-
-    public function aPublicMethod() : string
-    {
-        return 'public';
-    }
-}
-
-MethodHelper::hasMethodOfType($class, 'aPrivateMethod', 'private');
-
-// true
-
-MethodHelper::hasProtectedMethod($class, 'aProtectedMethod');
-
-// true
-
-MethodHelper::hasPublicMethod($class, 'aPublicMethod');
-
-// true
-
-MethodHelper::hasProtectedMethod($class, 'aPrivateMethod');
-
-// false
-
-MethodHelper::hasPublicMethod($class, 'invalidMethod');
-
-// false
-```
-
-## Database table reader
-
-The database table reader gives you detailed information about a given table, especially in the context of a Laravel Eloquent model.
-
-Note that this has only been tested with MySQL databases, although it might work with others too as it uses a raw `describe` statement to get a table's information. Uses the default database connection by default when resolved from the DI container, but you can set your own before calling `read`.
-
-Note: unless otherwise specified, call each method __after reading__ the table to allow for it to return something.
-
-Requires the [illuminate/database](https://github.com/illuminate/database) package.
-
-### Loading a table's information
-
-Create a new reader to set up its internal database manager and connection:
-
-```php
-$reader = app(\SebastiaanLuca\Helpers\Database\TableReader::class);
-```
-
-Then read the table:
-
-```php
-$reader->read('users');
-```
-
-### getConnection
-
-Get the database connection used to read the table.
-
-#### setConnection
-
-Set the database connection used to read the table. Do this __before__ reading the table.
-
-```php
-app(\SebastiaanLuca\Helpers\Database\TableReader::class)
-    ->setConnection($connection)
-    ->read('users');
-```
-
-### table
-
-Get the table name that was read.
-
-### rawFields
-
-Get all the table's fields and additional raw information as an array.
-
-### fields
-
-Get a simple list of all the table's column names.
-
-### guarded
-
-Get a simple list of all the table's guarded fields.
-
-Compares the table's columns with a default list and returns matches.
-
-Currently supported:
-
-- `id`
-- `password`
-- `password_hash`
-- `created_at`
-- `updated_at`
-- `deleted_at`
-
-### fillable
-
-Get all mass-assignable attributes.
-
-Compares default fillable fields with the ones in the table.
-
-### casts
-
-Get all attributes that can be casted to native types.
-
-Matches table column types with their native counterparts.
-
-Currently supported:
-
-- `int` to `integer`
-- `tinyint(1)` to `boolean`
-- `json` to `array`
-
-### dates
-
-Get all attributes that can be converted to Carbon DateTime instances.
-
-Currently supported:
-
-- `timestamp`
-- `datetime`
-- `date`
-- `time`
-- `year`
-
-### nullable
-
-Get all attributes that can be `NULL`.
-
-### hasField
-
-Check if the table has a given column.
-
-### usesTimestamps
-
-Check if the table uses Eloquent timestamps (`created_at` and `updated_at`).
-
-### usesSoftDelete
-
-Check if the table uses Eloquent soft deletes (`deleted_at`).
 
 ## License
 
@@ -858,6 +401,7 @@ If you discover any security related issues, please email [hello@sebastiaanluca.
 ## Credits
 
 - [Sebastiaan Luca][link-github-profile]
+- Logo by [Vitor Caneco](https://github.com/caneco)
 - [All Contributors][link-contributors]
 
 ## About
@@ -866,16 +410,6 @@ My name is Sebastiaan and I'm a freelance Laravel developer specializing in buil
 
 Have a project that could use some guidance? Send me an e-mail at [hello@sebastiaanluca.com][link-author-email]!
 
-[version-badge]: https://poser.pugx.org/sebastiaanluca/laravel-helpers/version
-[license-badge]: https://img.shields.io/badge/license-MIT-brightgreen.svg
-[travis-badge]: https://img.shields.io/travis/sebastiaanluca/laravel-helpers/master.svg
-[downloads-badge]: https://img.shields.io/packagist/dt/sebastiaanluca/laravel-helpers.svg
-
-[blog-link-badge]: https://img.shields.io/badge/link-blog-lightgrey.svg
-[packages-link-badge]: https://img.shields.io/badge/link-other_packages-lightgrey.svg
-[twitter-profile-badge]: https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social
-[twitter-share-badge]: https://img.shields.io/twitter/url/http/shields.io.svg?style=social
-
 [link-packagist]: https://packagist.org/packages/sebastiaanluca/laravel-helpers
 [link-travis]: https://travis-ci.org/sebastiaanluca/laravel-helpers
 [link-contributors]: ../../contributors
@@ -883,7 +417,5 @@ Have a project that could use some guidance? Send me an e-mail at [hello@sebasti
 [link-portfolio]: https://www.sebastiaanluca.com
 [link-blog]: https://blog.sebastiaanluca.com
 [link-packages]: https://packagist.org/packages/sebastiaanluca
-[link-twitter]: https://twitter.com/sebastiaanluca
-[link-twitter-share]: https://twitter.com/home?status=An%20extensive%20set%20of%20generic%20PHP%20and%20Laravel-specific%20helpers,%20collection%20macros,%20and%20more!%20https%3A//github.com/sebastiaanluca/laravel-helpers%20via%20%40sebastiaanluca
 [link-github-profile]: https://github.com/sebastiaanluca
 [link-author-email]: mailto:hello@sebastiaanluca.com

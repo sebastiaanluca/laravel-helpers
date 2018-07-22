@@ -1,16 +1,12 @@
 {
     "name": "sebastiaanluca/laravel-helpers",
     "type": "library",
-    "description": "An extensive set of generic PHP and Laravel-specific helpers.",
+    "description": "An extensive set of Laravel framework helper functions and collection macros.",
     "keywords": [
         "laravel",
-        "helper",
-        "blade",
-        "collection",
-        "response",
-        "array",
-        "form",
-        "pipe"
+        "helpers",
+        "collections",
+        "macros"
     ],
     "homepage": "https://github.com/sebastiaanluca/laravel-helpers",
     "license": "MIT",
@@ -19,34 +15,31 @@
             "name": "Sebastiaan Luca",
             "email": "hello@sebastiaanluca.com",
             "homepage": "https://www.sebastiaanluca.com",
-            "role": "Developer"
+            "role": "Author"
         }
     ],
     "require": {
-        "php": "^7",
-        "illuminate/support": "^5.4"
+        "php": "^7.2",
+        "laravel/framework": "^5.6"
     },
     "require-dev": {
-        "illuminate/database": "^5.4",
-        "kint-php/kint": "^2.1",
-        "laravel/framework": "^5.4",
-        "laravelcollective/html": "^5.4",
-        "laravelista/ekko": "^1.3",
-        "mockery/mockery": "^0.9.9",
-        "nesbot/carbon": "^1.22",
-        "orchestra/testbench": "^3.4.2",
-        "phpunit/phpunit": "^6.2"
+        "kint-php/kint": "^2.2",
+        "mockery/mockery": "^1.1",
+        "nesbot/carbon": "^1.25",
+        "orchestra/testbench": "^3.6",
+        "phpunit/phpunit": "^6.4|^7.2"
     },
     "suggest": {
-        "illuminate/database": "Laravel framework database component. Required for the table reader helper.",
-        "kint-php/kint": "A powerful and modern PHP debugging tool. Required for the debug helpers.",
-        "laravel/framework": "The Laravel framework. Required for some global helpers and the form helpers.",
-        "nesbot/carbon": "A simple PHP API extension for DateTime. Required for the carbonize collection macro and global helper."
+        "kint-php/kint": "A powerful and modern PHP debugging tool. Required for the debug collection macros.",
+        "nesbot/carbon": "A simple PHP API extension for DateTime. Required for the carbonize collection macro."
     },
     "autoload": {
         "psr-4": {
             "SebastiaanLuca\\Helpers\\": "src"
-        }
+        },
+        "files": [
+            "src/Methods/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -58,5 +51,12 @@
     },
     "config": {
         "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SebastiaanLuca\\Helpers\\Collections\\CollectionMacrosServiceProvider"
+            ]
+        }
     }
 }

@@ -1,16 +1,44 @@
 # Changelog
 
-All Notable changes to `sebastiaanluca/laravel-helpers` will be documented in this file.
+All notable changes to `sebastiaanluca/laravel-helpers` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-##  Unreleased
+## Unreleased
+
+## 2.0.0 (2018-07-22)
+
+### Added
+
+- Added logo (by caneco)
+- Added `is_guest` helper
+- Added `is_logged_in` helper
+- Added `user` helper
+- Added `me` helper
+
+### Changed
+
+- Added better installation instructions in readme
+- Simplified all tests
+- Autoload global helpers instead of using a service provider
+
+### Removed
+
+- ⚠️ Extracted all non-Laravel helpers to [individual packages](https://github.com/sebastiaanluca/php-helpers)
+- ⚠️ Removed support for PHP 7.1 and below
+- ⚠️ Removed support for Laravel 5.5 and below
+- Removed deprecated `use Laravelista\Ekko\Ekko;` import
+- Removed laravelcollective/html and laravelista/ekko composer dev dependencies
+
+### Fixed
+
+- Upgraded Mockery dependency to fix a test error on PHP 7.2 (see https://github.com/mockery/mockery/pull/718)
 
 ## 1.0.3 (2018-07-21)
 
 ### Fixed
 
-- Fix transposing of an empty collection
+- Fixed transposing of an empty collection
 
 ## 1.0.2 (2017-11-05)
 
