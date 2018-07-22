@@ -1,6 +1,6 @@
 # Changelog
 
-All Notable changes to `sebastiaanluca/laravel-helpers` will be documented in this file.
+All notable changes to `sebastiaanluca/laravel-helpers` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
@@ -13,24 +13,24 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Added `is_logged_in` helper
 - Added `user` helper
 - Added `me` helper
-- Added `create_temporary_file` helper
 
 ### Changed
 
 - Added better installation instructions in readme
 - Simplified all tests
-- Added `carbonize()` example without passing a value
+- Autoload global helpers instead of using a service provider
 
 ### Removed
 
-- Removed support for PHP 7.0 and below
-- Removed support for Laravel 5.4
+- ⚠️ Extracted all non-Laravel helpers to [individual packages](https://github.com/sebastiaanluca/php-helpers)
+- ⚠️ Removed support for PHP 7.1 and below
+- ⚠️ Removed support for Laravel 5.5 and below
 - Removed deprecated `use Laravelista\Ekko\Ekko;` import
-- Removed laravelcollective/html and laravelista/ekko Composer dev dependencies
+- Removed laravelcollective/html and laravelista/ekko composer dev dependencies
 
 ### Fixed
 
-- Upgraded Mockery dependency to fix an error on PHP 7.2 (see https://github.com/mockery/mockery/pull/718)
+- Upgraded Mockery dependency to fix a test error on PHP 7.2 (see https://github.com/mockery/mockery/pull/718)
 
 ## 1.0.3 (2018-07-21)
 

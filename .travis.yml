@@ -1,7 +1,6 @@
 language: php
 
 php:
-  - 7.1
   - 7.2
   - nightly
 
@@ -11,8 +10,8 @@ cache:
 
 env:
   matrix:
-    - LARAVEL_VERSION="5.5.*" COMPOSER_FLAGS="--prefer-lowest"
-    - LARAVEL_VERSION="5.5.*" COMPOSER_FLAGS="--prefer-stable"
+    - LARAVEL_VERSION="5.6.*" COMPOSER_FLAGS="--prefer-lowest"
+    - LARAVEL_VERSION="5.6.*" COMPOSER_FLAGS="--prefer-stable"
     - LARAVEL_VERSION="dev-master" ORCHESTRA_VERSION="dev-master" COMPOSER_FLAGS="--prefer-lowest" MINIMUM_STABILITY="dev"
     - LARAVEL_VERSION="dev-master" ORCHESTRA_VERSION="dev-master" COMPOSER_FLAGS="--prefer-stable" MINIMUM_STABILITY="dev"
 
@@ -27,10 +26,7 @@ before_install:
   - travis_retry composer self-update
   - if [[ -n ${MINIMUM_STABILITY} ]]; then composer config minimum-stability ${MINIMUM_STABILITY}; echo "Minimum stability set to ${MINIMUM_STABILITY}"; else echo "Minimum stability left unchanged"; fi
   - if [[ -n ${ORCHESTRA_VERSION} ]]; then composer require orchestra/testbench=${ORCHESTRA_VERSION} --dev --no-update; else echo "orchestra/testbench version requirement left unchanged"; fi
-  - composer require illuminate/support=${LARAVEL_VERSION} --no-update
-  - composer require illuminate/database=${LARAVEL_VERSION} --dev --no-update
-  - composer require laravel/framework=${LARAVEL_VERSION} --dev --no-update
-  - composer require laravelcollective/html=${LARAVEL_VERSION} --dev --no-update
+  - composer require laravel/framework=${LARAVEL_VERSION} --no-update
 
 install:
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
