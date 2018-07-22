@@ -22,7 +22,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ### Removed
 
-- ⚠️ Extracted all non-Laravel helpers to individual packages
+- ⚠️ Extracted all non-Laravel helpers to [individual packages](https://github.com/sebastiaanluca/php-helpers)
 - ⚠️ Removed support for PHP 7.1 and below
 - ⚠️ Removed support for Laravel 5.5 and below
 - Removed deprecated `use Laravelista\Ekko\Ekko;` import
