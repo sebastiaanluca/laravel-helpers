@@ -24,7 +24,7 @@
 
 - [Requirements](#requirements)
 - [How to install](#how-to-install)
-- [Upgrading from 1.x](#upgrading-from-1.x)
+- [Upgrading from 1.x](#upgrading-from-1x)
 - [Framework helper functions](#framework-helper-functions)
     - [locale](#locale)
     - [is_guest](#is_guest)
@@ -72,7 +72,7 @@ All essential generic PHP helpers have been extracted to their own [sebastiaanlu
 
 In addition, the minimum requirements have been upgraded to PHP 7.2 and Laravel 5.6.
 
-[See the changelog](CHANGELOG.md#1.0.3-2018-07-21) for more information.
+[See the changelog](CHANGELOG.md#200-2018-07-22) for more information.
 
 ## Framework helper functions
 
