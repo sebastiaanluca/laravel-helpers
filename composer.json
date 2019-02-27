@@ -24,7 +24,6 @@
     },
     "require-dev": {
         "kint-php/kint": "^3.1",
-        "mockery/mockery": "^1.2",
         "nesbot/carbon": "^1.25|^2.0",
         "orchestra/testbench": "~3.8.0",
         "phpunit/phpunit": "^8.0"
@@ -46,9 +45,6 @@
             "SebastiaanLuca\\Helpers\\Tests\\": "tests"
         }
     },
-    "scripts": {
-        "test": "vendor/bin/phpunit"
-    },
     "config": {
         "sort-packages": true
     },
@@ -58,5 +54,16 @@
                 "SebastiaanLuca\\Helpers\\Collections\\CollectionMacrosServiceProvider"
             ]
         }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-lowest": [
+            "composer update --prefer-lowest --prefer-dist --no-interaction --ansi",
+            "@test"
+        ],
+        "test-stable": [
+            "composer update --prefer-stable --prefer-dist --no-interaction --ansi",
+            "@test"
+        ]
     }
 }
