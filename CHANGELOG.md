@@ -6,6 +6,20 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased
 
+## 3.0.0 (2019-02-27)
+
+### Added
+
+- Added support for Laravel 5.8
+
+### Removed
+
+- Dropped support for Laravel 5.7 and lower
+
+### Fixed
+
+- Correctly tag Laravel version constraints
+
 ## 2.1.0 (2018-09-04)
 
 ### Added

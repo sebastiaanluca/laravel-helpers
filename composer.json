@@ -19,15 +19,15 @@
         }
     ],
     "require": {
-        "php": "^7.2",
-        "laravel/framework": "^5.6"
+        "laravel/framework": "~5.8.0",
+        "php": "^7.2"
     },
     "require-dev": {
-        "kint-php/kint": "^2.2",
-        "mockery/mockery": "^1.1",
-        "nesbot/carbon": "^1.25",
-        "orchestra/testbench": "^3.6",
-        "phpunit/phpunit": "^6.4|^7.2"
+        "kint-php/kint": "^3.1",
+        "mockery/mockery": "^1.2",
+        "nesbot/carbon": "^1.25|^2.0",
+        "orchestra/testbench": "~3.8.0",
+        "phpunit/phpunit": "^8.0"
     },
     "suggest": {
         "kint-php/kint": "A powerful and modern PHP debugging tool. Required for the debug collection macros.",
