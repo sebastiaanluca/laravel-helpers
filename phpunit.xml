@@ -13,7 +13,10 @@
          stopOnFailure="false"
          failOnRisky="true"
          failOnWarning="true"
-         stopOnError="false">
+         stopOnError="false"
+         cacheResult="false"
+         cacheTokens="false"
+>
     <testsuites>
         <testsuite name="Feature Tests">
             <directory suffix="Test.php">./tests/Feature</directory>

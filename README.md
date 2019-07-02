@@ -3,10 +3,11 @@
 </p>
 
 <p align="center">
-<a href="https://packagist.org/packages/sebastiaanluca/laravel-helpers"><img src="https://poser.pugx.org/sebastiaanluca/laravel-helpers/version" alt="Latest stable release"></img></a>
+<a href="https://packagist.org/packages/sebastiaanluca/laravel-helpers"><img src="https://img.shields.io/packagist/v/sebastiaanluca/laravel-helpers.svg?label=stable" alt="Latest stable release"></img></a>
 <a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="Software license"></img></a>
 <a href="https://travis-ci.org/sebastiaanluca/laravel-helpers"><img src="https://img.shields.io/travis/sebastiaanluca/laravel-helpers/master.svg" alt="Build status"></img></a>
 <a href="https://packagist.org/packages/sebastiaanluca/laravel-helpers"><img src="https://img.shields.io/packagist/dt/sebastiaanluca/laravel-helpers.svg" alt="Total downloads"></img></a>
+<a href="https://packagist.org/packages/sebastiaanluca/laravel-helpers"><img src="https://img.shields.io/github/stars/sebastiaanluca/laravel-helpers.svg?color=brightgreen" alt="Total downloads"></img></a>
 </p>
 
 <p align="center">
