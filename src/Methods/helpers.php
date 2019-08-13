@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Contracts\Auth\Authenticatable;
 
 if (! function_exists('locale')) {

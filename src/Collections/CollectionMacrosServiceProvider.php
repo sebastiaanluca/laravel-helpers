@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SebastiaanLuca\Helpers\Collections;
 
 use Carbon\Carbon;
@@ -10,21 +12,25 @@ class CollectionMacrosServiceProvider extends ServiceProvider
 {
     /**
      * Boot the service provider.
+     *
+     * @return void
      */
-    public function boot()
+    public function boot() : void
     {
-        /**
+        /*
          * Create Carbon instances from items in a collection.
          */
+
         Collection::macro('carbonize', function () {
             return collect($this->items)->map(function ($time) {
                 return new Carbon($time);
             });
         });
 
-        /**
+        /*
          * Reduce each collection item to the value found between a given start and end string.
          */
+
         Collection::macro('between', function ($start, $end = null) {
             $end = $end ?? $start;
 
@@ -37,25 +43,27 @@ class CollectionMacrosServiceProvider extends ServiceProvider
             });
         });
 
-        /**
+        /*
          * Perform an operation on the collection's keys.
          */
+
         Collection::macro('transformKeys', function (callable $operation) {
             return collect($this->items)->mapWithKeys(function ($item, $key) use ($operation) {
                 return [$operation($key) => $item];
             });
         });
 
-        /**
+        /*
          * Transpose (flip) a collection matrix (array of arrays).
          *
          * @see https://adamwathan.me/2016/04/06/cleaning-up-form-input-with-transpose/
          */
+
         Collection::macro('transpose', function () {
             if ($this->isEmpty()) {
                 return $this;
             }
-            
+
             $items = array_map(function (...$items) {
                 return $items;
             }, ...$this->values());
@@ -63,20 +71,23 @@ class CollectionMacrosServiceProvider extends ServiceProvider
             return new static($items);
         });
 
-        /**
+        /*
          * Transpose (flip) a collection matrix (array of arrays) while keeping its columns and row headers intact.
          *
          * Please note that a row missing a column another row does have can only occur for one column. It cannot
          * parse more than one missing column.
          */
-        Collection::macro('transposeWithKeys', function (array $rows = null) {
+
+        Collection::macro('transposeWithKeys', function (?array $rows = null) {
             if ($this->isEmpty()) {
                 return $this;
             }
-            
-            $rows = $rows ?? $this->values()->reduce(function (array $rows, array $values) {
+
+            if ($rows === null) {
+                $rows = $this->values()->reduce(function (array $rows, array $values) {
                     return array_unique(array_merge($rows, array_keys($values)));
                 }, []);
+            }
 
             $keys = $this->keys()->toArray();
 
