@@ -19,14 +19,14 @@
         }
     ],
     "require": {
-        "laravel/framework": "5.8.*",
-        "php": "^7.2"
+        "php": "^7.2",
+        "laravel/framework": "5.8.*|^6.0"
     },
     "require-dev": {
         "kint-php/kint": "^3.1",
         "nesbot/carbon": "^1.25|^2.0",
-        "orchestra/testbench": "3.8.*",
-        "phpunit/phpunit": "^8.2"
+        "orchestra/testbench": "3.8.*|^4.0",
+        "phpunit/phpunit": "^8.3"
     },
     "suggest": {
         "kint-php/kint": "A powerful and modern PHP debugging tool. Required for the debug collection macros.",
@@ -66,4 +66,7 @@
             "@test"
         ]
     }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

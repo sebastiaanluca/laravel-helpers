@@ -6,6 +6,10 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased
 
+## 4.0.0 (2019-08-14)
+
+- Added support for Laravel 6.0
+
 ## 3.0.0 (2019-02-27)
 
 ### Added
