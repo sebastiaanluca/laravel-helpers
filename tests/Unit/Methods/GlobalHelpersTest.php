@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SebastiaanLuca\Helpers\Tests\Unit\Methods;
 
 use Illuminate\Contracts\Auth\Authenticatable;
