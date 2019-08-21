@@ -71,8 +71,6 @@ composer require kint-php/kint --dev
 
 All essential generic PHP helpers have been extracted to their own [sebastiaanluca/php-helpers](https://github.com/sebastiaanluca/php-helpers) package and some other helpers have been removed in anticipation of their own package. In effect and from now on, Laravel Helpers will only contain helpers for the Laravel framework.
 
-In addition, the minimum requirements have been upgraded to PHP 7.2 and Laravel 5.6.
-
 [See the changelog](CHANGELOG.md#200-2018-07-22) for more information.
 
 ## Framework helper functions
