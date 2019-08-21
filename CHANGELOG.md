@@ -8,6 +8,8 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## 4.0.0 (2019-08-14)
 
+### Added
+
 - Added support for Laravel 6.0
 
 ## 3.0.0 (2019-02-27)
