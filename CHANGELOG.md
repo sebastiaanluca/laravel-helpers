@@ -6,6 +6,17 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased
 
+## 5.0.0 (2020-04-24)
+
+### Added
+
+- Added support for Laravel 7
+
+### Removed
+
+- Dropped support for Laravel 5
+- Dropped support for PHP 7.2
+
 ## 4.0.0 (2019-08-14)
 
 ### Added
