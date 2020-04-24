@@ -19,15 +19,14 @@
         }
     ],
     "require": {
-        "php": "^7.2",
-        "laravel/framework": "5.8.*|^6.0"
+        "php": "^7.3",
+        "laravel/framework": "^6.0|^7.0"
     },
     "require-dev": {
-        "kint-php/kint": "^3.1",
-        "nesbot/carbon": "^1.25|^2.0",
-        "orchestra/testbench": "3.8.*|^4.0",
-        "phpunit/phpunit": "^8.3",
-        "sebastiaanluca/php-codesniffer-ruleset": "^0.4.2"
+        "kint-php/kint": "^3.3",
+        "nesbot/carbon": "^1.0|^2.0",
+        "orchestra/testbench": "^4.0|^5.1",
+        "phpunit/phpunit": "^8.5"
     },
     "suggest": {
         "kint-php/kint": "A powerful and modern PHP debugging tool. Required for the debug collection macros.",
@@ -58,8 +57,6 @@
     },
     "scripts": {
         "composer-validate": "@composer validate --no-check-all --strict --ansi",
-        "codesniffer-check": "vendor/bin/phpcs --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1",
-        "codesniffer-fix": "vendor/bin/phpcbf --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 || exit 0",
         "test": "vendor/bin/phpunit",
         "test-lowest": [
             "composer update --prefer-lowest --prefer-dist --no-interaction --ansi",
@@ -71,7 +68,6 @@
         ],
         "check": [
             "@composer-validate",
-            "@codesniffer-check",
             "@test"
         ]
     },
