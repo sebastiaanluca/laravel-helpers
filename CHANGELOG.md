@@ -4,7 +4,15 @@ All notable changes to `sebastiaanluca/laravel-helpers` will be documented in th
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-## Unreleased
+## 6.0.0 (2020-10-19)
+
+### Added
+
+- Added support for Laravel 8
+
+### Removed
+
+- Dropped support for Laravel 6
 
 ## 5.0.0 (2020-04-24)
 
