@@ -11,10 +11,10 @@ cache:
 
 env:
   matrix:
-    - LARAVEL_VERSION="^6.0" COMPOSER_FLAGS="--prefer-lowest"
-    - LARAVEL_VERSION="^6.0" COMPOSER_FLAGS="--prefer-stable"
     - LARAVEL_VERSION="^7.0" COMPOSER_FLAGS="--prefer-lowest"
     - LARAVEL_VERSION="^7.0" COMPOSER_FLAGS="--prefer-stable"
+    - LARAVEL_VERSION="^8.0" COMPOSER_FLAGS="--prefer-lowest"
+    - LARAVEL_VERSION="^8.0" COMPOSER_FLAGS="--prefer-stable"
     - LARAVEL_VERSION="dev-master" ORCHESTRA_VERSION="dev-master" COMPOSER_FLAGS="--prefer-lowest" MINIMUM_STABILITY="dev"
     - LARAVEL_VERSION="dev-master" ORCHESTRA_VERSION="dev-master" COMPOSER_FLAGS="--prefer-stable" MINIMUM_STABILITY="dev"
 
